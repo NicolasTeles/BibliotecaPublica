@@ -3,19 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Visao;
-import javax.swing.*;
 
 /**
  *
  * @author nicol
  */
-public class InterfaceGeral extends JFrame {
+public class InterfaceCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfaceGeral
+     * Creates new form InterfaceCliente
      */
-    public InterfaceGeral() {
-        this.setSize(706, 568);
+    public InterfaceCliente() {
+        this.setSize(589, 515);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         initComponents();
@@ -31,22 +30,20 @@ public class InterfaceGeral extends JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        buttonFuncionario = new javax.swing.JButton();
-        buttonClientes = new javax.swing.JButton();
+        buttonCadastro = new javax.swing.JButton();
+        buttonLogin = new javax.swing.JButton();
+        buttonVolta = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        buttonFuncionario.setText("Funcionários");
-        buttonFuncionario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonFuncionarioActionPerformed(evt);
-            }
-        });
+        buttonCadastro.setText("Cadastro");
 
-        buttonClientes.setText("Clientes");
-        buttonClientes.addActionListener(new java.awt.event.ActionListener() {
+        buttonLogin.setText("Login");
+
+        buttonVolta.setText("Voltar");
+        buttonVolta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonClientesActionPerformed(evt);
+                buttonVoltaActionPerformed(evt);
             }
         });
 
@@ -55,20 +52,26 @@ public class InterfaceGeral extends JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE))
-                .addGap(50, 50, 50))
+                    .addComponent(buttonCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                    .addComponent(buttonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(75, 75, 75))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(buttonVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(buttonFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-                .addComponent(buttonClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
+                .addGap(47, 47, 47)
+                .addComponent(buttonCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(buttonVolta, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,33 +82,31 @@ public class InterfaceGeral extends JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFuncionarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonFuncionarioActionPerformed
-
-    private void buttonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientesActionPerformed
-        InterfaceCliente ic = new InterfaceCliente();
-        ic.setVisible(true);
+    private void buttonVoltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltaActionPerformed
+        InterfaceGeral ig = new InterfaceGeral();
+        ig.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_buttonClientesActionPerformed
+    }//GEN-LAST:event_buttonVoltaActionPerformed
 
 
     public static void main(String args[]){
         java.awt.EventQueue.invokeLater(new Runnable(){
-            @Override
-            public void run(){
-                new InterfaceGeral().setVisible(true);
-            }
+        @Override
+        public void run(){
+            new InterfaceCliente().setVisible(true);
+        }
         });
     }
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonClientes;
-    private javax.swing.JButton buttonFuncionario;
+    private javax.swing.JButton buttonCadastro;
+    private javax.swing.JButton buttonLogin;
+    private javax.swing.JButton buttonVolta;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
