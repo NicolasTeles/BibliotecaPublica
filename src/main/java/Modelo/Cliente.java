@@ -52,4 +52,18 @@ public class Cliente {
         this.senha = senha;
     }
 
+    public void listarLivros(){}
+    public void verStatusLivro(String nomeLivro, String editora){}
+    public void verAvaliacaoLivro(String nomeLivro, String editora){}
+    public void pegarLivro(String nomeLivro, String editora){}
+    public void devolverLivro(String nomeLivro, String editora){}
+    public void avaliarLivro(String nomeLivro, String editora, Integer avaliacao){}
+    public void listarEmprestimos(String nomeLivro, String editora){}
+    public void cadastrarCliente(String nome, String cpf, String email, String senha){}
+    //talvez seja bom a funcao receber o nome do cliente, depende da interpretacao
+    public void excluirCliente(){}
+    public void verStatusCliente(String cpf){}
+    public void loginCliente (String login, String senha){}
+    public void logoutCliente(){}
+
 }
