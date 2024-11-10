@@ -1,6 +1,7 @@
 package Modelo;
 
 public class Livro {
+    private int id;
     private String nome;
     private String editora;
     private String autor;
@@ -17,9 +18,10 @@ public class Livro {
         this.status = false;
         this.avaliacao = -1;
         this.cpfClienteOcupante = "";
+        this.id = -1;
     }
 
-    public Livro(String nome, String editora, String autor, int anoPubli){
+    public Livro(String nome, String editora, String autor, int anoPubli, int id){
         this.nome = nome;
         this.editora = editora;
         this.autor = autor;
@@ -27,6 +29,7 @@ public class Livro {
         this.status = true;
         this.avaliacao = 0;
         this.cpfClienteOcupante = "";
+        this.id = id;
     }
 
     public String getNome() { return nome; }
@@ -56,4 +59,12 @@ public class Livro {
     public void setAvaliacao(double avaliacao) { this.avaliacao = avaliacao; }
 
     public void setCpfClienteOcupante(String cpf){ this.cpfClienteOcupante = cpf; }
+
+    public void setID(int id){
+        this.id = id;
+    }
+
+    public int getID(){
+        return this.id;
+    }
 }
