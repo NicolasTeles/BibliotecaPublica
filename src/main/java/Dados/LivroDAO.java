@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class LivroDAO {
     public boolean inserirLivro(Livro livro){
         int retorno = 0;
-        try(Connection conexao = Conexao.getConexao();){
+        try(Connection conexao = Conexao.getConexao()){
             String SQL = "INSERT INTO bibliotecapublica.livro(id_livro, nome, editora, autor, ano_publicacao, avaliacao, status_emprestimo, cpf_cliente_ocupante) " +
                     "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
@@ -32,7 +32,7 @@ public class LivroDAO {
 
     public boolean deletaLivro(Livro livro){
         int retorno = 0;
-        try(Connection conexao = Conexao.getConexao();){
+        try(Connection conexao = Conexao.getConexao()){
             String SQL = "DELETE FROM bibliotecapublica.livro WHERE id_livro=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setInt(1, livro.getID());
@@ -46,7 +46,7 @@ public class LivroDAO {
 
     public boolean atualizaLivro(Livro livro){
         int retorno = 0;
-        try(Connection conexao = Conexao.getConexao();){
+        try(Connection conexao = Conexao.getConexao()){
             String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=?, avaliacao=?, " +
                     "status_emprestimo=?, cpf_cliente_ocupante=? WHERE id_livro=? )";
             PreparedStatement comando = conexao.prepareStatement(SQL);

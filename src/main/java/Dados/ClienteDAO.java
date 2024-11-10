@@ -11,7 +11,7 @@ import Conexao.Conexao;
 public class ClienteDAO {
     public boolean criarConta(Cliente cliente){
         int retorno = 0;
-        try(Connection conexao = Conexao.getConexao();){
+        try(Connection conexao = Conexao.getConexao()){
             String SQL = "INSERT INTO bibliotecapublica.cliente(nome, email, senha, cpf) VALUES (?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, cliente.getNome());
@@ -29,7 +29,7 @@ public class ClienteDAO {
 
     public boolean deletarConta(Cliente cliente){
         int retorno = 0;
-        try(Connection conexao = Conexao.getConexao();){
+        try(Connection conexao = Conexao.getConexao()){
             String SQL = "DELETE FROM bibliotecapublica.cliente WHERE cpf=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, cliente.getCpf());
@@ -44,7 +44,7 @@ public class ClienteDAO {
 
     public boolean atualizaConta(Cliente cliente){
         int retorno = 0;
-        try(Connection conexao = Conexao.getConexao();){
+        try(Connection conexao = Conexao.getConexao()){
             String SQL = "UPDATE bibliotecapublica.cliente SET nome=?, email=?, senha=? WHERE cpf=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, cliente.getNome());
