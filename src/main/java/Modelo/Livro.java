@@ -9,6 +9,16 @@ public class Livro {
     private double avaliacao;
     private String cpfClienteOcupante;
 
+    public Livro(){
+        this.nome = "";
+        this.editora = "";
+        this.autor = "";
+        this.anoPubli = 0;
+        this.status = false;
+        this.avaliacao = -1;
+        this.cpfClienteOcupante = "";
+    }
+
     public Livro(String nome, String editora, String autor, int anoPubli){
         this.nome = nome;
         this.editora = editora;
