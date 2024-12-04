@@ -8,7 +8,7 @@ public class Livro {
     private int anoPubli;
     private boolean status;
     private double avaliacao;
-    private String cpfClienteOcupante;
+    private String cpfClienteOcupante; // deve ser removido
 
     public Livro(){
         this.nome = "";

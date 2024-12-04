@@ -1,4 +1,4 @@
-package Dados;
+package Controle;
 
 import Modelo.Cliente;
 
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import Conexao.Conexao;
 
-public class ClienteDAO {
+public class ControleCliente {
     public boolean criarConta(Cliente cliente){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){

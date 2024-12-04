@@ -1,4 +1,4 @@
-package Dados;
+package Controle;
 
 import Conexao.Conexao;
 import Modelo.Livro;
@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class LivroDAO {
+public class ControleLivro {
     public boolean inserirLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){

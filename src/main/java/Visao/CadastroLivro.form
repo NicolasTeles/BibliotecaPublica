@@ -33,15 +33,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="572" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" min="-2" pref="572" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" min="-2" pref="550" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -61,28 +58,28 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="buttonVoltar1" min="-2" pref="112" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="125" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="senhaLabel" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="anoPubliTextField" min="-2" pref="371" max="-2" attributes="0"/>
+                      <Component id="anoPubliLabel" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                      <Component id="autorTextField1" min="-2" pref="371" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="emailLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="editoraTextField" alignment="0" pref="371" max="32767" attributes="0"/>
                           <Component id="nomeLabel" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="nomeTextField" max="32767" attributes="0"/>
-                          <Component id="senhaField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="confirmaSenhaField" alignment="0" pref="371" max="32767" attributes="0"/>
-                          <Component id="confirmaSenhaLabel" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                          <Component id="editoraLabel" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
+                          <Component id="nomeTextField1" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="autorLabel" min="-2" pref="63" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="buttonVoltar1" min="-2" pref="112" max="-2" attributes="0"/>
-                  <EmptySpace pref="294" max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="125" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace pref="107" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -91,64 +88,54 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="nomeLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="nomeTextField1" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="editoraLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="nomeTextField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="editoraTextField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="autorLabel" min="-2" pref="16" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="emailTextField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                  <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="autorTextField1" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="anoPubliLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="senhaField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                  <Component id="confirmaSenhaLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="confirmaSenhaField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <Component id="anoPubliTextField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="buttonVoltar1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="nomeTextField">
+        <Component class="javax.swing.JTextField" name="anoPubliTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="nomeLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="emailTextField">
+        <Component class="javax.swing.JTextField" name="editoraTextField">
         </Component>
-        <Component class="javax.swing.JLabel" name="emailLabel">
+        <Component class="javax.swing.JLabel" name="editoraLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Email"/>
+            <Property name="text" type="java.lang.String" value="Editora"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="senhaField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaFieldActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="senhaLabel">
+        <Component class="javax.swing.JLabel" name="autorLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Senha"/>
+            <Property name="text" type="java.lang.String" value="Autor(a)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="confirmaSenhaLabel">
+        <Component class="javax.swing.JLabel" name="anoPubliLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Confirme a senha"/>
+            <Property name="text" type="java.lang.String" value="Ano de publica&#xe7;&#xe3;o"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JPasswordField" name="confirmaSenhaField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmaSenhaFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -162,6 +149,10 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonVoltar1ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="nomeTextField1">
+        </Component>
+        <Component class="javax.swing.JTextField" name="autorTextField1">
         </Component>
       </SubComponents>
     </Container>
