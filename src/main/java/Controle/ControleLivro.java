@@ -11,8 +11,8 @@ public class ControleLivro {
     public boolean inserirLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "INSERT INTO bibliotecapublica.livro(id_livro, nome, editora, autor, ano_publicacao, avaliacao, status_emprestimo, cpf_cliente_ocupante) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO bibliotecapublica.livro(id_livro, nome, editora, autor, ano_publicacao, avaliacao, status_emprestimo) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setInt(1, livro.getID());
             comando.setString(2, livro.getNome());
@@ -21,7 +21,6 @@ public class ControleLivro {
             comando.setInt(5, livro.getAnoPubli());
             comando.setDouble(6, livro.getAvaliacao());
             comando.setBoolean(7, livro.getStatus());
-            comando.setString(8, livro.getCpfClienteOcupante());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao inserir livro");

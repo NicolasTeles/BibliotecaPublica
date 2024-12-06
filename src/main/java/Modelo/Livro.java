@@ -8,7 +8,6 @@ public class Livro {
     private int anoPubli;
     private boolean status;
     private double avaliacao;
-    private String cpfClienteOcupante; // deve ser removido
 
     public Livro(){
         this.nome = "";
@@ -17,7 +16,6 @@ public class Livro {
         this.anoPubli = 0;
         this.status = false;
         this.avaliacao = -1;
-        this.cpfClienteOcupante = "";
         this.id = -1;
     }
 
@@ -28,7 +26,6 @@ public class Livro {
         this.anoPubli = anoPubli;
         this.status = true;
         this.avaliacao = 0;
-        this.cpfClienteOcupante = "";
         this.id = id;
     }
 
@@ -44,8 +41,6 @@ public class Livro {
 
     public double getAvaliacao() { return avaliacao; }
 
-    public String getCpfClienteOcupante() { return cpfClienteOcupante; }
-
     public void setNome(String nome) { this.nome = nome; }
 
     public void setEditora(String editora) { this.editora = editora; }
@@ -57,8 +52,6 @@ public class Livro {
     public void setStatus(boolean status) { this.status = status; }
 
     public void setAvaliacao(double avaliacao) { this.avaliacao = avaliacao; }
-
-    public void setCpfClienteOcupante(String cpf){ this.cpfClienteOcupante = cpf; }
 
     public void setID(int id){
         this.id = id;
