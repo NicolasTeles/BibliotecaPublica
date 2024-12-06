@@ -6,6 +6,7 @@ public class Cliente {
     private String email;
     private String senha;
 
+
     public Cliente(String nome, String cpf, String email, String senha) {
         this.nome = nome;
         this.cpf = cpf;
