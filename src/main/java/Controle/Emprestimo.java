@@ -1,6 +1,7 @@
 package Modelo;
 
 public class Emprestimo{
+    private static final int TEMPO_ATRASO_MAXIMO = 10;
     private String dataInicial;
     private String vencimento;
     private String cpfOcupante;
