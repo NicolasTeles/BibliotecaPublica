@@ -4,11 +4,15 @@
  */
 package Visao;
 
+import Controle.ControleLoginFuncionario;
+
 /**
  *
  * @author nicol
  */
 public class LoginFuncionario extends javax.swing.JFrame {
+
+    private final ControleLoginFuncionario controlador;
 
     /**
      * Creates new form LoginCliente
@@ -16,6 +20,7 @@ public class LoginFuncionario extends javax.swing.JFrame {
     public LoginFuncionario() {
         this.setTitle("Login de funcionario");
         initComponents();
+        controlador = new ControleLoginFuncionario(this);
     }
 
     /**
@@ -105,9 +110,7 @@ public class LoginFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        controlador.navegaTelaPrincipal();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     /**

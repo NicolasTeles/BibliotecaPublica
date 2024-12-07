@@ -4,11 +4,15 @@
  */
 package Visao;
 
+import Controle.ControleLoginCliente;
+
 /**
  *
  * @author nicol
  */
 public class LoginCliente extends javax.swing.JFrame {
+
+    private final ControleLoginCliente controlador;
 
     /**
      * Creates new form LoginCliente
@@ -16,6 +20,7 @@ public class LoginCliente extends javax.swing.JFrame {
     public LoginCliente() {
         this.setTitle("Login de cliente");
         initComponents();
+        controlador = new ControleLoginCliente(this);
     }
 
     /**
@@ -105,9 +110,7 @@ public class LoginCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        controlador.navegaTelaCliente();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     /**
