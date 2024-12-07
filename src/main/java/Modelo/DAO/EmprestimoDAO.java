@@ -42,4 +42,23 @@ public class EmprestimoDAO {
         }
         return (retorno > 0);
     }
+
+    public boolean atualizaEmprestimo(Emprestimo emprestimo){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.emprestimo SET data_inicial=?, vencimento=?, devolvido=?, " +
+                    "cpf_ocupante=? WHERE id=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setDate(1, Date.valueOf(emprestimo.getDataInicial()));
+            comando.setDate(2, Date.valueOf(emprestimo.getVencimento()));
+            comando.setBoolean(3, emprestimo.getDevolvido());
+            comando.setString(4, emprestimo.getCpfOcupante());
+            comando.setInt(5, emprestimo.getId());
+            retorno = comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro ao atualizar emprestimo");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
+    }
 }
