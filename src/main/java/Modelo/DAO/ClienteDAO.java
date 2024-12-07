@@ -131,30 +131,23 @@ public class ClienteDAO {
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE cpf ilike '%"+dados.getCpf()+"%'";
                     }else{
-                        filtro = "AND cpf like '%"+dados.getCpf()+"%'";
+                        filtro += " AND cpf ilike '%"+dados.getCpf()+"%'";
                     }
                 }
                 if(dados.getEmail() != null && !dados.getEmail().equalsIgnoreCase("")){
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE email ilike '%"+dados.getEmail()+"%'";
                     }else{
-                        filtro = "AND email like '%"+dados.getEmail()+"%'";
+                        filtro += " AND email ilike '%"+dados.getEmail()+"%'";
                     }
                 }
-                if(dados.getSenha() != null && !dados.getSenha().equalsIgnoreCase("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE senha ilike '%"+dados.getSenha()+"%'";
-                    }else{
-                        filtro = "AND senha like '%"+dados.getSenha()+"%'";
-                    }
-                }
-                PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
-                ResultSet resultado = comando.executeQuery();
-                if(resultado.next()){
-                    Cliente cliente = new Cliente();
-                    cliente = this.pegaDadosCliente(resultado);
-                    return cliente;
-                }
+            }
+            PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Cliente cliente = new Cliente();
+                cliente = this.pegaDadosCliente(resultado);
+                return cliente;
             }
         }catch (SQLException e){
             System.out.println("Erro ao consultar cliente");
