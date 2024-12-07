@@ -14,6 +14,7 @@ public class LoginFuncionario extends javax.swing.JFrame {
      * Creates new form LoginCliente
      */
     public LoginFuncionario() {
+        this.setTitle("Login de funcionario");
         initComponents();
     }
 

@@ -14,6 +14,7 @@ public class CadastroLivro extends javax.swing.JFrame {
      * Creates new form CadastroCliente
      */
     public CadastroLivro() {
+        this.setTitle("Cadastro de livros");
         initComponents();
     }
 

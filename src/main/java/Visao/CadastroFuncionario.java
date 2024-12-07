@@ -14,6 +14,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
      * Creates new form CadastroCliente
      */
     public CadastroFuncionario() {
+        this.setTitle("Cadastro de funcionarios");
         initComponents();
     }
 

@@ -14,6 +14,7 @@ public class LoginCliente extends javax.swing.JFrame {
      * Creates new form LoginCliente
      */
     public LoginCliente() {
+        this.setTitle("Login de cliente");
         initComponents();
     }
 

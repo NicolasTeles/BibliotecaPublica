@@ -19,6 +19,7 @@ public class InterfaceGeral extends JFrame {
      * Creates new form InterfaceGeral
      */
     public InterfaceGeral() {
+        this.setTitle("Interface geral do programa");
         this.setSize(706, 568);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);

@@ -4,17 +4,23 @@
  */
 package Visao;
 
+import Controle.ControleInterfaceCliente;
+
 /**
  *
  * @author nicol
  */
 public class InterfaceCliente extends javax.swing.JFrame {
 
+    private final ControleInterfaceCliente controlador;
+
     /**
      * Creates new form InterfaceCliente
      */
     public InterfaceCliente() {
+        this.setTitle("Interface geral dos clientes");
         initComponents();
+        controlador = new ControleInterfaceCliente(this);
     }
 
     /**
@@ -102,17 +108,15 @@ public class InterfaceCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
-        // TODO add your handling code here:
+        controlador.navegaCadastroCliente();
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        // TODO add your handling code here:
+        controlador.navegaLoginCliente();
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        controlador.navegaTelaPrincipal();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     /**
