@@ -19,3 +19,21 @@ create table livro(
     cpf_cliente_ocupante varchar(11),
     primary key(id_livro)
 );
+
+create table emprestimo(
+	id int,
+	data_inicial DATE,
+    vencimento DATE,
+    devolvido boolean,
+    cpo_ocupante varchar(11),
+    primary key (id)
+);
+
+create table funcionario(
+	nome varchar(255),
+    cpf varchar(11),
+    login varchar(255),
+    senha varchar(255),
+    e_adm boolean,
+    primary key (cpf)
+);
