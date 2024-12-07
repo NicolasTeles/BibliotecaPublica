@@ -125,8 +125,6 @@ public class ClienteDAO {
                 if(dados.getNome() != null && !dados.getNome().equalsIgnoreCase("")){
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE nome ilike '%"+dados.getNome()+"%'";
-                    }else{
-                        filtro = "AND nome like '%"+dados.getNome()+"%'";
                     }
                 }
                 if(dados.getCpf() != null && !dados.getCpf().equalsIgnoreCase("")){
