@@ -47,16 +47,15 @@ public class ControleLivro {
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=?, avaliacao=?, " +
-                    "status_emprestimo=?, cpf_cliente_ocupante=? WHERE id_livro=? )";
+                    "status_emprestimo=?, WHERE id_livro=? )";
             PreparedStatement comando = conexao.prepareStatement(SQL);
-            comando.setInt(8, livro.getID());
+            comando.setInt(7, livro.getID());
             comando.setString(1, livro.getNome());
             comando.setString(2, livro.getEditora());
             comando.setString(3, livro.getAutor());
             comando.setInt(4, livro.getAnoPubli());
             comando.setDouble(5, livro.getAvaliacao());
             comando.setBoolean(6, livro.getStatus());
-            comando.setString(7, livro.getCpfClienteOcupante());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao atualizar livro");
