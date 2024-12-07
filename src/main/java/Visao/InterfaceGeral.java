@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Visao;
+import Controle.ControleInterfaceGeral;
+
 import javax.swing.*;
 
 /**
@@ -10,6 +12,8 @@ import javax.swing.*;
  * @author nicol
  */
 public class InterfaceGeral extends JFrame {
+
+    private final ControleInterfaceGeral controlador;
 
     /**
      * Creates new form InterfaceGeral
@@ -19,6 +23,7 @@ public class InterfaceGeral extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         initComponents();
+        controlador = new ControleInterfaceGeral(this);
     }
 
     /**
@@ -84,13 +89,11 @@ public class InterfaceGeral extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFuncionarioActionPerformed
-        // TODO add your handling code here:
+        controlador.navegaTelaFuncionarios();
     }//GEN-LAST:event_buttonFuncionarioActionPerformed
 
     private void buttonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientesActionPerformed
-        InterfaceCliente ic = new InterfaceCliente();
-        ic.setVisible(true);
-        this.dispose();
+        controlador.navegaTelaClientes();
     }//GEN-LAST:event_buttonClientesActionPerformed
 
 
