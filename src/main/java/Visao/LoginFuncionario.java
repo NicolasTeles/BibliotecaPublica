@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleLoginFuncionario;
 
+import javax.swing.*;
+
 /**
  *
  * @author nicol
@@ -158,4 +160,8 @@ public class LoginFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel senhaLabel;
     private javax.swing.JPasswordField senhaPassField;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
 }

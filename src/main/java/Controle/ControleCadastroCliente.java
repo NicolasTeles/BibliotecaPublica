@@ -1,17 +1,20 @@
 package Controle;
 
+import Visao.CadastroCliente;
 import Visao.InterfaceGeral;
-import Visao.LoginFuncionario;
 
-public class ControleLoginFuncionario {
+public class ControleCadastroCliente {
+    private final CadastroCliente view;
 
-    private final LoginFuncionario view;
-
-    public ControleLoginFuncionario(LoginFuncionario view){
+    public ControleCadastroCliente(CadastroCliente view) {
         this.view = view;
     }
 
-    public void navegaTelaPrincipal(){
+    public void entrarNoSistema(){
+        //logica que envolve o banco aqui
+    }
+
+    public void retornaInterfaceGeral(){
         InterfaceGeral ig = new InterfaceGeral();
         ig.setVisible(true);
         this.view.dispose();

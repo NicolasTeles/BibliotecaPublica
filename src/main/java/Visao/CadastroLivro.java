@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleCadastroLivro;
 
+import javax.swing.*;
+
 /**
  *
  * @author nicol
@@ -60,6 +62,11 @@ public class CadastroLivro extends javax.swing.JFrame {
         });
 
         buttonCadastro.setText("Cadastrar");
+        buttonCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastroActionPerformed(evt);
+            }
+        });
 
         editoraLabel.setText("Editora");
 
@@ -136,6 +143,10 @@ public class CadastroLivro extends javax.swing.JFrame {
         controlador.navegaInterfaceGeral();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
+    private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
+        controlador.printaMensagemTeste();
+    }//GEN-LAST:event_buttonCadastroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,4 +195,8 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTextField;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
 }

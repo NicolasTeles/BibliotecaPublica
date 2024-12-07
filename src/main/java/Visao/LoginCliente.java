@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleLoginCliente;
 
+import javax.swing.*;
+
 /**
  *
  * @author nicol
@@ -157,4 +159,8 @@ public class LoginCliente extends javax.swing.JFrame {
     private javax.swing.JLabel senhaLabel;
     private javax.swing.JPasswordField senhaPassField;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
 }

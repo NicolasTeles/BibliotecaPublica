@@ -4,17 +4,24 @@
  */
 package Visao;
 
+import Controle.ControleCadastroCliente;
+
+import javax.swing.*;
+
 /**
  *
  * @author nicol
  */
 public class CadastroCliente extends javax.swing.JFrame {
 
+    private final ControleCadastroCliente controlador;
+
     /**
      * Creates new form CadastroCliente
      */
     public CadastroCliente() {
         initComponents();
+        controlador = new ControleCadastroCliente(this);
     }
 
     /**
@@ -72,6 +79,11 @@ public class CadastroCliente extends javax.swing.JFrame {
         });
 
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         buttonVoltar1.setText("Voltar");
         buttonVoltar1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,16 +167,17 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmaSenhaFieldActionPerformed
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        this.controlador.retornaInterfaceGeral();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        this.controlador.retornaInterfaceGeral();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //this.controle...() funcao responsavel por andar para a frente;
+        this.controlador.printaMensagemTeste();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,4 +228,9 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JLabel senhaLabel;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
 }

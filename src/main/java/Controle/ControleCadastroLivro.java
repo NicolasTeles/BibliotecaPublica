@@ -16,4 +16,10 @@ public class ControleCadastroLivro {
         ig.setVisible(true);
         this.view.dispose();
     }
+
+    public void printaMensagemTeste() {
+        System.out.println("Opa");
+
+        this.view.exibeMensagem("Executei o teste pintamsg");
+    }
 }

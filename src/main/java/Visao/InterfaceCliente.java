@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleInterfaceCliente;
 
+import javax.swing.*;
+
 /**
  *
  * @author nicol
@@ -160,4 +162,8 @@ public class InterfaceCliente extends javax.swing.JFrame {
     private javax.swing.JButton buttonVoltar;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
 }
