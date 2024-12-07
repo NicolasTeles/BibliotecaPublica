@@ -2,10 +2,15 @@ package Modelo.DAO;
 
 import Conexao.Conexao;
 import Modelo.Livro;
+import com.mysql.cj.x.protobuf.MysqlxPrepare;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LivroDAO {
     public boolean inserirLivro(Livro livro){
@@ -62,5 +67,112 @@ public class LivroDAO {
             e.printStackTrace();
         }
         return (retorno > 0);
+    }
+
+    public List<Livro> listarLivros(){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.livro";
+            List<Livro> listaDeLivros = new ArrayList<Livro>();
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            ResultSet resultado = comando.executeQuery();
+            while(resultado.next()){
+                Livro atual = new Livro();
+                atual = this.pegaDados(resultado);
+                listaDeLivros.add(atual);
+            }
+            return listaDeLivros;
+        }catch(SQLException e){
+            System.out.println("Erro ao listar livros");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Livro pegaDados(ResultSet resultado){
+        try{
+            Livro atual = new Livro();
+            atual.setAnoPubli(resultado.getInt("ano_publicacao"));
+            atual.setAutor(resultado.getString("autor"));
+            atual.setAvaliacao(resultado.getDouble("avaliacao"));
+            atual.setEditora(resultado.getString("editora"));
+            atual.setNome(resultado.getString("nome"));
+            atual.setID(resultado.getInt("id_livro"));
+            atual.setStatus(resultado.getBoolean("status_emprestimo"));
+            return atual;
+        }catch (SQLException e){
+            System.out.println("Erro ao pegar dados");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Livro consultaLivro(String idLivro){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.livro WHERE id_livro=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setInt(1, Integer.valueOf(idLivro));
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Livro atual = new Livro();
+                atual = this.pegaDados(resultado);
+                return atual;
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao pesquisar");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Livro consultaLivro(Livro dados){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.livro ";
+            String filtro = "";
+
+            if(dados != null){
+                if(dados.getID() > 0){
+                    filtro = "WHERE id_livro = "+dados.getID();
+                }
+                if(dados.getNome() != null && !dados.getNome().equalsIgnoreCase("")){
+                    if(filtro.equalsIgnoreCase("")){
+                        filtro = "WHERE nome ilike '%"+dados.getNome()+"%'";
+                    }else{
+                        filtro += "AND nome ilike '%"+dados.getNome()+"%'";
+                    }
+                }
+                if(dados.getAutor() != null && !dados.getAutor().equalsIgnoreCase("")){
+                    if(filtro.equalsIgnoreCase("")){
+                        filtro = "WHERE autor ilike '%"+dados.getAutor()+"%'";
+                    }else{
+                        filtro += "AND autor ilike '%"+dados.getAutor()+"%'";
+                    }
+                }
+                if(dados.getEditora() != null && !dados.getEditora().equalsIgnoreCase("")){
+                    if(filtro.equalsIgnoreCase("")){
+                        filtro = "WHERE editora ilike '%"+dados.getEditora()+"%'";
+                    }else{
+                        filtro += "AND editora ilike '%"+dados.getEditora()+"%'";
+                    }
+                }
+                if(dados.getAnoPubli() > 0){
+                    if(filtro.equalsIgnoreCase("")){
+                        filtro = "WHERE ano_publicacao = "+dados.getAnoPubli();
+                    }else{
+                        filtro += "AND ano_publicacao = "+dados.getAnoPubli();
+                    }
+                }
+                PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
+                ResultSet resultado = comando.executeQuery();
+                if(resultado.next()){
+                    Livro atual = new Livro();
+                    atual = this.pegaDados(resultado);
+                    return atual;
+                }
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao pesquisar");
+            e.printStackTrace();
+        }
+        return null;
     }
 }

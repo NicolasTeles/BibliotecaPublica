@@ -16,7 +16,6 @@ create table livro(
     ano_publicacao int,
     avaliacao double,
     status_emprestimo boolean,
-    cpf_cliente_ocupante varchar(11),
     primary key(id_livro)
 );
 
