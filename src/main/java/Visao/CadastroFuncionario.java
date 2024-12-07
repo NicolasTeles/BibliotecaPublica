@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleCadastroFuncionario;
 
+import javax.swing.*;
+
 /**
  *
  * @author nicol
@@ -42,7 +44,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         senhaLabel = new javax.swing.JLabel();
         confirmaSenhaLabel = new javax.swing.JLabel();
         confirmaSenhaField = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        BotaoCadastro = new javax.swing.JButton();
         buttonVoltar1 = new javax.swing.JButton();
 
         buttonVoltar.setText("Voltar");
@@ -77,10 +79,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotaoCadastro.setText("Cadastrar");
+        BotaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotaoCadastroActionPerformed(evt);
             }
         });
 
@@ -112,7 +114,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(buttonVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,7 +138,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addComponent(confirmaSenhaField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
@@ -173,9 +175,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         controlador.navegaTelaPrincipal();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
+        controlador.printaMensagemTeste();
+    }//GEN-LAST:event_BotaoCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,17 +216,21 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotaoCadastro;
     private javax.swing.JButton buttonVoltar;
     private javax.swing.JButton buttonVoltar1;
     private javax.swing.JPasswordField confirmaSenhaField;
     private javax.swing.JLabel confirmaSenhaLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextField nomeTextField;
     private javax.swing.JPasswordField senhaField;
     private javax.swing.JLabel senhaLabel;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
 }
