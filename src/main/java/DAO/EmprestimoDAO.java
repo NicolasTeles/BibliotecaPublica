@@ -1,4 +1,4 @@
-package Controle;
+package DAO;
 
 import Conexao.Conexao;
 
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 import Modelo.Emprestimo;
 
-public class ControleEmprestimo {
+public class EmprestimoDAO {
     public boolean criaEmprestimo(Emprestimo emprestimo){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
