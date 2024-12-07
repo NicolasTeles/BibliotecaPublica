@@ -2,9 +2,7 @@ package Modelo.DAO;
 
 import Conexao.Conexao;
 import Modelo.Livro;
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -52,7 +50,7 @@ public class LivroDAO {
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=?, avaliacao=?, " +
-                    "status_emprestimo=?, WHERE id_livro=? )";
+                    "status_emprestimo=? WHERE id_livro=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setInt(7, livro.getID());
             comando.setString(1, livro.getNome());
