@@ -4,11 +4,15 @@
  */
 package Visao;
 
+import Controle.ControleCadastroFuncionario;
+
 /**
  *
  * @author nicol
  */
 public class CadastroFuncionario extends javax.swing.JFrame {
+
+    private final ControleCadastroFuncionario controlador;
 
     /**
      * Creates new form CadastroCliente
@@ -16,6 +20,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     public CadastroFuncionario() {
         this.setTitle("Cadastro de funcionarios");
         initComponents();
+        controlador = new ControleCadastroFuncionario(this);
     }
 
     /**
@@ -73,6 +78,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jButton1.setText("Cadastrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         buttonVoltar1.setText("Voltar");
         buttonVoltar1.addActionListener(new java.awt.event.ActionListener() {
@@ -156,16 +166,16 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmaSenhaFieldActionPerformed
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        //botao invisivel: ignorar funcao, nao apagar
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-        this.dispose();
+        controlador.navegaTelaPrincipal();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
