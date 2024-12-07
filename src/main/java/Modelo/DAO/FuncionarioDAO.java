@@ -3,9 +3,13 @@ package Modelo.DAO;
 import Conexao.Conexao;
 import Modelo.Funcionario;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FuncionarioDAO {
     public boolean insereFuncionario(Funcionario funcionario){
@@ -58,5 +62,93 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
         return (retorno > 0);
+    }
+
+    public Funcionario pegaDados(ResultSet resultado){
+        try{
+            Funcionario atual = new Funcionario();
+            atual.setCpf(resultado.getString("cpf"));
+            atual.setNome(resultado.getString("nome"));
+            atual.setLogin(resultado.getString("login"));
+            atual.setSenha(resultado.getString("senha"));
+            atual.setEadm(resultado.getBoolean("e_adm"));
+            return atual;
+        }catch (SQLException e){
+            System.out.println("Erro ao pegar dados");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Funcionario> listaFuncionarios(){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.funcionario";
+            List<Funcionario> listaDeFuncionarios = new ArrayList<>();
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            ResultSet resultado = comando.executeQuery();
+            while(resultado.next()){
+                Funcionario atual = this.pegaDados(resultado);
+                listaDeFuncionarios.add(atual);
+            }
+            return listaDeFuncionarios;
+        }catch (SQLException e){
+            System.out.println("Erro ao listar funcionarios");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Funcionario consultaFuncionario(String cpf){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.funcionario WHERE cpf=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, cpf);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Funcionario atual = this.pegaDados(resultado);
+                return atual;
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao consultar funcionario");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Funcionario consultaFuncionario(Funcionario dados){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.funcionario ";
+            String filtro = "";
+
+            if(dados != null){
+                if(dados.getCpf() != null && !dados.getCpf().equalsIgnoreCase("")){
+                    filtro = "WHERE cpf = "+dados.getCpf();
+                }
+                if(dados.getNome() != null && !dados.getNome().equalsIgnoreCase("")){
+                    if(filtro.equalsIgnoreCase("")){
+                        filtro = "WHERE nome ilike '%"+ dados.getNome() +"%'";
+                    }else{
+                        filtro += " AND nome ilike '%" +dados.getNome()+ "%'";
+                    }
+                }
+                if(dados.getLogin() != null && !dados.getLogin().equalsIgnoreCase("")){
+                    if(filtro.equalsIgnoreCase("")){
+                        filtro = "WHERE login ilike '%"+ dados.getLogin() +"%'";
+                    }else{
+                        filtro += " AND login ilike '%" +dados.getLogin()+ "%'";
+                    }
+                }
+            }
+            PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Funcionario atual = this.pegaDados(resultado);
+                return atual;
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao consultar funcionario");
+            e.printStackTrace();
+        }
+        return null;
     }
 }

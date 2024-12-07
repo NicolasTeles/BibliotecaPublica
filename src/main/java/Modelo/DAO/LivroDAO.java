@@ -74,8 +74,7 @@ public class LivroDAO {
             PreparedStatement comando = conexao.prepareStatement(SQL);
             ResultSet resultado = comando.executeQuery();
             while(resultado.next()){
-                Livro atual = new Livro();
-                atual = this.pegaDados(resultado);
+                Livro atual = this.pegaDados(resultado);
                 listaDeLivros.add(atual);
             }
             return listaDeLivros;
@@ -135,37 +134,36 @@ public class LivroDAO {
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE nome ilike '%"+dados.getNome()+"%'";
                     }else{
-                        filtro += "AND nome ilike '%"+dados.getNome()+"%'";
+                        filtro += " AND nome ilike '%"+dados.getNome()+"%'";
                     }
                 }
                 if(dados.getAutor() != null && !dados.getAutor().equalsIgnoreCase("")){
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE autor ilike '%"+dados.getAutor()+"%'";
                     }else{
-                        filtro += "AND autor ilike '%"+dados.getAutor()+"%'";
+                        filtro += " AND autor ilike '%"+dados.getAutor()+"%'";
                     }
                 }
                 if(dados.getEditora() != null && !dados.getEditora().equalsIgnoreCase("")){
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE editora ilike '%"+dados.getEditora()+"%'";
                     }else{
-                        filtro += "AND editora ilike '%"+dados.getEditora()+"%'";
+                        filtro += " AND editora ilike '%"+dados.getEditora()+"%'";
                     }
                 }
                 if(dados.getAnoPubli() > 0){
                     if(filtro.equalsIgnoreCase("")){
                         filtro = "WHERE ano_publicacao = "+dados.getAnoPubli();
                     }else{
-                        filtro += "AND ano_publicacao = "+dados.getAnoPubli();
+                        filtro += " AND ano_publicacao = "+dados.getAnoPubli();
                     }
                 }
-                PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
-                ResultSet resultado = comando.executeQuery();
-                if(resultado.next()){
-                    Livro atual = new Livro();
-                    atual = this.pegaDados(resultado);
-                    return atual;
-                }
+            }
+            PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Livro atual = this.pegaDados(resultado);
+                return atual;
             }
         }catch(SQLException e){
             System.out.println("Erro ao pesquisar");
