@@ -5,6 +5,7 @@ create table cliente(
     email varchar(255),
     senha varchar(255),
     cpf varchar(11),
+    status_cliente boolean,
     primary key(cpf)
 );
 
@@ -26,6 +27,9 @@ create table emprestimo(
     vencimento DATE,
     devolvido boolean,
     cpf_ocupante varchar(11),
+    id_livro int,
+    foreign key(cpf_ocupante) references cliente(cpf),
+    foreign key(id_livro) references livro(id_livro),
     primary key (id)
 );
 
