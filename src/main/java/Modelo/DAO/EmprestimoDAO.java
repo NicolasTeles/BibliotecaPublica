@@ -12,14 +12,15 @@ public class EmprestimoDAO {
     public boolean criaEmprestimo(Emprestimo emprestimo){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "INSERT INTO bibliotecapublica.emprestimo(data_inicial, vencimento, devolvido, cpf_ocupante, id)" +
-                    " VALUES (?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO bibliotecapublica.emprestimo(data_inicial, vencimento, devolvido, cpf_ocupante, id, id_livro)" +
+                    " VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setDate(1, Date.valueOf(emprestimo.getDataInicial()));
             comando.setDate(2, Date.valueOf(emprestimo.getVencimento()));
             comando.setBoolean(3, emprestimo.getDevolvido());
-            comando.setString(4, emprestimo.getCpfOcupante());
+            comando.setString(4, emprestimo.getCliente().getCpf());
             comando.setInt(5, emprestimo.getId());
+            comando.setInt(6, emprestimo.getLivro().getID());
             retorno = comando.executeUpdate();
         }catch (SQLException e){
             System.out.println("Erro ao emprestar livro");
@@ -46,13 +47,14 @@ public class EmprestimoDAO {
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "UPDATE bibliotecapublica.emprestimo SET data_inicial=?, vencimento=?, devolvido=?, " +
-                    "cpf_ocupante=? WHERE id=?";
+                    "cpf_ocupante=?, id_livro=? WHERE id=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setDate(1, Date.valueOf(emprestimo.getDataInicial()));
             comando.setDate(2, Date.valueOf(emprestimo.getVencimento()));
             comando.setBoolean(3, emprestimo.getDevolvido());
-            comando.setString(4, emprestimo.getCpfOcupante());
-            comando.setInt(5, emprestimo.getId());
+            comando.setString(4, emprestimo.getCliente().getCpf());
+            comando.setInt(5, emprestimo.getLivro().getID());
+            comando.setInt(6, emprestimo.getId());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao atualizar emprestimo");
@@ -64,11 +66,17 @@ public class EmprestimoDAO {
     public Emprestimo pegaDadosEmprestimo(ResultSet resultado){
         try{
             Emprestimo emprestimo = new Emprestimo();
-            emprestimo.setCpfOcupante(resultado.getString("cpf_ocupante"));
+
+            //emprestimo.setCliente(resultado.getString("cpf_ocupante"));
+            //buscar cliente pelo cpf
+
             emprestimo.setId(resultado.getInt("id"));
             emprestimo.setDevolvido(resultado.getBoolean("devolvido"));
             emprestimo.setDataInicial(resultado.getDate("data_inicial").toLocalDate());
             emprestimo.setVencimento(resultado.getDate("vencimento").toLocalDate());
+
+            //emprestimo.setLivro(resultado.getInt("id_livro"));
+            //buscar livro pelo id
         }catch (SQLException e){
             System.out.println("Erro ao pegar os dados de emprestimo");
             e.printStackTrace();
@@ -79,12 +87,11 @@ public class EmprestimoDAO {
     public List<Emprestimo> pegaListaEmprestimo(){
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "SELECT * FROM bibliotecapublica.emprestimo";
-            List<Emprestimo> listaEmprestimo = new ArrayList<Emprestimo>();
+            List<Emprestimo> listaEmprestimo = new ArrayList<>();
             PreparedStatement comando = conexao.prepareStatement(SQL);
             ResultSet resultado = comando.executeQuery();
             while(resultado.next()){
-                Emprestimo emprestimo = new Emprestimo();
-                emprestimo = this.pegaDadosEmprestimo(resultado);
+                Emprestimo emprestimo = this.pegaDadosEmprestimo(resultado);
                 listaEmprestimo.add(emprestimo);
             }
             return listaEmprestimo;
@@ -102,9 +109,7 @@ public class EmprestimoDAO {
             comando.setInt(1, Integer.valueOf(id));
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
-                Emprestimo emprestimo = new Emprestimo();
-                emprestimo = this.pegaDadosEmprestimo(resultado);
-                return emprestimo;
+                return this.pegaDadosEmprestimo(resultado);
             }
         }catch (SQLException e){
             System.out.println("Erro ao consultar emprestimo");
@@ -122,11 +127,11 @@ public class EmprestimoDAO {
                 if(emprestimo.getId() > 0){
                     filtro = "WHERE id = "+emprestimo.getId();
                 }
-                if(emprestimo.getCpfOcupante() != null && !emprestimo.getCpfOcupante().equalsIgnoreCase("")){
+                if(emprestimo.getCliente() != null && !emprestimo.getCliente().getCpf().equalsIgnoreCase("")){
                     if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE cpf_ocupante ilike '%"+emprestimo.getCpfOcupante()+"%'";
+                        filtro = "WHERE cpf_ocupante ilike '%"+emprestimo.getCliente()+"%'";
                     }else{
-                        filtro += " AND cpf_ocupante ilike '%"+emprestimo.getCpfOcupante()+"%'";
+                        filtro += " AND cpf_ocupante ilike '%"+emprestimo.getCliente()+"%'";
                     }
                 }
                 if(emprestimo.getDataInicial() != null && !emprestimo.getDataInicial().equals("")){
