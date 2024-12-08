@@ -4,17 +4,71 @@
  */
 package Visao;
 
+import Controle.ControleDevolveLivro;
+import Modelo.Livro;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author felip
  */
 public class DevolveLivro extends javax.swing.JFrame {
 
+    private final ControleDevolveLivro controller;
+
     /**
      * Creates new form ReservaLivro
      */
-    public DevolveLivro() {
+    
+    public DevolveLivro(){
         initComponents();
+        this.controller = new ControleDevolveLivro(this);
+    }
+    
+    public DevolveLivro(Livro livro) {
+        initComponents();
+        this.controller = new ControleDevolveLivro(this, livro);
+    }
+
+    public JButton getBotaoReservar() {
+        return botaoDevolver;
+    }
+
+    public void setBotaoReservar(JButton botaoReservar) {
+        this.botaoDevolver = botaoReservar;
+    }
+
+    public JTextField getTextAno() {
+        return textAno;
+    }
+
+    public void setTextAno(JTextField textAno) {
+        this.textAno = textAno;
+    }
+
+    public JTextField getTextAutor() {
+        return textAutor;
+    }
+
+    public void setTextAutor(JTextField textAutor) {
+        this.textAutor = textAutor;
+    }
+
+    public JTextField getTextEditora() {
+        return textEditora;
+    }
+
+    public void setTextEditora(JTextField textEditora) {
+        this.textEditora = textEditora;
+    }
+
+    public JTextField getTextNome() {
+        return textNome;
+    }
+
+    public void setTextNome(JTextField textNome) {
+        this.textNome = textNome;
     }
 
     /**
@@ -37,7 +91,7 @@ public class DevolveLivro extends javax.swing.JFrame {
         textAutor = new javax.swing.JTextField();
         textAno = new javax.swing.JTextField();
         textEditora = new javax.swing.JTextField();
-        botaoReservar = new javax.swing.JButton();
+        botaoDevolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,11 +136,11 @@ public class DevolveLivro extends javax.swing.JFrame {
         textEditora.setEditable(false);
         textEditora.setText("Jonas Edicoes");
 
-        botaoReservar.setText("Devolver");
-        botaoReservar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        botaoReservar.addActionListener(new java.awt.event.ActionListener() {
+        botaoDevolver.setText("Devolver");
+        botaoDevolver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botaoDevolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoReservarActionPerformed(evt);
+                botaoDevolverActionPerformed(evt);
             }
         });
 
@@ -112,7 +166,7 @@ public class DevolveLivro extends javax.swing.JFrame {
                             .addComponent(labelAutor)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(textAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(botaoReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(labelEstrela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -144,7 +198,7 @@ public class DevolveLivro extends javax.swing.JFrame {
                     .addComponent(labelEditora)
                     .addComponent(textEditora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(botaoReservar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
@@ -174,9 +228,9 @@ public class DevolveLivro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textAutorActionPerformed
 
-    private void botaoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservarActionPerformed
-        // ...
-    }//GEN-LAST:event_botaoReservarActionPerformed
+    private void botaoDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolverActionPerformed
+        this.controller.devolve();
+    }//GEN-LAST:event_botaoDevolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +269,7 @@ public class DevolveLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoReservar;
+    private javax.swing.JButton botaoDevolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAno;
     private javax.swing.JLabel labelAutor;

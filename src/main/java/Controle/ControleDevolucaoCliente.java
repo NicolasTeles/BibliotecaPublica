@@ -4,8 +4,13 @@
  */
 package Controle;
 
+import Controle.Helpers.DevolucaoClienteHelper;
+import Modelo.Emprestimo;
+import Modelo.Livro;
 import Visao.DevolucaoCliente;
+import Visao.DevolveLivro;
 import Visao.MenuPrincipalCliente;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  *
@@ -14,14 +19,23 @@ import Visao.MenuPrincipalCliente;
 public class ControleDevolucaoCliente {
 
     private final DevolucaoCliente view;
+    private final DevolucaoClienteHelper helper;
     
     public ControleDevolucaoCliente(DevolucaoCliente view){
         this.view = view;
+        this.helper = new DevolucaoClienteHelper(view);
     }
 
     public void navegaTelaCliente() {
         MenuPrincipalCliente mc = new MenuPrincipalCliente();
         mc.setVisible(true);
         this.view.dispose();
+    }
+    
+    public void acessaLivro(int indexLinha){
+        Livro livro = this.helper.leLinha(indexLinha);
+        //chama devolve livro com esse livro como parametro
+        DevolveLivro dv = new DevolveLivro(livro);
+        dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 }

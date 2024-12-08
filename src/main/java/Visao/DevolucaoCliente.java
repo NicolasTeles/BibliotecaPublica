@@ -6,6 +6,7 @@ package Visao;
 
 import Controle.ControleDevolucaoCliente;
 import Modelo.Livro;
+import javax.swing.JTable;
 
 /**
  *
@@ -123,9 +124,17 @@ public class DevolucaoCliente extends javax.swing.JFrame {
 
     private void tabelaDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDevolucaoMouseClicked
         if(evt.getClickCount() > 1){
-           //acessar tabela
+           this.controller.acessaLivro(this.tabelaDevolucao.getSelectedRow());
         }
     }//GEN-LAST:event_tabelaDevolucaoMouseClicked
+
+    public JTable getTabelaDevolucao() {
+        return tabelaDevolucao;
+    }
+
+    public void setTabelaDevolucao(JTable tabelaDevolucao) {
+        this.tabelaDevolucao = tabelaDevolucao;
+    }
 
     /**
      * @param args the command line arguments
