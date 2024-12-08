@@ -151,6 +151,7 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
 
         menuConta.setText("Conta");
 
+        botaoPerfil.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+ "\\src\\main\\java\\Icones\\perfil.png"));
         botaoPerfil.setText("Perfil");
         botaoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +160,7 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         });
         menuConta.add(botaoPerfil);
 
+        botaoLogout.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\perfil.png"));
         botaoLogout.setText("Logout");
         botaoLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

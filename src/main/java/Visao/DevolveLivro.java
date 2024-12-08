@@ -53,7 +53,7 @@ public class DevolveLivro extends javax.swing.JFrame {
 
         labelEditora.setText("Editora:");
 
-        labelEstrela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/aval.png"))); // NOI18N
+        labelEstrela.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\aval.png"));
 
         labelAval.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelAval.setText("5/5");
@@ -117,7 +117,7 @@ public class DevolveLivro extends javax.swing.JFrame {
                 .addComponent(labelEstrela)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelAval)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

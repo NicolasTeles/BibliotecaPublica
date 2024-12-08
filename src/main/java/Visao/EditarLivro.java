@@ -86,7 +86,7 @@ public class EditarLivro extends javax.swing.JFrame {
         labelAval.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelAval.setText("5/5");
 
-        labelEstrela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/aval.png"))); // NOI18N
+        labelEstrela.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\aval.png"));
 
         botaoRemover.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoRemover.setText("Remover");

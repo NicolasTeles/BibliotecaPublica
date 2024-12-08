@@ -11,8 +11,8 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="botaoPerfil">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icones/perfil.png"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\Icones\\perfil.png&quot;)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Perfil"/>
               </Properties>
@@ -22,8 +22,8 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="botaoLogout">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icones/logout.png"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\Icones\\logout.png&quot;)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
@@ -130,7 +130,7 @@
                   <Component id="jScrollPane2" min="-2" pref="223" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="adicionarLivros" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -194,8 +194,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="botaoPesquisa">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Icones/iconePesquisa.png"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+&quot;\\src\\main\\java\\Icones\\iconePesquisa.png&quot;)" type="code"/>
             </Property>
           </Properties>
           <Events>

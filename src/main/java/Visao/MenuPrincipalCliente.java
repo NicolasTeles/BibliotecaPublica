@@ -79,7 +79,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
         labelPesquisa.setText("Pesquisa");
 
-        botaoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/iconePesquisa.png"))); // NOI18N
+        botaoPesquisa.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\iconePesquisa.png"));
         botaoPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botaoPesquisaMouseClicked(evt);
@@ -111,13 +111,13 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
                     .addComponent(fieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisa))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                 .addGap(53, 53, 53))
         );
 
         menuContaCliente.setText("Conta");
 
-        perfilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/perfil.png"))); // NOI18N
+        perfilMenu.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\perfil.png"));
         perfilMenu.setText("Perfil");
         perfilMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +126,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         });
         menuContaCliente.add(perfilMenu);
 
-        logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/logout.png"))); // NOI18N
+        logoutMenu.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\logout.png"));
         logoutMenu.setText("Logout");
         logoutMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

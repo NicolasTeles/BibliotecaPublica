@@ -70,7 +70,7 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
         labelPesquisa.setText("Pesquisa");
 
-        botaoPesquisa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/iconePesquisa.png"))); // NOI18N
+        botaoPesquisa.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\iconePesquisa.png"));
         botaoPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botaoPesquisaMouseClicked(evt);
@@ -119,12 +119,12 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(adicionarLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         menuConta.setText("Conta");
 
-        botaoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/perfil.png"))); // NOI18N
+        botaoPerfil.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\perfil.png"));
         botaoPerfil.setText("Perfil");
         botaoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
         });
         menuConta.add(botaoPerfil);
 
-        botaoLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/logout.png"))); // NOI18N
+        botaoLogout.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\logout.png"));
         botaoLogout.setText("Logout");
         menuConta.add(botaoLogout);
 
