@@ -4,17 +4,22 @@
  */
 package Visao;
 
+import Controle.ControleMenuPrincipalCliente;
+
 /**
  *
  * @author felip
  */
 public class MenuPrincipalCliente extends javax.swing.JFrame {
 
+    private final ControleMenuPrincipalCliente controlador;
+
     /**
      * Creates new form MenuPrincipalCliente
      */
     public MenuPrincipalCliente() {
         initComponents();
+        controlador = new ControleMenuPrincipalCliente(this);
     }
 
     /**
@@ -114,6 +119,11 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
         perfilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/perfil.png"))); // NOI18N
         perfilMenu.setText("Perfil");
+        perfilMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perfilMenuActionPerformed(evt);
+            }
+        });
         menuContaCliente.add(perfilMenu);
 
         logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/logout.png"))); // NOI18N
@@ -128,6 +138,11 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         jMenuBar1.add(menuContaCliente);
 
         menuDevolucao.setText("Devolução");
+        menuDevolucao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuDevolucaoMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuDevolucao);
 
         setJMenuBar(jMenuBar1);
@@ -147,12 +162,20 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logoutMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutMenuActionPerformed
-        // TODO add your handling code here:
+        this.controlador.logout();
     }//GEN-LAST:event_logoutMenuActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //logica do botao de pesquisa
+        //implementar a logica que pesquisa o livro desejado
     }//GEN-LAST:event_botaoPesquisaMouseClicked
+
+    private void perfilMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilMenuActionPerformed
+        this.controlador.navegaPerfil();
+    }//GEN-LAST:event_perfilMenuActionPerformed
+
+    private void menuDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDevolucaoMouseClicked
+        this.controlador.navegaDevolucao();
+    }//GEN-LAST:event_menuDevolucaoMouseClicked
 
     /**
      * @param args the command line arguments

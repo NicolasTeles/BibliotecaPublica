@@ -175,7 +175,8 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        //this.controle...() funcao responsavel por andar para a frente;
+        //adicionar a condicao responsavel por verificar se o usuario e senha bate com o banco
+        this.controlador.navegaMenuCliente();
         this.controlador.printaMensagemTeste();
     }//GEN-LAST:event_BotaoCadastroActionPerformed
 

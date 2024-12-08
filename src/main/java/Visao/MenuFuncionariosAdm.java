@@ -172,13 +172,13 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
-    private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //logica do botao de pesquisa
-    }//GEN-LAST:event_botaoPesquisaMouseClicked
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
+        //logica do botao de pesquisa
+    }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     /**
      * @param args the command line arguments

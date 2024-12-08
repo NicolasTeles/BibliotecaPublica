@@ -2,6 +2,7 @@ package Controle;
 
 import Visao.CadastroCliente;
 import Visao.InterfaceGeral;
+import Visao.MenuPrincipalCliente;
 
 public class ControleCadastroCliente {
     private final CadastroCliente view;
@@ -16,6 +17,12 @@ public class ControleCadastroCliente {
 
     public void retornaInterfaceGeral(){
         InterfaceGeral ig = new InterfaceGeral();
+        ig.setVisible(true);
+        this.view.dispose();
+    }
+    
+    public void navegaMenuCliente(){
+        MenuPrincipalCliente ig = new MenuPrincipalCliente();
         ig.setVisible(true);
         this.view.dispose();
     }

@@ -16,6 +16,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Perfil"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="perfilMenuActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="logoutMenu">
               <Properties>
@@ -34,6 +37,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Devolu&#xe7;&#xe3;o"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="menuDevolucaoMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
