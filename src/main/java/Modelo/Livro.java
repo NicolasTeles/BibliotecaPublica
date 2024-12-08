@@ -7,7 +7,8 @@ public class Livro {
     private String autor;
     private int anoPubli;
     private boolean status;
-    private double avaliacao;
+    private int totalAvaliacao;
+    private int numAvaliacoes;
 
     public Livro(){
         this.nome = "";
@@ -15,8 +16,9 @@ public class Livro {
         this.autor = "";
         this.anoPubli = 0;
         this.status = false;
-        this.avaliacao = -1;
+        this.totalAvaliacao = -1;
         this.id = -1;
+        this.numAvaliacoes = 0;
     }
 
     public Livro(String nome, String editora, String autor, int anoPubli, int id){
@@ -25,8 +27,9 @@ public class Livro {
         this.autor = autor;
         this.anoPubli = anoPubli;
         this.status = true;
-        this.avaliacao = 0;
+        this.totalAvaliacao = 0;
         this.id = id;
+        this.numAvaliacoes = 0;
     }
 
     public String getNome() { return nome; }
@@ -39,7 +42,11 @@ public class Livro {
 
     public boolean getStatus() { return status; }
 
-    public double getAvaliacao() { return avaliacao; }
+    public int getTotalAvaliacao() { return totalAvaliacao; }
+
+    public int getNumAvaliacoes(){
+        return this.getNumAvaliacoes();
+    }
 
     public void setNome(String nome) { this.nome = nome; }
 
@@ -51,7 +58,18 @@ public class Livro {
 
     public void setStatus(boolean status) { this.status = status; }
 
-    public void setAvaliacao(double avaliacao) { this.avaliacao = avaliacao; }
+    public void setTotalAvaliacao(int totalAvaliacao) { this.totalAvaliacao = totalAvaliacao; }
+
+    public void setNumAvaliacoes(int numAvaliacoes){
+        this.numAvaliacoes = numAvaliacoes;
+    }
+
+    public double mediaAvaliacao(){
+        if(this.numAvaliacoes == 0)
+            return -1;
+        else
+            return (double)(this.totalAvaliacao)/(double)(this.numAvaliacoes);
+    }
 
     public void setID(int id){
         this.id = id;

@@ -14,16 +14,17 @@ public class LivroDAO {
     public boolean inserirLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "INSERT INTO bibliotecapublica.livro(id_livro, nome, editora, autor, ano_publicacao, avaliacao, status_emprestimo) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO bibliotecapublica.livro(id_livro, nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setInt(1, livro.getID());
             comando.setString(2, livro.getNome());
             comando.setString(3, livro.getEditora());
             comando.setString(4, livro.getAutor());
             comando.setInt(5, livro.getAnoPubli());
-            comando.setDouble(6, livro.getAvaliacao());
+            comando.setInt(6, livro.getTotalAvaliacao());
             comando.setBoolean(7, livro.getStatus());
+            comando.setInt(8, livro.getNumAvaliacoes());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao inserir livro");
@@ -49,16 +50,17 @@ public class LivroDAO {
     public boolean atualizaLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=?, avaliacao=?, " +
-                    "status_emprestimo=? WHERE id_livro=?";
+            String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=?, total_avaliacao=?, " +
+                    "status_emprestimo=?, num_avaliacoes=? WHERE id_livro=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
-            comando.setInt(7, livro.getID());
             comando.setString(1, livro.getNome());
             comando.setString(2, livro.getEditora());
             comando.setString(3, livro.getAutor());
             comando.setInt(4, livro.getAnoPubli());
-            comando.setDouble(5, livro.getAvaliacao());
+            comando.setInt(5, livro.getTotalAvaliacao());
             comando.setBoolean(6, livro.getStatus());
+            comando.setInt(7, livro.getNumAvaliacoes());
+            comando.setInt(8, livro.getID());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao atualizar livro");
@@ -90,11 +92,12 @@ public class LivroDAO {
             Livro atual = new Livro();
             atual.setAnoPubli(resultado.getInt("ano_publicacao"));
             atual.setAutor(resultado.getString("autor"));
-            atual.setAvaliacao(resultado.getDouble("avaliacao"));
+            atual.setTotalAvaliacao(resultado.getInt("total_avaliacao"));
             atual.setEditora(resultado.getString("editora"));
             atual.setNome(resultado.getString("nome"));
             atual.setID(resultado.getInt("id_livro"));
             atual.setStatus(resultado.getBoolean("status_emprestimo"));
+            atual.setNumAvaliacoes(resultado.getInt("num_avaliacoes"));
             return atual;
         }catch (SQLException e){
             System.out.println("Erro ao pegar dados");
@@ -110,8 +113,7 @@ public class LivroDAO {
             comando.setInt(1, Integer.valueOf(idLivro));
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
-                Livro atual = new Livro();
-                atual = this.pegaDados(resultado);
+                Livro atual = this.pegaDados(resultado);
                 return atual;
             }
         }catch(SQLException e){

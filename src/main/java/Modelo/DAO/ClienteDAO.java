@@ -15,12 +15,14 @@ public class ClienteDAO {
     public boolean criarConta(Cliente cliente){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "INSERT INTO bibliotecapublica.cliente(nome, email, senha, cpf) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO bibliotecapublica.cliente(nome, email, senha, cpf, status_cliente) " +
+                    "VALUES (?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, cliente.getNome());
             comando.setString(2, cliente.getEmail());
             comando.setString(3, cliente.getSenha());
             comando.setString(4, cliente.getCpf());
+            comando.setBoolean(5, cliente.getStatusCliente());
             retorno = comando.executeUpdate();
 
         } catch (SQLException e){
@@ -48,12 +50,14 @@ public class ClienteDAO {
     public boolean atualizaConta(Cliente cliente){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "UPDATE bibliotecapublica.cliente SET nome=?, email=?, senha=? WHERE cpf=?";
+            String SQL = "UPDATE bibliotecapublica.cliente SET nome=?, email=?, senha=?, status_cliente=? " +
+                    " WHERE cpf=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, cliente.getNome());
             comando.setString(2, cliente.getEmail());
             comando.setString(3, cliente.getSenha());
-            comando.setString(4, cliente.getCpf());
+            comando.setBoolean(4, cliente.getStatusCliente());
+            comando.setString(5, cliente.getCpf());
             retorno = comando.executeUpdate();
 
         } catch (SQLException e){
@@ -70,6 +74,7 @@ public class ClienteDAO {
             cliente.setEmail(resultado.getString("email"));
             cliente.setSenha(resultado.getString("senha"));
             cliente.setCpf(resultado.getString("cpf"));
+            cliente.setStatusCliente(resultado.getBoolean("status_cliente"));
             return cliente;
         }catch (Exception e){
             System.out.println("Erro ao pegar dados de cliente");
@@ -85,8 +90,7 @@ public class ClienteDAO {
             PreparedStatement comando = conexao.prepareStatement(SQL);
             ResultSet resultado = comando.executeQuery();
             while(resultado.next()){
-                Cliente cliente = new Cliente();
-                cliente = this.pegaDadosCliente(resultado);
+                Cliente cliente = this.pegaDadosCliente(resultado);
                 listaDeclientes.add(cliente);
             }
             return listaDeclientes;
@@ -105,9 +109,7 @@ public class ClienteDAO {
             comando.setString(1, cpf);
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
-                Cliente cliente = new Cliente();
-                cliente = this.pegaDadosCliente(resultado);
-                return cliente;
+                return this.pegaDadosCliente(resultado);
             }
         }catch (SQLException e){
             System.out.println("Erro ao consultar cliente");
@@ -145,9 +147,7 @@ public class ClienteDAO {
             PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
-                Cliente cliente = new Cliente();
-                cliente = this.pegaDadosCliente(resultado);
-                return cliente;
+                return this.pegaDadosCliente(resultado);
             }
         }catch (SQLException e){
             System.out.println("Erro ao consultar cliente");
