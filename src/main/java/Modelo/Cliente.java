@@ -5,12 +5,15 @@ public class Cliente {
     private String cpf;
     private String email;
     private String senha;
+    private boolean statusCliente;
 
-    public Cliente(String nome, String cpf, String email, String senha) {
+
+    public Cliente(String nome, String cpf, String email, String senha, boolean statusCliente) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.senha = senha;
+        this. statusCliente = statusCliente;
     }
 
     public Cliente(){
@@ -18,11 +21,16 @@ public class Cliente {
         this.cpf = "";
         this.email = "";
         this.senha = "";
+        this.statusCliente = false;
     }
 
     public String getNome() {
         return nome;
     }
+
+    public boolean getStatusCliente(){ return statusCliente; }
+
+    public  void setStatusCliente(boolean statusCliente){ this.statusCliente = statusCliente; }
 
     public void setNome(String nome) {
         this.nome = nome;
