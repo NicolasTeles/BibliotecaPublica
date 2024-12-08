@@ -4,17 +4,23 @@
  */
 package Visao;
 
+import Controle.ControleDevolucaoCliente;
+import Modelo.Livro;
+
 /**
  *
  * @author felip
  */
 public class DevolucaoCliente extends javax.swing.JFrame {
 
+    private final ControleDevolucaoCliente controller;
+
     /**
      * Creates new form DevolucaoCliente
      */
     public DevolucaoCliente() {
         initComponents();
+        this.controller = new ControleDevolucaoCliente(this);
     }
 
     /**
@@ -58,10 +64,20 @@ public class DevolucaoCliente extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaDevolucao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaDevolucaoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelaDevolucao);
 
         botaoVoltar.setText("Voltar");
         botaoVoltar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -100,6 +116,16 @@ public class DevolucaoCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        this.controller.navegaTelaCliente();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void tabelaDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDevolucaoMouseClicked
+        if(evt.getClickCount() > 1){
+           //acessar tabela
+        }
+    }//GEN-LAST:event_tabelaDevolucaoMouseClicked
 
     /**
      * @param args the command line arguments

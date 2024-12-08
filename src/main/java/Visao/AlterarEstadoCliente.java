@@ -4,17 +4,23 @@
  */
 package Visao;
 
+import Controle.ControleAlteraEstadoCliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author felip
  */
 public class AlterarEstadoCliente extends javax.swing.JFrame {
 
+    private final ControleAlteraEstadoCliente controller;
+
     /**
      * Creates new form PerfilCliente
      */
     public AlterarEstadoCliente() {
         initComponents();
+        this.controller = new ControleAlteraEstadoCliente(this);
     }
 
     /**
@@ -36,7 +42,7 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         labelEmail = new javax.swing.JLabel();
         textEmail = new javax.swing.JTextField();
         labelStatus = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botaoAltera = new javax.swing.JButton();
         estadoCliente = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,8 +86,13 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
 
         labelStatus.setText("Status:");
 
-        jButton1.setText("Voltar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botaoAltera.setText("Alterar");
+        botaoAltera.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botaoAltera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAlteraActionPerformed(evt);
+            }
+        });
 
         estadoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Banido", " " }));
         estadoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +107,8 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botaoAltera, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -138,8 +149,8 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
                             .addComponent(estadoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(botaoAltera, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,6 +171,14 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_estadoClienteActionPerformed
 
+    private void botaoAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraActionPerformed
+        this.controller.alteraEstado();
+    }//GEN-LAST:event_botaoAlteraActionPerformed
+
+    public void printaMensagem(String mensagem){
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -198,8 +217,8 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelCPF;
+    private javax.swing.JButton botaoAltera;
     private javax.swing.JComboBox<String> estadoCliente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
