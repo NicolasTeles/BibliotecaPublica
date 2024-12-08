@@ -24,7 +24,7 @@ create table emprestimo(
 	data_inicial DATE,
     vencimento DATE,
     devolvido boolean,
-    cpo_ocupante varchar(11),
+    cpf_ocupante varchar(11),
     primary key (id)
 );
 
