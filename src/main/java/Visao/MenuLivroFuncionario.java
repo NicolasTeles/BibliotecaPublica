@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Visao;
 
+import Controle.ControleMenuLivroFuncionario;
 /**
  *
  * @author pichau
  */
 public class MenuLivroFuncionario extends javax.swing.JFrame {
 
+    private final ControleMenuLivroFuncionario controlador;   
+    
     /**
      * Creates new form MenuLivroFuncionario
      */
     public MenuLivroFuncionario() {
         initComponents();
+        controlador = new ControleMenuLivroFuncionario(this);
     }
 
     /**
@@ -135,17 +135,37 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
         botaoLogout.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\logout.png"));
         botaoLogout.setText("Logout");
+        botaoLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoLogoutMouseClicked(evt);
+            }
+        });
         menuConta.add(botaoLogout);
 
         jMenuBar1.add(menuConta);
 
         menuLivros.setText("Livros");
+        menuLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuLivrosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuLivros);
 
         menuClientes.setText("Clientes");
+        menuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuClientesMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuClientes);
 
         Funcionarios.setText("Funcionarios");
+        Funcionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FuncionariosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Funcionarios);
 
         setJMenuBar(jMenuBar1);
@@ -165,7 +185,8 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
-        // TODO add your handling code here:
+        this.controlador.irPerfilFuncionario();
+        
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
@@ -173,8 +194,24 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void adicionarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLivrosActionPerformed
-        // TODO add your handling code here:
+        this.controlador.telaCadastroLivro();
     }//GEN-LAST:event_adicionarLivrosActionPerformed
+
+    private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
+        this.controlador.retornarTelaLogin();
+    }//GEN-LAST:event_botaoLogoutMouseClicked
+
+    private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
+        
+    }//GEN-LAST:event_menuLivrosMouseClicked
+
+    private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
+        this.controlador.irMenuCliente();
+    }//GEN-LAST:event_menuClientesMouseClicked
+
+    private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
+        this.controlador.irMenuFuncionarios();
+    }//GEN-LAST:event_FuncionariosMouseClicked
 
     /**
      * @param args the command line arguments
