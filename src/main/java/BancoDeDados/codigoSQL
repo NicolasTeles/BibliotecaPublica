@@ -14,7 +14,8 @@ create table livro(
     editora varchar(255),
     autor varchar(255),
     ano_publicacao int,
-    avaliacao double,
+    total_avaliacao int,
+    num_avaliacoes int,
     status_emprestimo boolean,
     primary key(id_livro)
 );
