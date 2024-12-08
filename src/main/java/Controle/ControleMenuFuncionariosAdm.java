@@ -1,23 +1,28 @@
-
 package Controle;
+
 
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
-import Visao.CadastroLivro;
+import Visao.CadastroFuncionario;
 
 /**
  *
  * @author pichau
  */
-public class ControleMenuLivroFuncionario {
+public class ControleMenuFuncionariosAdm {
 
-    private final MenuLivroFuncionario view;
+    private final MenuFuncionariosAdm view;
     
-    public ControleMenuLivroFuncionario(MenuLivroFuncionario view){
+    
+    public ControleMenuFuncionariosAdm(MenuFuncionariosAdm view){
         this.view = view;
+    }
+
+    public ControleMenuFuncionariosAdm() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void irPerfilFuncionario(){
@@ -31,7 +36,13 @@ public class ControleMenuLivroFuncionario {
         login.setVisible(true);
         this.view.dispose();
     }
- 
+    
+    public void irMenuLivro(){
+        MenuLivroFuncionario livro = new MenuLivroFuncionario();
+        livro.setVisible(true);
+        this.view.dispose();        
+    }
+    
     public void irMenuCliente(){
         MenuClienteFuncionario cliente = new MenuClienteFuncionario();
         cliente.setVisible(true);
@@ -45,9 +56,9 @@ public class ControleMenuLivroFuncionario {
        this.view.dispose();       
     }
     
-    public void telaCadastroLivro(){
-        //logica para cadastrar livro no banco de dados
-        CadastroLivro cadastro = new CadastroLivro();
+    public void telaCadastroFuncionario(){
+        //logica para cadastrar funcionario no banco de dados
+        CadastroFuncionario cadastro = new CadastroFuncionario();
         cadastro.setVisible(true);
         this.view.dispose();        
     }

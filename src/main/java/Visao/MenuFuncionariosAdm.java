@@ -1,20 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Visao;
 
+import Controle.ControleMenuFuncionariosAdm;
 /**
  *
  * @author pichau
  */
 public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
+    private final ControleMenuFuncionariosAdm controlador;
+   
     /**
      * Creates new form MenuLivroFuncionario
      */
     public MenuFuncionariosAdm() {
         initComponents();
+        controlador = new ControleMenuFuncionariosAdm(this);
     }
 
     /**
@@ -128,6 +128,11 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
         botaoPerfil.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\perfil.png"));
         botaoPerfil.setText("Perfil");
+        botaoPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoPerfilMouseClicked(evt);
+            }
+        });
         botaoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPerfilActionPerformed(evt);
@@ -137,14 +142,29 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
         botaoLogout.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\logout.png"));
         botaoLogout.setText("Logout");
+        botaoLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoLogoutMouseClicked(evt);
+            }
+        });
         menuConta.add(botaoLogout);
 
         jMenuBar1.add(menuConta);
 
         menuLivros.setText("Livros");
+        menuLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuLivrosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuLivros);
 
         menuClientes.setText("Clientes");
+        menuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuClientesMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuClientes);
 
         Funcionarios.setText("Funcionarios");
@@ -169,16 +189,32 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
-        // TODO add your handling code here:
+        controlador.irPerfilFuncionario();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        controlador.telaCadastroFuncionario();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
         //logica do botao de pesquisa
     }//GEN-LAST:event_botaoPesquisaMouseClicked
+
+    private void botaoPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPerfilMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoPerfilMouseClicked
+
+    private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
+        controlador.retornarTelaLogin();
+    }//GEN-LAST:event_botaoLogoutMouseClicked
+
+    private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
+        controlador.irMenuLivro();
+    }//GEN-LAST:event_menuLivrosMouseClicked
+
+    private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
+        controlador.irMenuCliente();
+    }//GEN-LAST:event_menuClientesMouseClicked
 
     /**
      * @param args the command line arguments
