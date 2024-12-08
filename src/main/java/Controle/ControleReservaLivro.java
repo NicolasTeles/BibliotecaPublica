@@ -4,10 +4,16 @@
  */
 package Controle;
 
+import Visao.ReservaLivro;
+
 /**
  *
  * @author felip
  */
 public class ControleReservaLivro {
-    
+    private final ReservaLivro view;
+
+    public ControleReservaLivro(ReservaLivro view) {
+        this.view = view;
+    }
 }
