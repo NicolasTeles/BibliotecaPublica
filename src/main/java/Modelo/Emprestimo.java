@@ -3,7 +3,6 @@ package Modelo;
 import java.time.LocalDate;
 
 public class Emprestimo{
-    private static final int TEMPO_ATRASO_MAXIMO = 10;
     private LocalDate dataInicial;
     private Livro Book;
     private LocalDate vencimento;
@@ -35,11 +34,12 @@ public class Emprestimo{
     public Livro getBook(){ return  this.Book; }
     public boolean getDevolvido(){ return this.devolvido; }
     public int getId(){ return this.id; }
-
     public void setCpfOcupante(String cpfOcupante){this.cpfOcupante = cpfOcupante; }
     public void setVencimento(LocalDate vencimento){this.vencimento = vencimento; }
     public void setDataInicial(LocalDate dataInicial){this.dataInicial = dataInicial; }
     public void setDevolvido(Boolean devolvido){this.devolvido = devolvido; }
     public void setId(int id){ this.id = id; }
     public void setBook(Livro book){ this.Book = book; }
+
+    //teste da compara~]ao
 }
