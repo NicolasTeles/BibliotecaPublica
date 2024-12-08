@@ -4,17 +4,22 @@
  */
 package Visao;
 
+
+import Controle.ControleMenuPerfilFuncionario;
 /**
  *
  * @author pichau
  */
 public class MenuPerfilFuncionario extends javax.swing.JFrame {
 
+    private final ControleMenuPerfilFuncionario controlador;
+
     /**
      * Creates new form MenuPrincipalFuncionario
      */
     public MenuPerfilFuncionario() {
         initComponents();
+        controlador = new ControleMenuPerfilFuncionario(this);
     }
 
     /**
@@ -35,7 +40,6 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         textEmail = new javax.swing.JTextField();
         labelStatus = new javax.swing.JLabel();
         textStatus = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -77,12 +81,9 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Voltar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/user.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\user.png"));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -106,19 +107,14 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelCPF)
-                            .addComponent(labelEmail)
-                            .addComponent(labelStatus))))
+                    .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelCPF)
+                    .addComponent(labelEmail)
+                    .addComponent(labelStatus))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,10 +129,7 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,12 +146,11 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelStatus))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         menuConta.setText("Conta");
 
-        botaoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/perfil.png"))); // NOI18N
         botaoPerfil.setText("Perfil");
         botaoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,19 +159,38 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         });
         menuConta.add(botaoPerfil);
 
-        botaoLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/logout.png"))); // NOI18N
         botaoLogout.setText("Logout");
+        botaoLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLogoutActionPerformed(evt);
+            }
+        });
         menuConta.add(botaoLogout);
 
         jMenuBar1.add(menuConta);
 
         menuLivros.setText("Livros");
+        menuLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuLivrosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuLivros);
 
         menuClientes.setText("Clientes");
+        menuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuClientesMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuClientes);
 
         Funcionarios.setText("Funcionarios");
+        Funcionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FuncionariosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Funcionarios);
 
         setJMenuBar(jMenuBar1);
@@ -205,6 +216,23 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
     private void textStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textStatusActionPerformed
+
+    private void botaoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogoutActionPerformed
+        //Logica para dar logout do funcionario
+        this.controlador.retornarTelaLogin();
+    }//GEN-LAST:event_botaoLogoutActionPerformed
+
+    private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
+        this.controlador.irMenuLivro();
+    }//GEN-LAST:event_menuLivrosMouseClicked
+
+    private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
+        this.controlador.irMenuCliente();
+    }//GEN-LAST:event_menuClientesMouseClicked
+
+    private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
+        this.controlador.irMenuFuncionarios();
+    }//GEN-LAST:event_FuncionariosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -247,7 +275,6 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel LabelCPF;
     private javax.swing.JMenuItem botaoLogout;
     private javax.swing.JMenuItem botaoPerfil;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

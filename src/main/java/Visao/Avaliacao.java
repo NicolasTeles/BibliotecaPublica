@@ -4,17 +4,22 @@
  */
 package Visao;
 
+import Controle.ControleAvaliacao;
+
 /**
  *
  * @author felip
  */
 public class Avaliacao extends javax.swing.JFrame {
 
+    private final ControleAvaliacao controller;
+
     /**
      * Creates new form Avaliacao
      */
     public Avaliacao() {
         initComponents();
+        this.controller = new ControleAvaliacao(this);
     }
 
     /**
@@ -47,6 +52,11 @@ public class Avaliacao extends javax.swing.JFrame {
 
         botaoAvaliar.setText("Avaliar");
         botaoAvaliar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botaoAvaliar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAvaliarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -91,6 +101,10 @@ public class Avaliacao extends javax.swing.JFrame {
     private void boxAvaliacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxAvaliacaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxAvaliacaoActionPerformed
+
+    private void botaoAvaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvaliarActionPerformed
+        this.controller.avalia();
+    }//GEN-LAST:event_botaoAvaliarActionPerformed
 
     /**
      * @param args the command line arguments
