@@ -5,22 +5,22 @@ public class Funcionario {
     private String cpf;
     private String login;
     private String senha;
-    private boolean Eadm;
+    private boolean eADM;
 
     public Funcionario(){
         this.nome = "";
         this.cpf = "";
         this.login = "";
         this.senha = "";
-        this.Eadm = false;
+        this.eADM = false;
     }
 
-    public Funcionario(String nome, String cpf, String login, String senha, boolean Eadm) {
+    public Funcionario(String nome, String cpf, String login, String senha, boolean eADM) {
         this.nome = nome;
         this.cpf = cpf;
         this.login = login;
         this.senha = senha;
-        this.Eadm = Eadm;
+        this.eADM = eADM;
     }
 
 
@@ -32,7 +32,7 @@ public class Funcionario {
 
     public String getSenha() { return senha; }
 
-    public boolean getEadm() { return Eadm; }
+    public boolean getEadm() { return eADM; }
 
 
     public void setNome(String nome) { this.nome = nome; }
@@ -43,6 +43,6 @@ public class Funcionario {
 
     public void setSenha(String senha) { this.senha = senha; }
 
-    public void setEadm(boolean Eadm) { this.Eadm = Eadm; }
+    public void setEadm(boolean Eadm) { this.eADM = Eadm; }
 
 }

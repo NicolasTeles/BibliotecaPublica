@@ -3,20 +3,20 @@ package Modelo;
 import java.time.LocalDate;
 
 public class Emprestimo{
+    private int id;
     private LocalDate dataInicial;
-    private Livro Book;
+    private Livro livro;
     private LocalDate vencimento;
     private String cpfOcupante;
     private boolean devolvido;
-    private int id;
 
-    public Emprestimo(LocalDate dataInicial, LocalDate vencimento, String cpfOcupante, boolean devolvido, int id, Livro book){
+    public Emprestimo(LocalDate dataInicial, LocalDate vencimento, String cpfOcupante, boolean devolvido, int id, Livro livro){
         this.dataInicial = dataInicial;
         this.vencimento = vencimento;
         this.cpfOcupante = cpfOcupante;
         this.devolvido = devolvido;
         this.id = id;
-        this.Book = book;
+        this.livro = livro;
     }
 
     public Emprestimo(){
@@ -25,13 +25,13 @@ public class Emprestimo{
         this.cpfOcupante = "";
         this.devolvido = false;
         this.id = 0;
-        this.Book = null;
+        this.livro = null;
     }
 
     public String getCpfOcupante() { return this.cpfOcupante; }
     public LocalDate getVencimento() { return this.vencimento; }
     public LocalDate getDataInicial() { return this.dataInicial; }
-    public Livro getBook(){ return  this.Book; }
+    public Livro getLivro(){ return this.livro; }
     public boolean getDevolvido(){ return this.devolvido; }
     public int getId(){ return this.id; }
     public void setCpfOcupante(String cpfOcupante){this.cpfOcupante = cpfOcupante; }
@@ -39,7 +39,7 @@ public class Emprestimo{
     public void setDataInicial(LocalDate dataInicial){this.dataInicial = dataInicial; }
     public void setDevolvido(Boolean devolvido){this.devolvido = devolvido; }
     public void setId(int id){ this.id = id; }
-    public void setBook(Livro book){ this.Book = book; }
+    public void setLivro(Livro livro){ this.livro = livro; }
 
-    //teste da compara~]ao
+    //teste da comparacao
 }
