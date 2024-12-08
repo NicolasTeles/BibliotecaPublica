@@ -6,14 +6,14 @@ package Visao;
 
 /**
  *
- * @author felip
+ * @author pichau
  */
-public class MenuPrincipalCliente extends javax.swing.JFrame {
+public class MenuLivroFuncionario extends javax.swing.JFrame {
 
     /**
-     * Creates new form MenuPrincipalCliente
+     * Creates new form MenuLivroFuncionario
      */
-    public MenuPrincipalCliente() {
+    public MenuLivroFuncionario() {
         initComponents();
     }
 
@@ -32,11 +32,14 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         fieldPesquisa = new javax.swing.JTextField();
         labelPesquisa = new javax.swing.JLabel();
         botaoPesquisa = new javax.swing.JLabel();
+        adicionarLivros = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        menuContaCliente = new javax.swing.JMenu();
-        perfilMenu = new javax.swing.JMenuItem();
-        logoutMenu = new javax.swing.JMenuItem();
-        menuDevolucao = new javax.swing.JMenu();
+        menuConta = new javax.swing.JMenu();
+        botaoPerfil = new javax.swing.JMenuItem();
+        botaoLogout = new javax.swing.JMenuItem();
+        menuLivros = new javax.swing.JMenu();
+        menuClientes = new javax.swing.JMenu();
+        Funcionarios = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,13 +67,6 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(listaLivros);
-        if (listaLivros.getColumnModel().getColumnCount() > 0) {
-            listaLivros.getColumnModel().getColumn(0).setResizable(false);
-            listaLivros.getColumnModel().getColumn(1).setResizable(false);
-            listaLivros.getColumnModel().getColumn(2).setResizable(false);
-            listaLivros.getColumnModel().getColumn(3).setResizable(false);
-            listaLivros.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         labelPesquisa.setText("Pesquisa");
 
@@ -81,54 +77,76 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
             }
         });
 
+        adicionarLivros.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        adicionarLivros.setText("Adicionar Livro");
+        adicionarLivros.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        adicionarLivros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adicionarLivrosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelPesquisa)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(fieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisa)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPesquisa)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(fieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(botaoPesquisa))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(adicionarLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addComponent(labelPesquisa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoPesquisa))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addGap(53, 53, 53))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(adicionarLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        menuContaCliente.setText("Conta");
+        menuConta.setText("Conta");
 
-        perfilMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/perfil.png"))); // NOI18N
-        perfilMenu.setText("Perfil");
-        menuContaCliente.add(perfilMenu);
-
-        logoutMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/logout.png"))); // NOI18N
-        logoutMenu.setText("Logout");
-        logoutMenu.addActionListener(new java.awt.event.ActionListener() {
+        botaoPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/perfil.png"))); // NOI18N
+        botaoPerfil.setText("Perfil");
+        botaoPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutMenuActionPerformed(evt);
+                botaoPerfilActionPerformed(evt);
             }
         });
-        menuContaCliente.add(logoutMenu);
+        menuConta.add(botaoPerfil);
 
-        jMenuBar1.add(menuContaCliente);
+        botaoLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/logout.png"))); // NOI18N
+        botaoLogout.setText("Logout");
+        menuConta.add(botaoLogout);
 
-        menuDevolucao.setText("Devolução");
-        jMenuBar1.add(menuDevolucao);
+        jMenuBar1.add(menuConta);
+
+        menuLivros.setText("Livros");
+        jMenuBar1.add(menuLivros);
+
+        menuClientes.setText("Clientes");
+        jMenuBar1.add(menuClientes);
+
+        Funcionarios.setText("Funcionarios");
+        jMenuBar1.add(Funcionarios);
 
         setJMenuBar(jMenuBar1);
 
@@ -136,7 +154,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,13 +164,17 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutMenuActionPerformed
+    private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_logoutMenuActionPerformed
+    }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
         //logica do botao de pesquisa
     }//GEN-LAST:event_botaoPesquisaMouseClicked
+
+    private void adicionarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLivrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adicionarLivrosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,25 +193,29 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuLivroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuLivroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuLivroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipalCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuLivroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipalCliente().setVisible(true);
+                new MenuLivroFuncionario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Funcionarios;
+    private javax.swing.JButton adicionarLivros;
+    private javax.swing.JMenuItem botaoLogout;
+    private javax.swing.JMenuItem botaoPerfil;
     private javax.swing.JLabel botaoPesquisa;
     private javax.swing.JTextField fieldPesquisa;
     private javax.swing.JMenuBar jMenuBar1;
@@ -197,9 +223,8 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelPesquisa;
     private javax.swing.JTable listaLivros;
-    private javax.swing.JMenuItem logoutMenu;
-    private javax.swing.JMenu menuContaCliente;
-    private javax.swing.JMenu menuDevolucao;
-    private javax.swing.JMenuItem perfilMenu;
+    private javax.swing.JMenu menuClientes;
+    private javax.swing.JMenu menuConta;
+    private javax.swing.JMenu menuLivros;
     // End of variables declaration//GEN-END:variables
 }
