@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Visao;
+
+import Controle.ControleMenuClienteFuncionario;
 
 /**
  *
@@ -10,11 +8,12 @@ package Visao;
  */
 public class MenuClienteFuncionario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuLivroFuncionario
-     */
+    private final ControleMenuClienteFuncionario controlador;
+
+    
     public MenuClienteFuncionario() {
         initComponents();
+        controlador = new ControleMenuClienteFuncionario(this);
     }
 
     /**
@@ -121,17 +120,37 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
         botaoLogout.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\logout.png"));
         botaoLogout.setText("Logout");
+        botaoLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoLogoutMouseClicked(evt);
+            }
+        });
         menuConta.add(botaoLogout);
 
         jMenuBar1.add(menuConta);
 
         menuLivros.setText("Livros");
+        menuLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuLivrosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuLivros);
 
         menuClientes.setText("Clientes");
+        menuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuClientesMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(menuClientes);
 
         Funcionarios.setText("Funcionarios");
+        Funcionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FuncionariosMouseClicked(evt);
+            }
+        });
         jMenuBar1.add(Funcionarios);
 
         setJMenuBar(jMenuBar1);
@@ -151,12 +170,28 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
-        // TODO add your handling code here:
+        controlador.irPerfilFuncionario();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
         //logica do botao de pesquisa
     }//GEN-LAST:event_botaoPesquisaMouseClicked
+
+    private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
+        controlador.retornarTelaLogin();
+    }//GEN-LAST:event_botaoLogoutMouseClicked
+
+    private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
+        controlador.irMenuLivro();
+    }//GEN-LAST:event_menuLivrosMouseClicked
+
+    private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
+        controlador.irMenuCliente();
+    }//GEN-LAST:event_menuClientesMouseClicked
+
+    private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
+        controlador.irMenuFuncionarios();
+    }//GEN-LAST:event_FuncionariosMouseClicked
 
     /**
      * @param args the command line arguments
