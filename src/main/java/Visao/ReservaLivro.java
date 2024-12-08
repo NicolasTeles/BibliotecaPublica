@@ -4,17 +4,22 @@
  */
 package Visao;
 
+import Controle.ControleReservaLivro;
+
 /**
  *
  * @author felip
  */
 public class ReservaLivro extends javax.swing.JFrame {
+    
+    private final ControleReservaLivro controlador;
 
     /**
      * Creates new form ReservaLivro
      */
     public ReservaLivro() {
         initComponents();
+        controlador = new ControleReservaLivro(this);
     }
 
     /**
@@ -175,7 +180,7 @@ public class ReservaLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_textAutorActionPerformed
 
     private void botaoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservarActionPerformed
-        // ...
+        //funcao que reserva e fecha
     }//GEN-LAST:event_botaoReservarActionPerformed
 
     /**
