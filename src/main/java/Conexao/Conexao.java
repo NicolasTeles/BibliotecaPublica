@@ -21,4 +21,8 @@ public class Conexao {
         }
         return minhaConexao;
     }
+    
+    public static void main(String[] args) {
+        getConexao();
+    }
 }

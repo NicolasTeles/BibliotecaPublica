@@ -61,28 +61,28 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="senhaLabel" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="emailLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="nomeLabel" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="nomeTextField" max="32767" attributes="0"/>
-                          <Component id="senhaField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="confirmaSenhaField" alignment="0" pref="371" max="32767" attributes="0"/>
-                          <Component id="confirmaSenhaLabel" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="buttonVoltar1" min="-2" pref="112" max="-2" attributes="0"/>
                   <EmptySpace pref="294" max="32767" attributes="0"/>
                   <Component id="BotaoCadastro" min="-2" pref="125" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cpfLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="senhaLabel" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="emailLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="nomeLabel" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="nomeTextField" max="32767" attributes="0"/>
+                      <Component id="senhaField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="confirmaSenhaField" alignment="0" pref="371" max="32767" attributes="0"/>
+                      <Component id="confirmaSenhaLabel" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                      <Component id="cpfTextField" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,15 +97,19 @@
                   <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="emailTextField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="cpfLabel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cpfTextField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="senhaField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Component id="confirmaSenhaLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="confirmaSenhaField" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="70" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BotaoCadastro" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="buttonVoltar1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
@@ -117,6 +121,9 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="nomeTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeTextFieldActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="nomeLabel">
           <Properties>
@@ -124,6 +131,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="emailTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailTextFieldActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="emailLabel">
           <Properties>
@@ -165,6 +175,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonVoltar1ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="cpfTextField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfTextFieldActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cpfLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CPF"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

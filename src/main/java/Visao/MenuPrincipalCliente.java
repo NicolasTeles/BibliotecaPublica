@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleMenuPrincipalCliente;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -172,7 +173,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutMenuActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //implementar a logica que pesquisa o livro desejado
+        JOptionPane.showMessageDialog(null, "teste");
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void perfilMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilMenuActionPerformed

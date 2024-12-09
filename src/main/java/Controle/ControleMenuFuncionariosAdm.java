@@ -63,7 +63,7 @@ public class ControleMenuFuncionariosAdm {
     public void acessaFuncionario(int indexLinha){
         Funcionario funcionario = this.helper.leLinha(indexLinha);
         if(JOptionPane.showConfirmDialog(this.view, "Deseja deletar esse funcionario?") == 0){
-            JOptionPane.showMessageDialog(view, "alo");
+            // deleta do banco
         }
     }
 }

@@ -45,6 +45,8 @@ public class CadastroCliente extends javax.swing.JFrame {
         confirmaSenhaField = new javax.swing.JPasswordField();
         BotaoCadastro = new javax.swing.JButton();
         buttonVoltar1 = new javax.swing.JButton();
+        cpfTextField = new javax.swing.JTextField();
+        cpfLabel = new javax.swing.JLabel();
 
         buttonVoltar.setText("Voltar");
         buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +60,19 @@ public class CadastroCliente extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 660));
 
+        nomeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeTextFieldActionPerformed(evt);
+            }
+        });
+
         nomeLabel.setText("Nome");
+
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTextFieldActionPerformed(evt);
+            }
+        });
 
         emailLabel.setText("Email");
 
@@ -92,29 +106,38 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        cpfTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpfTextFieldActionPerformed(evt);
+            }
+        });
+
+        cpfLabel.setText("CPF");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(emailTextField)
-                        .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nomeTextField)
-                        .addComponent(senhaField)
-                        .addComponent(confirmaSenhaField, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
-                        .addComponent(confirmaSenhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(buttonVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
                 .addComponent(BotaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cpfLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailTextField)
+                    .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeTextField)
+                    .addComponent(senhaField)
+                    .addComponent(confirmaSenhaField, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                    .addComponent(confirmaSenhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfTextField))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,15 +150,19 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addComponent(emailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
+                .addGap(44, 44, 44)
+                .addComponent(cpfLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cpfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
                 .addComponent(senhaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(senhaField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(32, 32, 32)
                 .addComponent(confirmaSenhaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmaSenhaField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotaoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonVoltar1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,10 +202,63 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        //adicionar a condicao responsavel por verificar se o usuario e senha bate com o banco
-        this.controlador.navegaMenuCliente();
-        this.controlador.printaMensagemTeste();
+        if(this.controlador.cadastraCliente()){
+            this.controlador.navegaMenuCliente();
+            this.controlador.printaMensagemTeste();
+        }
     }//GEN-LAST:event_BotaoCadastroActionPerformed
+
+    public JTextField getCpfTextField() {
+        return cpfTextField;
+    }
+
+    public void setCpfTextField(JTextField cpfTextField) {
+        this.cpfTextField = cpfTextField;
+    }
+
+    public JPasswordField getConfirmaSenhaField() {
+        return confirmaSenhaField;
+    }
+
+    public void setConfirmaSenhaField(JPasswordField confirmaSenhaField) {
+        this.confirmaSenhaField = confirmaSenhaField;
+    }
+
+    public JTextField getEmailTextField() {
+        return emailTextField;
+    }
+
+    public void setEmailTextField(JTextField emailTextField) {
+        this.emailTextField = emailTextField;
+    }
+
+    public JTextField getNomeTextField() {
+        return nomeTextField;
+    }
+
+    public void setNomeTextField(JTextField nomeTextField) {
+        this.nomeTextField = nomeTextField;
+    }
+
+    public JPasswordField getSenhaField() {
+        return senhaField;
+    }
+
+    public void setSenhaField(JPasswordField senhaField) {
+        this.senhaField = senhaField;
+    }
+
+    private void nomeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeTextFieldActionPerformed
+
+    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailTextFieldActionPerformed
+
+    private void cpfTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpfTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +301,8 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton buttonVoltar1;
     private javax.swing.JPasswordField confirmaSenhaField;
     private javax.swing.JLabel confirmaSenhaLabel;
+    private javax.swing.JLabel cpfLabel;
+    private javax.swing.JTextField cpfTextField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JPanel jPanel1;
