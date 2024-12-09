@@ -23,6 +23,6 @@ public class Conexao {
     }
     
     public static void main(String[] args) {
-        getConexao();
+        System.out.println(getConexao() != null);
     }
 }
