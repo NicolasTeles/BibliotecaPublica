@@ -5,6 +5,8 @@
 package Visao;
 
 import Controle.ControleReservaLivro;
+import Modelo.Livro;
+import javax.swing.JTextField;
 
 /**
  *
@@ -20,6 +22,11 @@ public class ReservaLivro extends javax.swing.JFrame {
     public ReservaLivro() {
         initComponents();
         controlador = new ControleReservaLivro(this);
+    }
+    
+    public ReservaLivro(Livro livro){
+        initComponents();
+        controlador = new ControleReservaLivro(this, livro);
     }
 
     /**
@@ -180,7 +187,7 @@ public class ReservaLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_textAutorActionPerformed
 
     private void botaoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservarActionPerformed
-        //funcao que reserva e fecha
+        this.controlador.reserva();
     }//GEN-LAST:event_botaoReservarActionPerformed
 
     /**
@@ -218,6 +225,38 @@ public class ReservaLivro extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getTextAno() {
+        return textAno;
+    }
+
+    public void setTextAno(JTextField textAno) {
+        this.textAno = textAno;
+    }
+
+    public JTextField getTextAutor() {
+        return textAutor;
+    }
+
+    public void setTextAutor(JTextField textAutor) {
+        this.textAutor = textAutor;
+    }
+
+    public JTextField getTextEditora() {
+        return textEditora;
+    }
+
+    public void setTextEditora(JTextField textEditora) {
+        this.textEditora = textEditora;
+    }
+
+    public JTextField getTextNome() {
+        return textNome;
+    }
+
+    public void setTextNome(JTextField textNome) {
+        this.textNome = textNome;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoReservar;
     private javax.swing.JPanel jPanel1;

@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleMenuPrincipalCliente;
+import javax.swing.JTable;
 
 /**
  *
@@ -66,6 +67,11 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        listaLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaLivrosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(listaLivros);
@@ -176,6 +182,20 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     private void menuDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDevolucaoMouseClicked
         this.controlador.navegaDevolucao();
     }//GEN-LAST:event_menuDevolucaoMouseClicked
+
+    private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
+        if(evt.getClickCount() > 1){
+            this.controlador.acessaLivro(this.listaLivros.getSelectedRow());
+        }
+    }//GEN-LAST:event_listaLivrosMouseClicked
+
+    public JTable getListaLivros() {
+        return listaLivros;
+    }
+
+    public void setListaLivros(JTable listaLivros) {
+        this.listaLivros = listaLivros;
+    }
 
     /**
      * @param args the command line arguments
