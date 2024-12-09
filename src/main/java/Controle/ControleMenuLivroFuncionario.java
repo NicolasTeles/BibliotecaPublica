@@ -1,12 +1,15 @@
 
 package Controle;
 
+import Controle.Helpers.MenuLivroFuncionarioHelper;
+import Modelo.Livro;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroLivro;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  *
@@ -15,9 +18,11 @@ import Visao.CadastroLivro;
 public class ControleMenuLivroFuncionario {
 
     private final MenuLivroFuncionario view;
+    private final MenuLivroFuncionarioHelper helper;
     
     public ControleMenuLivroFuncionario(MenuLivroFuncionario view){
         this.view = view;
+        this.helper = new MenuLivroFuncionarioHelper(view);
     }
     
     public void irPerfilFuncionario(){
@@ -50,5 +55,12 @@ public class ControleMenuLivroFuncionario {
         CadastroLivro cadastro = new CadastroLivro();
         cadastro.setVisible(true);
         this.view.dispose();        
+    }
+    
+    public void acessaLivro(int indexLinha){
+        Livro livro = this.helper.leLinha(indexLinha);
+        //chama devolve livro com esse livro como parametro
+        CadastroLivro dv = new CadastroLivro(livro);
+        dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 }

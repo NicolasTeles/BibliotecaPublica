@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuLivroFuncionario;
+import javax.swing.JTable;
 /**
  *
  * @author pichau
@@ -64,6 +65,11 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        listaLivros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaLivrosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(listaLivros);
@@ -189,6 +195,10 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
+    public JTable getListaLivros() {
+        return listaLivros;
+    }
+    
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
         //logica do botao de pesquisa
     }//GEN-LAST:event_botaoPesquisaMouseClicked
@@ -212,6 +222,12 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
         this.controlador.irMenuFuncionarios();
     }//GEN-LAST:event_FuncionariosMouseClicked
+
+    private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
+        if(evt.getClickCount() > 1){
+           this.controlador.acessaLivro(this.listaLivros.getSelectedRow());
+        }
+    }//GEN-LAST:event_listaLivrosMouseClicked
 
     /**
      * @param args the command line arguments

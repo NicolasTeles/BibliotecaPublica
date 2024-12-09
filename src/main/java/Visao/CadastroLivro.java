@@ -5,8 +5,9 @@
 package Visao;
 
 import Controle.ControleCadastroLivro;
-
+import Modelo.Livro;
 import javax.swing.*;
+
 
 /**
  *
@@ -24,6 +25,12 @@ public class CadastroLivro extends javax.swing.JFrame {
         initComponents();
         controlador = new ControleCadastroLivro(this);
     }
+    
+    public CadastroLivro(Livro livro) {
+        this.setTitle("Cadastro de livros");
+        initComponents();
+        controlador = new ControleCadastroLivro(this, livro);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,15 +43,15 @@ public class CadastroLivro extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         nomeLabel = new javax.swing.JLabel();
-        nomeTextField = new javax.swing.JTextField();
+        textNome = new javax.swing.JTextField();
         autorLabel = new javax.swing.JLabel();
-        autorField = new javax.swing.JTextField();
+        textAutor = new javax.swing.JTextField();
         buttonVoltar = new javax.swing.JButton();
         buttonCadastro = new javax.swing.JButton();
         editoraLabel = new javax.swing.JLabel();
-        editoraField = new javax.swing.JTextField();
+        textEditora = new javax.swing.JTextField();
         anoPubliLabel = new javax.swing.JLabel();
-        anoPubliField = new javax.swing.JTextField();
+        textAnoPubli = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,14 +93,14 @@ public class CadastroLivro extends javax.swing.JFrame {
                 .addGap(117, 117, 117)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(editoraField)
-                        .addComponent(anoPubliField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textEditora)
+                        .addComponent(textAnoPubli, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(editoraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(anoPubliLabel))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nomeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                        .addComponent(autorField)
+                        .addComponent(textNome, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                        .addComponent(textAutor)
                         .addComponent(autorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
@@ -103,19 +110,19 @@ public class CadastroLivro extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(nomeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(autorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(autorField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(editoraLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editoraField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(anoPubliLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(anoPubliField, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textAnoPubli, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,6 +154,51 @@ public class CadastroLivro extends javax.swing.JFrame {
         controlador.printaMensagemTeste();
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
+    public JButton getButtonCadastro() {
+        return buttonCadastro;
+    }
+
+    public JButton getButtonVoltar() {
+        return buttonVoltar;
+    }
+
+    public JTextField getTextAnoPubli() {
+        return textAnoPubli;
+    }
+
+    public JTextField getTextAutor() {
+        return textAutor;
+    }
+
+    public JTextField getTextEditora() {
+        return textEditora;
+    }
+
+    public JTextField getTextNome() {
+        return textNome;
+    }
+
+    public void setButtonCadastro(JButton buttonCadastro) {
+        this.buttonCadastro = buttonCadastro;
+    }
+
+    public void setButtonVoltar(JButton buttonVoltar) {
+        this.buttonVoltar = buttonVoltar;
+    }
+
+    public void setTextAutor(JTextField textAutor) {
+        this.textAutor = textAutor;
+    }
+
+    public void setTextEditora(JTextField textEditora) {
+        this.textEditora = textEditora;
+    }
+
+    public void setTextNome(JTextField textNome) {
+        this.textNome = textNome;
+    }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -183,17 +235,17 @@ public class CadastroLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField anoPubliField;
     private javax.swing.JLabel anoPubliLabel;
-    private javax.swing.JTextField autorField;
     private javax.swing.JLabel autorLabel;
     private javax.swing.JButton buttonCadastro;
     private javax.swing.JButton buttonVoltar;
-    private javax.swing.JTextField editoraField;
     private javax.swing.JLabel editoraLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nomeLabel;
-    private javax.swing.JTextField nomeTextField;
+    private javax.swing.JTextField textAnoPubli;
+    private javax.swing.JTextField textAutor;
+    private javax.swing.JTextField textEditora;
+    private javax.swing.JTextField textNome;
     // End of variables declaration//GEN-END:variables
 
     public void exibeMensagem(String mensagem) {

@@ -59,15 +59,15 @@
                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="editoraField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="anoPubliField" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="textEditora" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textAnoPubli" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
                           <Component id="editoraLabel" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
                           <Component id="anoPubliLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="nomeLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="nomeTextField" alignment="0" pref="290" max="32767" attributes="0"/>
-                          <Component id="autorField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="textNome" alignment="0" pref="290" max="32767" attributes="0"/>
+                          <Component id="textAutor" alignment="0" max="32767" attributes="0"/>
                           <Component id="autorLabel" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -81,19 +81,19 @@
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Component id="nomeLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="nomeTextField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="textNome" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="autorLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="autorField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="textAutor" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="editoraLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="editoraField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="textEditora" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="anoPubliLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="anoPubliField" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="textAnoPubli" min="-2" pref="44" max="-2" attributes="0"/>
                   <EmptySpace pref="85" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="buttonVoltar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
@@ -110,14 +110,14 @@
             <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nomeTextField">
+        <Component class="javax.swing.JTextField" name="textNome">
         </Component>
         <Component class="javax.swing.JLabel" name="autorLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Autor(a)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="autorField">
+        <Component class="javax.swing.JTextField" name="textAutor">
         </Component>
         <Component class="javax.swing.JButton" name="buttonVoltar">
           <Properties>
@@ -140,14 +140,14 @@
             <Property name="text" type="java.lang.String" value="Editora"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="editoraField">
+        <Component class="javax.swing.JTextField" name="textEditora">
         </Component>
         <Component class="javax.swing.JLabel" name="anoPubliLabel">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ano de Publica&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="anoPubliField">
+        <Component class="javax.swing.JTextField" name="textAnoPubli">
         </Component>
       </SubComponents>
     </Container>
