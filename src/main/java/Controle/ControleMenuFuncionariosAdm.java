@@ -1,12 +1,15 @@
 package Controle;
 
 
+import Controle.Helpers.MenuFuncionarioAdmHelper;
+import Modelo.Funcionario;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroFuncionario;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  *
@@ -15,10 +18,13 @@ import Visao.CadastroFuncionario;
 public class ControleMenuFuncionariosAdm {
 
     private final MenuFuncionariosAdm view;
+    private final MenuFuncionarioAdmHelper helper;
+   
     
     
     public ControleMenuFuncionariosAdm(MenuFuncionariosAdm view){
         this.view = view;
+        this.helper = new MenuFuncionarioAdmHelper(view);
     }
 
     public ControleMenuFuncionariosAdm() {
@@ -55,5 +61,12 @@ public class ControleMenuFuncionariosAdm {
         CadastroFuncionario cadastro = new CadastroFuncionario();
         cadastro.setVisible(true);
         this.view.dispose();        
+    }
+    
+    public void acessaFuncionario(int indexLinha){
+        Funcionario funcionario = this.helper.leLinha(indexLinha);
+        CadastroFuncionario cd = new CadastroFuncionario(funcionario);
+        cd.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
     }
 }

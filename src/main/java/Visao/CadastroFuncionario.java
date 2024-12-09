@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleCadastroFuncionario;
+import Modelo.Funcionario;
 
 import javax.swing.*;
 
@@ -23,6 +24,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         this.setTitle("Cadastro de funcionarios");
         initComponents();
         controlador = new ControleCadastroFuncionario(this);
+    }
+    
+    public CadastroFuncionario(Funcionario funcionario) {
+        this.setTitle("Cadastro de funcionarios");
+        initComponents();
+        controlador = new ControleCadastroFuncionario(this, funcionario);
     }
 
     /**

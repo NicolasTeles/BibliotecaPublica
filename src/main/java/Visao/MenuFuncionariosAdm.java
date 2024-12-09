@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuFuncionariosAdm;
+import javax.swing.JTable;
 /**
  *
  * @author pichau
@@ -17,6 +18,14 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         controlador = new ControleMenuFuncionariosAdm(this);
     }
 
+    public JTable getListaFuncionarios() {
+        return listaFuncionarios;
+    }
+
+    public void setListaFuncionarios(JTable listaFuncionarios) {
+        this.listaFuncionarios = listaFuncionarios;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +37,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listaClientes = new javax.swing.JTable();
+        listaFuncionarios = new javax.swing.JTable();
         fieldPesquisa = new javax.swing.JTextField();
         labelPesquisa = new javax.swing.JLabel();
         botaoPesquisa = new javax.swing.JLabel();
@@ -47,7 +56,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        listaClientes.setModel(new javax.swing.table.DefaultTableModel(
+        listaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"asd", "asd", "asd", null},
                 {null, null, "", null},
@@ -66,7 +75,12 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(listaClientes);
+        listaFuncionarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaFuncionariosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(listaFuncionarios);
 
         labelPesquisa.setText("Pesquisa");
 
@@ -216,6 +230,13 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         controlador.irMenuCliente();
     }//GEN-LAST:event_menuClientesMouseClicked
 
+    private void listaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaFuncionariosMouseClicked
+        if(evt.getClickCount()>1){
+            this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow());
+            
+        }
+    }//GEN-LAST:event_listaFuncionariosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -265,7 +286,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labelPesquisa;
-    private javax.swing.JTable listaClientes;
+    private javax.swing.JTable listaFuncionarios;
     private javax.swing.JMenu menuClientes;
     private javax.swing.JMenu menuConta;
     private javax.swing.JMenu menuLivros;
