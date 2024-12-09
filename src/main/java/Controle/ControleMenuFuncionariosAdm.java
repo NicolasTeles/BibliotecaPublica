@@ -9,6 +9,7 @@ import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroFuncionario;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
@@ -25,10 +26,6 @@ public class ControleMenuFuncionariosAdm {
     public ControleMenuFuncionariosAdm(MenuFuncionariosAdm view){
         this.view = view;
         this.helper = new MenuFuncionarioAdmHelper(view);
-    }
-
-    public ControleMenuFuncionariosAdm() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void irPerfilFuncionario(){
@@ -65,8 +62,8 @@ public class ControleMenuFuncionariosAdm {
     
     public void acessaFuncionario(int indexLinha){
         Funcionario funcionario = this.helper.leLinha(indexLinha);
-        CadastroFuncionario cd = new CadastroFuncionario(funcionario);
-        cd.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+        if(JOptionPane.showConfirmDialog(this.view, "Deseja deletar esse funcionario?") == 0){
+            JOptionPane.showMessageDialog(view, "alo");
+        }
     }
 }
