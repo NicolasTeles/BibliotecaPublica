@@ -2,6 +2,7 @@ package Visao;
 
 import Controle.ControleMenuLivroFuncionario;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 /**
  *
  * @author pichau
@@ -16,6 +17,11 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     public MenuLivroFuncionario() {
         initComponents();
         controlador = new ControleMenuLivroFuncionario(this);
+        this.controlador.inicia();
+    }
+
+    public void setListaLivros(JTable listaLivros) {
+        this.listaLivros = listaLivros;
     }
 
     /**
@@ -72,6 +78,12 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(listaLivros);
+
+        fieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPesquisaActionPerformed(evt);
+            }
+        });
 
         labelPesquisa.setText("Pesquisa");
 
@@ -191,7 +203,6 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
         this.controlador.irPerfilFuncionario();
-        
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     public JTable getListaLivros() {
@@ -199,7 +210,7 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }
     
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //logica do botao de pesquisa
+        this.controlador.pesquisaLivro();
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void adicionarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLivrosActionPerformed
@@ -227,6 +238,18 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
            this.controlador.acessaLivro(this.listaLivros.getSelectedRow());
         }
     }//GEN-LAST:event_listaLivrosMouseClicked
+
+    private void fieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldPesquisaActionPerformed
+
+    public JTextField getFieldPesquisa() {
+        return fieldPesquisa;
+    }
+
+    public void setFieldPesquisa(JTextField fieldPesquisa) {
+        this.fieldPesquisa = fieldPesquisa;
+    }
 
     /**
      * @param args the command line arguments

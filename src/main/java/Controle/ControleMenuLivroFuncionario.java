@@ -2,6 +2,7 @@
 package Controle;
 
 import Controle.Helpers.MenuLivroFuncionarioHelper;
+import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
@@ -9,6 +10,8 @@ import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroLivro;
+import java.util.ArrayList;
+import java.util.List;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
@@ -62,5 +65,38 @@ public class ControleMenuLivroFuncionario {
         //chama devolve livro com esse livro como parametro
         CadastroLivro dv = new CadastroLivro(livro);
         dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    public void inicia() {
+        LivroDAO cd = new LivroDAO();
+        List<Livro> livros = cd.listarLivros();
+        this.helper.preencheTabela(livros);
+    }
+
+    public void pesquisaLivro() {
+        LivroDAO cd = new LivroDAO();
+        List<Livro> livros = new ArrayList<>();
+        List<Livro> todosOsLivros = cd.listarLivros();
+        String pesquisa = this.view.getFieldPesquisa().getText().toLowerCase();
+        
+        if(pesquisa != null && !pesquisa.equalsIgnoreCase("")){
+            pesquisa = pesquisa.toLowerCase();
+
+            for(Livro livro : todosOsLivros){
+                if(livro.getNome().toLowerCase().contains(pesquisa) || livro.getNome().equalsIgnoreCase(pesquisa))
+                    livros.add(livro);
+                else if(livro.getEditora().toLowerCase().contains(pesquisa) || livro.getEditora().equalsIgnoreCase(pesquisa))
+                    livros.add(livro);
+                else if(livro.getAutor().toLowerCase().contains(pesquisa) || livro.getAutor().equalsIgnoreCase(pesquisa))
+                    livros.add(livro);
+                else if(String.valueOf(livro.getAnoPubli()).equals(pesquisa)) 
+                    livros.add(livro);
+            }
+        }
+        if(livros.isEmpty())
+            this.helper.preencheTabela(todosOsLivros);
+        else
+            this.helper.preencheTabela(livros);
+        
     }
 }
