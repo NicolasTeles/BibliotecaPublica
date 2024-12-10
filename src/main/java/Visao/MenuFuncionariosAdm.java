@@ -2,6 +2,7 @@ package Visao;
 
 import Controle.ControleMenuFuncionariosAdm;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 /**
  *
  * @author pichau
@@ -16,6 +17,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     public MenuFuncionariosAdm() {
         initComponents();
         controlador = new ControleMenuFuncionariosAdm(this);
+        this.controlador.inicia();
     }
 
     public JTable getListaFuncionarios() {
@@ -81,6 +83,12 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(listaFuncionarios);
+
+        fieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPesquisaActionPerformed(evt);
+            }
+        });
 
         labelPesquisa.setText("Pesquisa");
 
@@ -211,7 +219,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //logica do botao de pesquisa
+        controlador.pesquisaFuncionario();
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void botaoPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPerfilMouseClicked
@@ -236,6 +244,19 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_listaFuncionariosMouseClicked
 
+    private void fieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldPesquisaActionPerformed
+
+    public JTextField getFieldPesquisa() {
+        return fieldPesquisa;
+    }
+
+    public void setFieldPesquisa(JTextField fieldPesquisa) {
+        this.fieldPesquisa = fieldPesquisa;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
