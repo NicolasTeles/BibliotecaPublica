@@ -17,14 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuClienteFuncionarioHelper {
 
-    private final MenuClienteFuncionario view;
-
-    public MenuClienteFuncionarioHelper(MenuClienteFuncionario view) {
-        this.view = view;
-    }
-
-    public void preencheTabela(List<Cliente> clientes) {
-        DefaultTableModel tableModel = (DefaultTableModel) this.view.getListaClientes().getModel();
+    public void preencheTabela(List<Cliente> clientes, DefaultTableModel tableModel) {
         tableModel.setNumRows(0);
         for (Cliente cliente : clientes) {
             tableModel.addRow(new Object[]{
@@ -36,8 +29,7 @@ public class MenuClienteFuncionarioHelper {
         }
     }
     
-    public Cliente leLinha(int indexLinha){
-        DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaClientes().getModel();
+    public Cliente leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector vector = tableModel.getDataVector().get(indexLinha);
         ClienteDAO cd = new ClienteDAO();
         return cd.consultaCliente(String.valueOf(vector.get(2)));

@@ -3,6 +3,7 @@ package Visao;
 import Controle.ControleMenuClienteFuncionario;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,8 +16,8 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     
     public MenuClienteFuncionario() {
         initComponents();
-        controlador = new ControleMenuClienteFuncionario(this);
-        this.controlador.inicia();
+        controlador = new ControleMenuClienteFuncionario();
+        this.controlador.inicia( (DefaultTableModel)this.listaClientes.getModel() );
     }
 
     public JTable getListaClientes() {
@@ -186,31 +187,36 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
         controlador.irPerfilFuncionario();
+        this.dispose();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        this.controlador.pesquisaCliente();
+        this.controlador.pesquisaCliente(this.getFieldPesquisa().getText().toLowerCase(), (DefaultTableModel)this.listaClientes.getModel());
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
         controlador.retornarTelaLogin();
+        this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
         controlador.irMenuLivro();
+        this.dispose();
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
         controlador.irMenuCliente();
+        this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
         controlador.irMenuFuncionarios();
+        this.dispose();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
     private void listaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaClientesMouseClicked
         if(evt.getClickCount() > 1){
-            this.controlador.alteraCliente(this.getListaClientes().getSelectedRow());
+            this.controlador.alteraCliente(this.listaClientes.getSelectedRow(), (DefaultTableModel)this.listaClientes.getModel());
         }
     }//GEN-LAST:event_listaClientesMouseClicked
 
