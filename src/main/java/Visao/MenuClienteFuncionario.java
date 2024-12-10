@@ -2,6 +2,7 @@ package Visao;
 
 import Controle.ControleMenuClienteFuncionario;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -188,7 +189,7 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //logica do botao de pesquisa
+        this.controlador.pesquisaCliente();
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
@@ -212,6 +213,14 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
             //this.controlador.listaClientes();
         }
     }//GEN-LAST:event_listaClientesMouseClicked
+
+    public JTextField getFieldPesquisa() {
+        return fieldPesquisa;
+    }
+
+    public void setFieldPesquisa(JTextField fieldPesquisa) {
+        this.fieldPesquisa = fieldPesquisa;
+    }
 
     
     /**

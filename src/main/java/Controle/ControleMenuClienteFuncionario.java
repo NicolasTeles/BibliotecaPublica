@@ -9,6 +9,7 @@ import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroCliente;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -67,5 +68,29 @@ public class ControleMenuClienteFuncionario {
         ClienteDAO cd = new ClienteDAO();
         List<Cliente> clientes = cd.listarContas();
         this.helper.preencheTabela(clientes);
+    }
+    
+    public void pesquisaCliente(){
+        ClienteDAO cd = new ClienteDAO();
+        List<Cliente> clientes = new ArrayList<>();
+        List<Cliente> todosOsClientes = cd.listarContas();
+        String pesquisa = this.view.getFieldPesquisa().getText().toLowerCase();
+
+        if(pesquisa != null && !pesquisa.equalsIgnoreCase("")){
+            pesquisa = pesquisa.toLowerCase();
+
+            for(Cliente cliente : todosOsClientes){
+                if(cliente.getNome().toLowerCase().contains(pesquisa) || cliente.getNome().equalsIgnoreCase(pesquisa))
+                    clientes.add(cliente);
+                else if(cliente.getEmail().toLowerCase().contains(pesquisa) || cliente.getEmail().equalsIgnoreCase(pesquisa))
+                    clientes.add(cliente);
+                else if(cliente.getCpf().toLowerCase().contains(pesquisa) || cliente.getCpf().equalsIgnoreCase(pesquisa))
+                    clientes.add(cliente);
+            }
+        }
+        if(clientes.isEmpty())
+            this.helper.preencheTabela(todosOsClientes);
+        else
+            this.helper.preencheTabela(clientes);
     }
 }

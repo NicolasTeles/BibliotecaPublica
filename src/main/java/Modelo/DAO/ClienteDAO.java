@@ -86,7 +86,7 @@ public class ClienteDAO {
     public List<Cliente> listarContas(){
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "SELECT * FROM bibliotecapublica.cliente";
-            List<Cliente> listaDeclientes = new ArrayList<Cliente>();
+            List<Cliente> listaDeclientes = new ArrayList<>();
             PreparedStatement comando = conexao.prepareStatement(SQL);
             ResultSet resultado = comando.executeQuery();
             while(resultado.next()){
@@ -107,44 +107,6 @@ public class ClienteDAO {
             String SQL = "SELECT * FROM cliente WHERE cpf = ?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, cpf);
-            ResultSet resultado = comando.executeQuery();
-            if(resultado.next()){
-                return this.pegaDadosCliente(resultado);
-            }
-        }catch (SQLException e){
-            System.out.println("Erro ao consultar cliente");
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public Cliente consultaCliente(Cliente dados){
-        try(Connection conexao = Conexao.getConexao()){
-            String SQL = "SELECT * FROM bibliotecapublica.cliente";
-            String filtro = "";
-
-            if(dados != null){
-                if(dados.getNome() != null && !dados.getNome().equalsIgnoreCase("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE nome ilike '%"+dados.getNome()+"%'";
-                    }
-                }
-                if(dados.getCpf() != null && !dados.getCpf().equalsIgnoreCase("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE cpf ilike '%"+dados.getCpf()+"%'";
-                    }else{
-                        filtro += " AND cpf ilike '%"+dados.getCpf()+"%'";
-                    }
-                }
-                if(dados.getEmail() != null && !dados.getEmail().equalsIgnoreCase("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE email ilike '%"+dados.getEmail()+"%'";
-                    }else{
-                        filtro += " AND email ilike '%"+dados.getEmail()+"%'";
-                    }
-                }
-            }
-            PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
                 return this.pegaDadosCliente(resultado);
