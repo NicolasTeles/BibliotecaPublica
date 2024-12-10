@@ -28,7 +28,8 @@ public class MenuClienteFuncionarioHelper {
             tableModel.addRow(new Object[]{
                cliente.getNome(),
                cliente.getEmail(),
-               cliente.getCpf()
+               cliente.getCpf(),
+               cliente.getStatusCliente()
             });
        }
    }

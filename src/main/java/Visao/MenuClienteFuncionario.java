@@ -57,16 +57,16 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
         listaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, ""},
-                {null, null, ""},
-                {null, null, ""}
+                {null, null, "", null},
+                {null, null, "", null},
+                {null, null, "", null}
             },
             new String [] {
-                "Nome", "Email", "CPF"
+                "Nome", "Email", "CPF", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
