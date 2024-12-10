@@ -57,10 +57,14 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane2MouseClicked(evt);
+            }
+        });
 
         listaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asd", "asd", "asd", null},
                 {null, null, "", null},
                 {null, null, "", null},
                 {null, null, "", null}
@@ -247,6 +251,12 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     private void fieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldPesquisaActionPerformed
+
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        if(evt.getClickCount() > 1){
+            //logica para abrir o cadastro do funcionario com os dados do funcionario selecionado(editar)
+        }
+    }//GEN-LAST:event_jScrollPane2MouseClicked
 
     public JTextField getFieldPesquisa() {
         return fieldPesquisa;
