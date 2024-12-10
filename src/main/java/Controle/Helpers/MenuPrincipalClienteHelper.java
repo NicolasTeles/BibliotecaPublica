@@ -6,6 +6,7 @@ package Controle.Helpers;
 
 import Modelo.Livro;
 import Visao.MenuPrincipalCliente;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,5 +27,22 @@ public class MenuPrincipalClienteHelper {
         Livro livro = new Livro();
         //acessa livro no banco
         return livro;
+    }
+
+    public void preencheTabela(List<Livro> livros) {
+        DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
+        tableModel.setNumRows(0);
+        for(Livro livro : livros){
+            tableModel.addRow(new Object[]{
+               livro.getNome(),
+               livro.getEditora(),
+               livro.getAutor(),
+               livro.getAnoPubli(),
+               (livro.getNumAvaliacoes() > 0) 
+                ? livro.getTotalAvaliacao() / livro.getNumAvaliacoes()
+                : "Sem avaliações",
+               livro.getStatus()
+            });
+        }
     }
 }

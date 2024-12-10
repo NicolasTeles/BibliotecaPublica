@@ -86,6 +86,27 @@ public class LivroDAO {
         }
         return null;
     }
+    
+    //if(this.pegaDados(resultado).getStatus() == true)
+    
+    public List<Livro> listarLivrosCliente(){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.livro WHERE status_emprestimo = ?";
+            List<Livro> listaDeLivros = new ArrayList<Livro>();
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setBoolean(1, true);
+            ResultSet resultado = comando.executeQuery();
+            while(resultado.next()){        
+                Livro atual = this.pegaDados(resultado);
+                listaDeLivros.add(atual);             
+            }
+            return listaDeLivros;
+        }catch(SQLException e){
+            System.out.println("Erro ao listar livros");
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public Livro pegaDados(ResultSet resultado){
         try{

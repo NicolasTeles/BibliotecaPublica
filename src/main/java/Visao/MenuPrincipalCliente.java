@@ -7,6 +7,7 @@ package Visao;
 import Controle.ControleMenuPrincipalCliente;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -22,6 +23,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     public MenuPrincipalCliente() {
         initComponents();
         controlador = new ControleMenuPrincipalCliente(this);
+        this.controlador.inicia();
     }
 
     /**
@@ -50,10 +52,14 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane2MouseClicked(evt);
+            }
+        });
 
         listaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asd", "asd", "asd", "", null},
                 {null, null, "", "", null},
                 {null, null, "", "", null},
                 {null, null, "", "", null}
@@ -83,6 +89,12 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
             listaLivros.getColumnModel().getColumn(3).setResizable(false);
             listaLivros.getColumnModel().getColumn(4).setResizable(false);
         }
+
+        fieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPesquisaActionPerformed(evt);
+            }
+        });
 
         labelPesquisa.setText("Pesquisa");
 
@@ -173,7 +185,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutMenuActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        JOptionPane.showMessageDialog(null, "teste");
+        this.controlador.pesquisaLivro();
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void perfilMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilMenuActionPerformed
@@ -190,10 +202,22 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_listaLivrosMouseClicked
 
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jScrollPane2MouseClicked
+
+    private void fieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPesquisaActionPerformed
+        
+    }//GEN-LAST:event_fieldPesquisaActionPerformed
+
+    public JTextField getFieldPesquisa() {
+        return fieldPesquisa;
+    }
+    
     public JTable getListaLivros() {
         return listaLivros;
     }
-
+    
     public void setListaLivros(JTable listaLivros) {
         this.listaLivros = listaLivros;
     }
