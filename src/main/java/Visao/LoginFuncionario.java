@@ -121,8 +121,26 @@ public class LoginFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        controlador.printaMensagemTeste();
+        if(controlador.logaFuncionario()){
+            this.controlador.navegaTelaPrincipalFuncionario();
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    public JTextField getEmailTextField() {
+        return emailTextField;
+    }
+
+    public void setEmailTextField(JTextField emailTextField) {
+        this.emailTextField = emailTextField;
+    }
+
+    public JPasswordField getSenhaPassField() {
+        return senhaPassField;
+    }
+
+    public void setSenhaPassField(JPasswordField senhaPassField) {
+        this.senhaPassField = senhaPassField;
+    }
 
     /**
      * @param args the command line arguments

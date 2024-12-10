@@ -73,15 +73,18 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelNome.setText("Nome:");
 
+        textNome.setEditable(false);
         textNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textNome.setText("JOnas Legless");
 
         LabelCPF.setText("CPF:");
 
+        textCPF.setEditable(false);
         textCPF.setText("666.666.666-69");
 
         labelLogin.setText("Login:");
 
+        textLogin.setEditable(false);
         textLogin.setText("soufoda@gmael.us");
 
         labelCargo.setText("Status:");

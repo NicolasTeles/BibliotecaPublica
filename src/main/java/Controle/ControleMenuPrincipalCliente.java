@@ -55,7 +55,7 @@ public class ControleMenuPrincipalCliente {
 
     public void inicia() {
         LivroDAO cd = new LivroDAO();
-        List<Livro> livros = cd.listarLivros();
+        List<Livro> livros = cd.listarLivrosCliente();
         this.helper.preencheTabela(livros);
     }
 

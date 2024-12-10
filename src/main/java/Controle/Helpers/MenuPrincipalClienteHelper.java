@@ -39,7 +39,7 @@ public class MenuPrincipalClienteHelper {
                livro.getAutor(),
                livro.getAnoPubli(),
                (livro.getNumAvaliacoes() > 0) 
-                ? livro.getTotalAvaliacao() / livro.getNumAvaliacoes()
+                ? (double)livro.getTotalAvaliacao() / (double)livro.getNumAvaliacoes()
                 : "Sem avaliações",
                livro.getStatus()
             });

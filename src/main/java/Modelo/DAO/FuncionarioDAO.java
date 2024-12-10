@@ -114,6 +114,23 @@ public class FuncionarioDAO {
         }
         return null;
     }
+    
+    public Funcionario consultaLoginFuncionario(String login){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.funcionario WHERE login=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, login);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Funcionario atual = this.pegaDados(resultado);
+                return atual;
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao consultar funcionario");
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public Funcionario consultaFuncionario(Funcionario dados){
         try(Connection conexao = Conexao.getConexao()){

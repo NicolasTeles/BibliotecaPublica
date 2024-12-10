@@ -213,8 +213,58 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        controlador.printaMensagemTeste();
+        if(controlador.cadastraFuncionario()){
+            this.controlador.navegaTelaPrincipalFuncionario();
+        }
     }//GEN-LAST:event_BotaoCadastroActionPerformed
+
+    public JPasswordField getConfirmaSenhaField() {
+        return confirmaSenhaField;
+    }
+
+    public void setConfirmaSenhaField(JPasswordField confirmaSenhaField) {
+        this.confirmaSenhaField = confirmaSenhaField;
+    }
+
+    public JTextField getCpfTextField() {
+        return cpfTextField;
+    }
+
+    public void setCpfTextField(JTextField cpfTextField) {
+        this.cpfTextField = cpfTextField;
+    }
+
+    public JComboBox<String> geteAdmComboBox() {
+        return eAdmComboBox;
+    }
+
+    public void seteAdmComboBox(JComboBox<String> eAdmComboBox) {
+        this.eAdmComboBox = eAdmComboBox;
+    }
+
+    public JTextField getEmailTextField() {
+        return emailTextField;
+    }
+
+    public void setEmailTextField(JTextField emailTextField) {
+        this.emailTextField = emailTextField;
+    }
+
+    public JTextField getNomeTextField() {
+        return nomeTextField;
+    }
+
+    public void setNomeTextField(JTextField nomeTextField) {
+        this.nomeTextField = nomeTextField;
+    }
+
+    public JPasswordField getSenhaField() {
+        return senhaField;
+    }
+
+    public void setSenhaField(JPasswordField senhaField) {
+        this.senhaField = senhaField;
+    }
 
     private void eAdmComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eAdmComboBoxActionPerformed
         // TODO add your handling code here:

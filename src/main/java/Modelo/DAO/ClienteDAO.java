@@ -118,6 +118,22 @@ public class ClienteDAO {
         return null;
     }
     
+    public Cliente consultaEmailCliente(String email){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM cliente WHERE email = ?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, email);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                return this.pegaDadosCliente(resultado);
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao consultar cliente");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
     public boolean atualizaStatus(Cliente cliente){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
