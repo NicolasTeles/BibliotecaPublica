@@ -2,6 +2,7 @@ package Controle.Helpers;
 
 import Modelo.Funcionario;
 import Visao.MenuFuncionariosAdm;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +20,20 @@ public class MenuFuncionarioAdmHelper {
         Funcionario funcionario = new Funcionario();
         //logica bd
         return funcionario;
+    }
+    
+    
+    public void preencheTabela(List<Funcionario> funcionarios){
+       DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaFuncionarios().getModel();
+       tableModel.setNumRows(0);
+       for(Funcionario funcionario : funcionarios){
+           tableModel.addRow(new Object[]{
+               funcionario.getNome(),
+               funcionario.getLogin(),
+               funcionario.getCpf(),
+               funcionario.getEadm()
+           });
+       }
     }
     
 }

@@ -2,6 +2,7 @@ package Visao;
 
 import Controle.ControleMenuFuncionariosAdm;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 /**
  *
  * @author pichau
@@ -16,6 +17,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     public MenuFuncionariosAdm() {
         initComponents();
         controlador = new ControleMenuFuncionariosAdm(this);
+        this.controlador.inicia();
     }
 
     public JTable getListaFuncionarios() {
@@ -55,10 +57,14 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jScrollPane2MouseClicked(evt);
+            }
+        });
 
         listaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asd", "asd", "asd", null},
                 {null, null, "", null},
                 {null, null, "", null},
                 {null, null, "", null}
@@ -81,6 +87,12 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(listaFuncionarios);
+
+        fieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldPesquisaActionPerformed(evt);
+            }
+        });
 
         labelPesquisa.setText("Pesquisa");
 
@@ -211,7 +223,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        //logica do botao de pesquisa
+        controlador.pesquisaFuncionario();
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void botaoPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPerfilMouseClicked
@@ -236,6 +248,25 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_listaFuncionariosMouseClicked
 
+    private void fieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPesquisaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldPesquisaActionPerformed
+
+    private void jScrollPane2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jScrollPane2MouseClicked
+        if(evt.getClickCount() > 1){
+            //logica para abrir o cadastro do funcionario com os dados do funcionario selecionado(editar)
+        }
+    }//GEN-LAST:event_jScrollPane2MouseClicked
+
+    public JTextField getFieldPesquisa() {
+        return fieldPesquisa;
+    }
+
+    public void setFieldPesquisa(JTextField fieldPesquisa) {
+        this.fieldPesquisa = fieldPesquisa;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
