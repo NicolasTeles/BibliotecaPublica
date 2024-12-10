@@ -72,7 +72,7 @@ public class LivroDAO {
     public List<Livro> listarLivros(){
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "SELECT * FROM bibliotecapublica.livro";
-            List<Livro> listaDeLivros = new ArrayList<Livro>();
+            List<Livro> listaDeLivros = new ArrayList<>();
             PreparedStatement comando = conexao.prepareStatement(SQL);
             ResultSet resultado = comando.executeQuery();
             while(resultado.next()){

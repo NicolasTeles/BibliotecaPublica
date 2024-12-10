@@ -4,66 +4,24 @@
  */
 package Visao;
 
-import Controle.ControleAlteraEstadoCliente;
-import Modelo.Cliente;
-import javax.swing.JComboBox;
+import Controle.ControleAlteraCargoFuncionario;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
  * @author felip
  */
-public class AlterarEstadoCliente extends javax.swing.JFrame {
+public class AlterarCargoFuncionario extends javax.swing.JFrame {
 
-    private final ControleAlteraEstadoCliente controller;
+    private final ControleAlteraCargoFuncionario controller;
 
     /**
      * Creates new form PerfilCliente
      */
-    public AlterarEstadoCliente() {
+    public AlterarCargoFuncionario() {
         initComponents();
-        this.controller = new ControleAlteraEstadoCliente(this);
+        this.controller = new ControleAlteraCargoFuncionario(this);
     }
-    
-    public AlterarEstadoCliente(Cliente cliente) {
-        initComponents();
-        this.controller = new ControleAlteraEstadoCliente(this, cliente);
-    }
-
-    public JComboBox<String> getEstadoCliente() {
-        return estadoCliente;
-    }
-
-    public void setEstadoCliente(JComboBox<String> estadoCliente) {
-        this.estadoCliente = estadoCliente;
-    }
-
-    public JTextField getTextCPF() {
-        return textCPF;
-    }
-
-    public void setTextCPF(JTextField textCPF) {
-        this.textCPF = textCPF;
-    }
-
-    public JTextField getTextEmail() {
-        return textEmail;
-    }
-
-    public void setTextEmail(JTextField textEmail) {
-        this.textEmail = textEmail;
-    }
-
-    public JTextField getTextNome() {
-        return textNome;
-    }
-
-    public void setTextNome(JTextField textNome) {
-        this.textNome = textNome;
-    }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,11 +39,11 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         textNome = new javax.swing.JTextField();
         LabelCPF = new javax.swing.JLabel();
         textCPF = new javax.swing.JTextField();
-        labelEmail = new javax.swing.JLabel();
-        textEmail = new javax.swing.JTextField();
-        labelStatus = new javax.swing.JLabel();
+        labelLogin = new javax.swing.JLabel();
+        textLogin = new javax.swing.JTextField();
+        labelCargo = new javax.swing.JLabel();
         botaoAltera = new javax.swing.JButton();
-        estadoCliente = new javax.swing.JComboBox<>();
+        cargoComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,21 +73,18 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelNome.setText("Nome:");
 
-        textNome.setEditable(false);
         textNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textNome.setText("JOnas Legless");
 
         LabelCPF.setText("CPF:");
 
-        textCPF.setEditable(false);
         textCPF.setText("666.666.666-69");
 
-        labelEmail.setText("Email:");
+        labelLogin.setText("Login:");
 
-        textEmail.setEditable(false);
-        textEmail.setText("soufoda@gmael.us");
+        textLogin.setText("soufoda@gmael.us");
 
-        labelStatus.setText("Status:");
+        labelCargo.setText("Status:");
 
         botaoAltera.setText("Alterar");
         botaoAltera.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -139,10 +94,10 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
             }
         });
 
-        estadoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Banido", " " }));
-        estadoCliente.addActionListener(new java.awt.event.ActionListener() {
+        cargoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionario", " " }));
+        cargoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estadoClienteActionPerformed(evt);
+                cargoComboBoxActionPerformed(evt);
             }
         });
 
@@ -160,15 +115,15 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelNome, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LabelCPF)
-                            .addComponent(labelEmail)
-                            .addComponent(labelStatus))
+                            .addComponent(labelLogin)
+                            .addComponent(labelCargo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(estadoCliente, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cargoComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(textCPF, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(textEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))))
+                                .addComponent(textLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))))
                 .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -186,12 +141,12 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
                             .addComponent(textCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelEmail))
+                            .addComponent(textLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelLogin))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelStatus)
-                            .addComponent(estadoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(labelCargo)
+                            .addComponent(cargoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(botaoAltera, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
@@ -212,9 +167,9 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void estadoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoClienteActionPerformed
+    private void cargoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_estadoClienteActionPerformed
+    }//GEN-LAST:event_cargoComboBoxActionPerformed
 
     private void botaoAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraActionPerformed
         this.controller.alteraEstado();
@@ -241,21 +196,27 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AlterarEstadoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarCargoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AlterarEstadoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarCargoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AlterarEstadoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarCargoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AlterarEstadoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AlterarCargoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AlterarEstadoCliente().setVisible(true);
+                new AlterarCargoFuncionario().setVisible(true);
             }
         });
     }
@@ -263,15 +224,15 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelCPF;
     private javax.swing.JButton botaoAltera;
-    private javax.swing.JComboBox<String> estadoCliente;
+    private javax.swing.JComboBox<String> cargoComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelCargo;
+    private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelNome;
-    private javax.swing.JLabel labelStatus;
     private javax.swing.JTextField textCPF;
-    private javax.swing.JTextField textEmail;
+    private javax.swing.JTextField textLogin;
     private javax.swing.JTextField textNome;
     // End of variables declaration//GEN-END:variables
 }

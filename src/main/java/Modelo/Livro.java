@@ -45,7 +45,7 @@ public class Livro {
     public int getTotalAvaliacao() { return totalAvaliacao; }
 
     public int getNumAvaliacoes(){
-        return this.getNumAvaliacoes();
+        return this.numAvaliacoes;
     }
 
     public void setNome(String nome) { this.nome = nome; }

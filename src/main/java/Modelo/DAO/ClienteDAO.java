@@ -117,4 +117,19 @@ public class ClienteDAO {
         }
         return null;
     }
+    
+    public boolean atualizaStatus(Cliente cliente){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.cliente SET status_cliente=? WHERE cpf=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setBoolean(1, cliente.getStatusCliente());
+            comando.setString(2, cliente.getCpf());
+            retorno = comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro ao mudar status do cliente");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
+    }
 }
