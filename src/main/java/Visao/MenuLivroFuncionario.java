@@ -50,17 +50,16 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
         listaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asd", "asd", "asd", "", null},
-                {null, null, "", "", null},
-                {null, null, "", "", null},
-                {null, null, "", "", null}
+                {null, null, "", "", null, null},
+                {null, null, "", "", null, null},
+                {null, null, "", "", null, null}
             },
             new String [] {
-                "Nome", "Editora", "Autor(a)", "Ano", "Avaliação"
+                "Nome", "Editora", "Autor(a)", "Ano", "Avaliação", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

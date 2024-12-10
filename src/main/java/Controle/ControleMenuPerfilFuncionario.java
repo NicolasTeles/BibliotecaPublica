@@ -1,5 +1,6 @@
 package Controle;
 
+import Visao.CadastroFuncionario;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
@@ -24,6 +25,12 @@ public class ControleMenuPerfilFuncionario {
         MenuLivroFuncionario livro = new MenuLivroFuncionario();
         livro.setVisible(true);
         this.view.dispose();        
+    }
+    
+    public void irEditarFuncionario(){
+        CadastroFuncionario editar = new CadastroFuncionario();
+        editar.setVisible(true);
+        this.view.dispose();
     }
     
     public void irMenuCliente(){
