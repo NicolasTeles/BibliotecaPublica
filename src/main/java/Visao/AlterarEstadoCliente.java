@@ -5,7 +5,10 @@
 package Visao;
 
 import Controle.ControleAlteraEstadoCliente;
+import Modelo.Cliente;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -22,6 +25,45 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         initComponents();
         this.controller = new ControleAlteraEstadoCliente(this);
     }
+    
+    public AlterarEstadoCliente(Cliente cliente) {
+        initComponents();
+        this.controller = new ControleAlteraEstadoCliente(this, cliente);
+    }
+
+    public JComboBox<String> getEstadoCliente() {
+        return estadoCliente;
+    }
+
+    public void setEstadoCliente(JComboBox<String> estadoCliente) {
+        this.estadoCliente = estadoCliente;
+    }
+
+    public JTextField getTextCPF() {
+        return textCPF;
+    }
+
+    public void setTextCPF(JTextField textCPF) {
+        this.textCPF = textCPF;
+    }
+
+    public JTextField getTextEmail() {
+        return textEmail;
+    }
+
+    public void setTextEmail(JTextField textEmail) {
+        this.textEmail = textEmail;
+    }
+
+    public JTextField getTextNome() {
+        return textNome;
+    }
+
+    public void setTextNome(JTextField textNome) {
+        this.textNome = textNome;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,15 +115,18 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         labelNome.setText("Nome:");
 
+        textNome.setEditable(false);
         textNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textNome.setText("JOnas Legless");
 
         LabelCPF.setText("CPF:");
 
+        textCPF.setEditable(false);
         textCPF.setText("666.666.666-69");
 
         labelEmail.setText("Email:");
 
+        textEmail.setEditable(false);
         textEmail.setText("soufoda@gmael.us");
 
         labelStatus.setText("Status:");

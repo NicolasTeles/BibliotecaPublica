@@ -158,6 +158,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="textNome">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="16" style="0"/>
             </Property>
@@ -171,6 +172,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="textCPF">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="666.666.666-69"/>
           </Properties>
         </Component>
@@ -181,6 +183,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="textEmail">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="soufoda@gmael.us"/>
           </Properties>
         </Component>

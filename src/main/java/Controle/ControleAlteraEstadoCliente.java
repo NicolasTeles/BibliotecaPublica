@@ -4,6 +4,8 @@
  */
 package Controle;
 
+import Modelo.Cliente;
+import Modelo.DAO.ClienteDAO;
 import Visao.AlterarEstadoCliente;
 import javax.swing.JOptionPane;
 
@@ -19,9 +21,29 @@ public class ControleAlteraEstadoCliente {
         this.view = view;
     }
     
+    public ControleAlteraEstadoCliente(AlterarEstadoCliente view, Cliente cliente) {
+        this.view = view;
+        this.view.getTextNome().setText(cliente.getNome());
+        this.view.getTextCPF().setText(cliente.getCpf());
+        this.view.getTextEmail().setText(cliente.getEmail());
+        int selectedIndex = cliente.getStatusCliente() ? 0 : 1;
+        this.view.getEstadoCliente().setSelectedIndex(selectedIndex);
+    }
+    
     public void alteraEstado(){
-        //muda no banco
-        this.view.printaMensagem("Estado alterado com sucesso!");
-        this.view.dispose();
+        Cliente cliente = new Cliente();
+        ClienteDAO cd = new ClienteDAO();
+        boolean status = false;
+        String statusString = String.valueOf(this.view.getEstadoCliente().getSelectedItem());
+        if(statusString.equalsIgnoreCase("ativo"))
+            status = true;
+        else if(statusString.equalsIgnoreCase("banido"))
+            status = false;
+        cliente.setStatusCliente(status);
+        cliente.setCpf(this.view.getTextCPF().getText());
+        if(cd.atualizaStatus(cliente)){
+            this.view.printaMensagem("Estado alterado com sucesso!");
+            this.view.dispose();
+        }
     }
 }

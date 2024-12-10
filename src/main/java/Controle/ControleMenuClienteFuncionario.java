@@ -3,6 +3,7 @@ package Controle;
 import Controle.Helpers.MenuClienteFuncionarioHelper;
 import Modelo.Cliente;
 import Modelo.DAO.ClienteDAO;
+import Visao.AlterarEstadoCliente;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
@@ -11,6 +12,8 @@ import Visao.MenuFuncionariosAdm;
 import Visao.CadastroCliente;
 import java.util.ArrayList;
 import java.util.List;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -92,5 +95,12 @@ public class ControleMenuClienteFuncionario {
             this.helper.preencheTabela(todosOsClientes);
         else
             this.helper.preencheTabela(clientes);
+    }
+    
+    public void alteraCliente(int indexLinha){
+        Cliente cliente = this.helper.leLinha(indexLinha);
+        AlterarEstadoCliente aec = new AlterarEstadoCliente(cliente);
+        aec.setVisible(true);
+        aec.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 }
