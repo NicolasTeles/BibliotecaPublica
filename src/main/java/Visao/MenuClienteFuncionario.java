@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuClienteFuncionario;
+import javax.swing.JTable;
 
 /**
  *
@@ -14,6 +15,15 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     public MenuClienteFuncionario() {
         initComponents();
         controlador = new ControleMenuClienteFuncionario(this);
+        this.controlador.inicia();
+    }
+
+    public JTable getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(JTable listaClientes) {
+        this.listaClientes = listaClientes;
     }
 
     /**
@@ -47,7 +57,6 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
         listaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asd", "asd", "asd"},
                 {null, null, ""},
                 {null, null, ""},
                 {null, null, ""}
@@ -62,6 +71,11 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        listaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listaClientesMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(listaClientes);
@@ -193,6 +207,13 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
         controlador.irMenuFuncionarios();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
+    private void listaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaClientesMouseClicked
+        if(evt.getClickCount() > 1){
+            //this.controlador.listaClientes();
+        }
+    }//GEN-LAST:event_listaClientesMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */

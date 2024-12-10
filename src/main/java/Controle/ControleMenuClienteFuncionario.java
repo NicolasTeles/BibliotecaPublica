@@ -1,11 +1,15 @@
 package Controle;
 
+import Controle.Helpers.MenuClienteFuncionarioHelper;
+import Modelo.Cliente;
+import Modelo.DAO.ClienteDAO;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroCliente;
+import java.util.List;
 
 /**
  *
@@ -14,9 +18,11 @@ import Visao.CadastroCliente;
 public class ControleMenuClienteFuncionario {
 
     private final MenuClienteFuncionario view;
+    private final MenuClienteFuncionarioHelper helper;
     
     public ControleMenuClienteFuncionario(MenuClienteFuncionario view){
         this.view = view;
+        this.helper = new MenuClienteFuncionarioHelper(view);
     }
     
     public void irPerfilFuncionario(){
@@ -55,5 +61,11 @@ public class ControleMenuClienteFuncionario {
         CadastroCliente cadastro = new CadastroCliente();
         cadastro.setVisible(true);
         this.view.dispose();        
+    }
+
+    public void inicia() {
+        ClienteDAO cd = new ClienteDAO();
+        List<Cliente> clientes = cd.listarContas();
+        this.helper.preencheTabela(clientes);
     }
 }
