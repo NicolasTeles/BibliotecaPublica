@@ -4,9 +4,12 @@
  */
 package Controle.Helpers;
 
+import Modelo.DAO.EmprestimoDAO;
+import Modelo.DAO.LivroDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
 import Visao.DevolucaoCliente;
+import com.mysql.cj.conf.ConnectionUrlParser.Pair;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,11 +19,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DevolucaoClienteHelper {
     
-    public Livro leLinha(int indexLinha, DefaultTableModel tableModel){
+    public Pair<Emprestimo,Livro> leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
-        //System.out.println(linha);
-        Livro livro = new Livro();
-        //acessaria o emprestimo no banco usando nome do vetor
-        return livro;
+        LivroDAO ld = new LivroDAO();
+        Livro livro = ld.consultaLivroNome(String.valueOf(linha.get(0)));
+        EmprestimoDAO ed = new EmprestimoDAO();
+        Emprestimo emprestimo = ed.consultaEmprestimoLivro(livro.getID());
+        Pair<Emprestimo, Livro> tupla = new Pair<>(emprestimo, livro);
+        return tupla;
     }
 }

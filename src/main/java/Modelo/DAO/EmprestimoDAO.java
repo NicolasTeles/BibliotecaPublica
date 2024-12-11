@@ -116,4 +116,22 @@ public class EmprestimoDAO {
         }
         return null;
     }
+    
+    public Emprestimo consultaEmprestimoLivro(int idLivro){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM emprestimo WHERE id_livro=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setInt(1, idLivro);
+            ResultSet resultado = comando.executeQuery();
+            while(resultado.next()){
+                Emprestimo atual = this.pegaDadosEmprestimo(resultado);
+                if(atual.getDevolvido() == false)
+                    return atual;
+            }
+        }catch (SQLException e){
+            System.out.println("Erro ao consultar emprestimo");
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

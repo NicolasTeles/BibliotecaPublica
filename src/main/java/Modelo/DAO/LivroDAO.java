@@ -126,11 +126,11 @@ public class LivroDAO {
         return null;
     }
 
-    public Livro consultaLivro(String idLivro){
+    public Livro consultaLivro(int idLivro){
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "SELECT * FROM bibliotecapublica.livro WHERE id_livro=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
-            comando.setInt(1, Integer.valueOf(idLivro));
+            comando.setInt(1, idLivro);
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
                 Livro atual = this.pegaDados(resultado);
@@ -141,5 +141,38 @@ public class LivroDAO {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public Livro consultaLivroNome(String nome){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.livro WHERE nome=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, nome);
+            ResultSet resultado = comando.executeQuery();
+            if(resultado.next()){
+                Livro atual = this.pegaDados(resultado);
+                return atual;
+            }
+        }catch(SQLException e){
+            System.out.println("Erro ao pesquisar");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public boolean atualizaAvaliacao(int numAval, int totalAval, int idLivro){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.livro SET total_avaliacao=?, num_avaliacoes=? WHERE id_livro=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setInt(1, totalAval);
+            comando.setInt(2, numAval);
+            comando.setInt(3, idLivro);
+            retorno = comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro ao atualizar livro");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
     }
 }

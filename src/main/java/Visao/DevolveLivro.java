@@ -5,8 +5,10 @@
 package Visao;
 
 import Controle.ControleDevolveLivro;
+import Modelo.Emprestimo;
 import Modelo.Livro;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -16,6 +18,8 @@ import javax.swing.JTextField;
 public class DevolveLivro extends javax.swing.JFrame {
 
     private final ControleDevolveLivro controller;
+    private final Emprestimo emprestimo;
+    private final Livro livro;
 
     /**
      * Creates new form ReservaLivro
@@ -24,11 +28,15 @@ public class DevolveLivro extends javax.swing.JFrame {
     public DevolveLivro(){
         initComponents();
         controller = new ControleDevolveLivro();
+        this.emprestimo = null;
+        this.livro = null;
     }
     
-    public DevolveLivro(Livro livro) {
+    public DevolveLivro(Emprestimo emprestimo, Livro livro) {
         initComponents();
         controller = new ControleDevolveLivro();
+        this.emprestimo = emprestimo;
+        this.livro = livro;
    
         this.getTextNome().setText(livro.getNome());
         this.getTextAutor().setText(livro.getAutor());
@@ -234,8 +242,13 @@ public class DevolveLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_textAutorActionPerformed
 
     private void botaoDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolverActionPerformed
-        this.controller.devolve();
-        this.dispose();
+        if(this.controller.devolve(this.emprestimo)){
+            JOptionPane.showMessageDialog(null, "Livro devolvido com sucesso");
+            Avaliacao aval = new Avaliacao(this.livro);
+            aval.setVisible(true);
+            aval.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            this.dispose();
+        }
     }//GEN-LAST:event_botaoDevolverActionPerformed
 
     /**

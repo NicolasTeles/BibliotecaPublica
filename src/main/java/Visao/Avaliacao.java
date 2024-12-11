@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleAvaliacao;
+import Modelo.Livro;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 public class Avaliacao extends javax.swing.JFrame {
 
     private final ControleAvaliacao controller;
+    private final Livro livro;
 
     /**
      * Creates new form Avaliacao
@@ -21,6 +23,13 @@ public class Avaliacao extends javax.swing.JFrame {
     public Avaliacao() {
         initComponents();
         this.controller = new ControleAvaliacao();
+        this.livro = null;
+    }
+    
+    public Avaliacao(Livro livro) {
+        initComponents();
+        this.controller = new ControleAvaliacao();
+        this.livro = livro;
     }
 
     /**
@@ -104,10 +113,10 @@ public class Avaliacao extends javax.swing.JFrame {
     }//GEN-LAST:event_boxAvaliacaoActionPerformed
 
     private void botaoAvaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvaliarActionPerformed
-        this.controller.avalia();
-        //logica para conferir se avaliou
-        this.printaMensagem("Livro avaliado com sucesso!!");
-        this.dispose();
+        if(this.controller.avalia(this.livro)){
+            this.printaMensagem("Livro avaliado com sucesso!!");
+            this.dispose();
+        }
     }//GEN-LAST:event_botaoAvaliarActionPerformed
 
     public void printaMensagem(String mensagem){

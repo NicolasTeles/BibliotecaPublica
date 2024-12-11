@@ -1,5 +1,8 @@
 package Controle;
 
+import Modelo.DAO.LivroDAO;
+import Modelo.Livro;
+
 
 /**
  *
@@ -12,7 +15,12 @@ public class ControleAvaliacao {
    }
     
    
-   public void avalia(){
-       //logica da avaliacao
+   public boolean avalia(Livro livro){
+       LivroDAO ld = new LivroDAO();
+       Livro livroBanco = ld.consultaLivro(livro.getID());
+       if(ld.atualizaAvaliacao(livroBanco.getNumAvaliacoes(), livroBanco.getTotalAvaliacao(), livroBanco.getID())){
+           return true;
+       }
+       return false;
    }
 }

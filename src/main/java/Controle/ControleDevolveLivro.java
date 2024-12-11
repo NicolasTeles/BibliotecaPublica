@@ -4,6 +4,7 @@
  */
 package Controle;
 
+import Modelo.Emprestimo;
 import Modelo.Livro;
 import Visao.DevolveLivro;
 
@@ -17,7 +18,10 @@ public class ControleDevolveLivro {
     public ControleDevolveLivro(){}
     
     
-    public void devolve(){
-        //logica do bd
+    public boolean devolve(Emprestimo emprestimo){
+        if(emprestimo == null)
+            return false;
+        emprestimo.setDevolvido(true);
+        return true;
     }
 }
