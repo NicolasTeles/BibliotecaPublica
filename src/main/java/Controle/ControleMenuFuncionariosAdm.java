@@ -4,6 +4,7 @@ package Controle;
 import Controle.Helpers.MenuFuncionarioAdmHelper;
 import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
+import Visao.AlterarCargoFuncionario;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
@@ -58,7 +59,9 @@ public class ControleMenuFuncionariosAdm {
     
     public void acessaFuncionario(int indexLinha, DefaultTableModel tableModel){
         Funcionario funcionario = this.helper.leLinha(indexLinha, tableModel);
-        
+        AlterarCargoFuncionario  cargo = new AlterarCargoFuncionario(funcionario);
+        cargo.setVisible(true);
+        cargo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     public void inicia(DefaultTableModel tableModel){

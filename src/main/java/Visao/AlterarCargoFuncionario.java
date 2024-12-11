@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleAlteraCargoFuncionario;
+import Modelo.Funcionario;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,15 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
         this.controller = new ControleAlteraCargoFuncionario();
     }
 
+    public AlterarCargoFuncionario(Funcionario funcionario) {
+        initComponents();
+        this.controller = new ControleAlteraCargoFuncionario();
+        textNome.setText(funcionario.getNome());
+        textCPF.setText(funcionario.getCpf());
+        textLogin.setText(funcionario.getLogin());
+        int selectedIndex = funcionario.getEadm() ? 1 : 0;
+        cargoComboBox.setSelectedIndex(selectedIndex);
+    }    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

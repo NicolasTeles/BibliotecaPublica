@@ -1,7 +1,7 @@
 package Controle.Helpers;
 
+import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
-import Visao.MenuFuncionariosAdm;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
@@ -11,8 +11,8 @@ public class MenuFuncionarioAdmHelper {
     
     public Funcionario leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
-        Funcionario funcionario = new Funcionario();
-        //logica bd
+        FuncionarioDAO fd = new FuncionarioDAO();
+        Funcionario funcionario = fd.consultaFuncionario(String.valueOf(linha.get(2)));
         return funcionario;
     }
     
