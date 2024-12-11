@@ -1,8 +1,10 @@
 package Visao;
 
 import Controle.ControleMenuFuncionariosAdm;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author pichau
@@ -16,8 +18,8 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
      */
     public MenuFuncionariosAdm() {
         initComponents();
-        controlador = new ControleMenuFuncionariosAdm(this);
-        this.controlador.inicia();
+        controlador = new ControleMenuFuncionariosAdm();
+        this.controlador.inicia((DefaultTableModel)this.getListaFuncionarios().getModel());
     }
 
     public JTable getListaFuncionarios() {
@@ -216,14 +218,16 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
         controlador.irPerfilFuncionario();
+        this.dispose();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         controlador.telaCadastroFuncionario();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        controlador.pesquisaFuncionario();
+        controlador.pesquisaFuncionario(this.getFieldPesquisa().getText().toLowerCase(), (DefaultTableModel)this.getListaFuncionarios().getModel());
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void botaoPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPerfilMouseClicked
@@ -232,19 +236,25 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
         controlador.retornarTelaLogin();
+        this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
         controlador.irMenuLivro();
+        this.dispose();
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
         controlador.irMenuCliente();
+        this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void listaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaFuncionariosMouseClicked
         if(evt.getClickCount()>1){
-            this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow());
+            if(JOptionPane.showConfirmDialog(null, "Deseja deletar esse funcionario?") == 0){
+            // deleta do banco
+            //this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow());
+            }
         }
     }//GEN-LAST:event_listaFuncionariosMouseClicked
 
