@@ -23,13 +23,17 @@ public class CadastroLivro extends javax.swing.JFrame {
     public CadastroLivro() {
         this.setTitle("Cadastro de livros");
         initComponents();
-        controlador = new ControleCadastroLivro(this);
+        controlador = new ControleCadastroLivro();
     }
     
     public CadastroLivro(Livro livro) {
         this.setTitle("Cadastro de livros");
         initComponents();
-        controlador = new ControleCadastroLivro(this, livro);
+        controlador = new ControleCadastroLivro();
+        this.getTextNome().setText(livro.getNome());
+        this.getTextAutor().setText(livro.getAutor());
+        this.getTextEditora().setText(livro.getEditora());
+        this.getTextAnoPubli().setText(Integer.toString(livro.getAnoPubli()));
     }
 
     /**
@@ -148,10 +152,11 @@ public class CadastroLivro extends javax.swing.JFrame {
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         controlador.navegaInterfaceGeral();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
-        controlador.printaMensagemTeste();
+        
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     public JButton getButtonCadastro() {
