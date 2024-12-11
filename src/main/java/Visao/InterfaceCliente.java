@@ -22,7 +22,7 @@ public class InterfaceCliente extends javax.swing.JFrame {
     public InterfaceCliente() {
         this.setTitle("Interface geral dos clientes");
         initComponents();
-        controlador = new ControleInterfaceCliente(this);
+        controlador = new ControleInterfaceCliente();
     }
 
     /**
@@ -111,14 +111,17 @@ public class InterfaceCliente extends javax.swing.JFrame {
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
         controlador.navegaCadastroCliente();
+        this.dispose();
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         controlador.navegaLoginCliente();
+        this.dispose();
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         controlador.navegaTelaPrincipal();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     /**
