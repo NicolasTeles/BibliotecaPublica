@@ -97,7 +97,7 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
             }
         });
 
-        cargoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionario", " " }));
+        cargoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Funcionario" }));
         cargoComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cargoComboBoxActionPerformed(evt);

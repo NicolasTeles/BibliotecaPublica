@@ -21,12 +21,16 @@ public class ReservaLivro extends javax.swing.JFrame {
      */
     public ReservaLivro() {
         initComponents();
-        controlador = new ControleReservaLivro(this);
+        controlador = new ControleReservaLivro();
     }
     
     public ReservaLivro(Livro livro){
         initComponents();
-        controlador = new ControleReservaLivro(this, livro);
+        controlador = new ControleReservaLivro();
+        this.getTextNome().setText(livro.getNome());
+        this.getTextAutor().setText(livro.getAutor());
+        this.getTextEditora().setText(livro.getEditora());
+        this.getTextAno().setText(Integer.toString(livro.getAnoPubli()));
     }
 
     /**
@@ -188,6 +192,7 @@ public class ReservaLivro extends javax.swing.JFrame {
 
     private void botaoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservarActionPerformed
         this.controlador.reserva();
+        this.dispose();
     }//GEN-LAST:event_botaoReservarActionPerformed
 
     /**

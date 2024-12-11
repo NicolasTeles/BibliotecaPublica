@@ -3,6 +3,7 @@ package Visao;
 import Controle.ControleMenuLivroFuncionario;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author pichau
@@ -16,8 +17,8 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
      */
     public MenuLivroFuncionario() {
         initComponents();
-        controlador = new ControleMenuLivroFuncionario(this);
-        this.controlador.inicia();
+        controlador = new ControleMenuLivroFuncionario();
+        this.controlador.inicia((DefaultTableModel)this.getListaLivros().getModel());
     }
 
     public void setListaLivros(JTable listaLivros) {
@@ -203,6 +204,7 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
         this.controlador.irPerfilFuncionario();
+        this.dispose();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     public JTable getListaLivros() {
@@ -210,15 +212,17 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }
     
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        this.controlador.pesquisaLivro();
+        this.controlador.pesquisaLivro(this.getFieldPesquisa().getText().toLowerCase(),(DefaultTableModel)this.getListaLivros().getModel());
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void adicionarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLivrosActionPerformed
         this.controlador.telaCadastroLivro();
+        this.dispose();
     }//GEN-LAST:event_adicionarLivrosActionPerformed
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
         this.controlador.retornarTelaLogin();
+        this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
@@ -227,15 +231,17 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
         this.controlador.irMenuCliente();
+        this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
         this.controlador.irMenuFuncionarios();
+        this.dispose();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
     private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
         if(evt.getClickCount() > 1){
-           this.controlador.acessaLivro(this.listaLivros.getSelectedRow());
+           this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), (DefaultTableModel)this.getListaLivros().getModel());
         }
     }//GEN-LAST:event_listaLivrosMouseClicked
 
