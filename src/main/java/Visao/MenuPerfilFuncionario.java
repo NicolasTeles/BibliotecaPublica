@@ -2,6 +2,8 @@ package Visao;
 
 
 import Controle.ControleMenuPerfilFuncionario;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 /**
  *
  * @author pichau
@@ -16,6 +18,14 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
     public MenuPerfilFuncionario() {
         initComponents();
         controlador = new ControleMenuPerfilFuncionario();
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
+            this.controlador.irInterfaceGeral();
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
+        if(Session.getFuncionario().getEadm() == false){
+            Funcionarios.setVisible(false);
+        }
     }
 
     /**
@@ -174,6 +184,11 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
 
         botaoLogout.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Icones\\perfil.png"));
         botaoLogout.setText("Logout");
+        botaoLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoLogoutMouseClicked(evt);
+            }
+        });
         botaoLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoLogoutActionPerformed(evt);
@@ -256,6 +271,12 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         this.controlador.irEditarFuncionario();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
+       this.controlador.logoutFuncionario();
+       this.controlador.irInterfaceGeral();
+       this.dispose();
+    }//GEN-LAST:event_botaoLogoutMouseClicked
 
     /**
      * @param args the command line arguments

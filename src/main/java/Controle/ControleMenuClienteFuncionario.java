@@ -3,6 +3,7 @@ package Controle;
 import Controle.Helpers.MenuClienteFuncionarioHelper;
 import Modelo.Cliente;
 import Modelo.DAO.ClienteDAO;
+import Modelo.Session;
 import Visao.AlterarEstadoCliente;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
@@ -10,6 +11,7 @@ import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroCliente;
+import Visao.InterfaceGeral;
 import java.util.ArrayList;
 import java.util.List;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -92,5 +94,14 @@ public class ControleMenuClienteFuncionario {
         AlterarEstadoCliente aec = new AlterarEstadoCliente(cliente);
         aec.setVisible(true);
         aec.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+    
+    public void irInterfaceGeral(){
+       InterfaceGeral ig = new InterfaceGeral();
+       ig.setVisible(true);
+    }
+    
+    public void logoutFuncionario(){
+        Session.destroiFuncionario();
     }
 }

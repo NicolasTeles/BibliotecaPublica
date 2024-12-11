@@ -4,6 +4,7 @@ package Controle;
 import Controle.Helpers.MenuFuncionarioAdmHelper;
 import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
+import Modelo.Session;
 import Visao.AlterarCargoFuncionario;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
@@ -11,6 +12,7 @@ import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroFuncionario;
+import Visao.InterfaceGeral;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -96,4 +98,14 @@ public class ControleMenuFuncionariosAdm {
         }
         
     }
+    
+    public void irInterfaceGeral(){
+       InterfaceGeral ig = new InterfaceGeral();
+       ig.setVisible(true);
+    }
+    
+    public void logoutFuncionario(){
+        Session.destroiFuncionario();
+    }
+    
 }

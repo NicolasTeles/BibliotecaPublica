@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuFuncionariosAdm;
+import Modelo.Session;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -20,6 +21,11 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         initComponents();
         controlador = new ControleMenuFuncionariosAdm();
         this.controlador.inicia((DefaultTableModel)this.getListaFuncionarios().getModel());
+        if(Session.getFuncionario().getEadm() == false){
+            JOptionPane.showMessageDialog(null, "Voce deve ser um administrador para entrar nessa tela!");
+            controlador.irInterfaceGeral();
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
 
     public JTable getListaFuncionarios() {
@@ -235,7 +241,8 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPerfilMouseClicked
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
-        controlador.retornarTelaLogin();
+        controlador.logoutFuncionario();
+        controlador.irInterfaceGeral();
         this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 

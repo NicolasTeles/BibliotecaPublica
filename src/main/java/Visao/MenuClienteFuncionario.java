@@ -1,6 +1,8 @@
 package Visao;
 
 import Controle.ControleMenuClienteFuncionario;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -17,7 +19,15 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     public MenuClienteFuncionario() {
         initComponents();
         controlador = new ControleMenuClienteFuncionario();
-        this.controlador.inicia( (DefaultTableModel)this.listaClientes.getModel() );
+        this.controlador.inicia( (DefaultTableModel)this.listaClientes.getModel());
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
+            controlador.irInterfaceGeral();
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
+        if(Session.getFuncionario().getEadm() == false){
+            Funcionarios.setVisible(false);
+        }
     }
 
     public JTable getListaClientes() {
@@ -195,7 +205,8 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
-        controlador.retornarTelaLogin();
+        controlador.logoutFuncionario();
+        controlador.irInterfaceGeral();
         this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 

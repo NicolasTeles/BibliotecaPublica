@@ -4,12 +4,13 @@ package Controle;
 import Controle.Helpers.MenuLivroFuncionarioHelper;
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
+import Modelo.Session;
 import Visao.MenuPerfilFuncionario;
 import Visao.LoginFuncionario;
-import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
 import Visao.MenuFuncionariosAdm;
 import Visao.CadastroLivro;
+import Visao.InterfaceGeral;
 import java.util.ArrayList;
 import java.util.List;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -92,5 +93,14 @@ public class ControleMenuLivroFuncionario {
         else
             this.helper.preencheTabela(livros, tableModel);
         
+    }
+    
+    public void irInterfaceGeral(){
+       InterfaceGeral ig = new InterfaceGeral();
+       ig.setVisible(true);
+    }
+    
+    public void logoutFuncionario(){
+        Session.destroiFuncionario();
     }
 }

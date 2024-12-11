@@ -1,7 +1,8 @@
 package Controle;
 
+import Modelo.Session;
 import Visao.CadastroFuncionario;
-import Visao.MenuPerfilFuncionario;
+import Visao.InterfaceGeral;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
 import Visao.MenuClienteFuncionario;
@@ -34,6 +35,15 @@ public class ControleMenuPerfilFuncionario {
        //logica para verificar se eh adm
        MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
        funcionario.setVisible(true);     
+    }
+    
+    public void irInterfaceGeral(){
+       InterfaceGeral ig = new InterfaceGeral();
+       ig.setVisible(true);
+    }
+    
+    public void logoutFuncionario(){
+        Session.destroiFuncionario();
     }
     
     

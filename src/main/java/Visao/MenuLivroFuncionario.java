@@ -1,6 +1,8 @@
 package Visao;
 
 import Controle.ControleMenuLivroFuncionario;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +21,14 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
         initComponents();
         controlador = new ControleMenuLivroFuncionario();
         this.controlador.inicia((DefaultTableModel)this.getListaLivros().getModel());
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
+            this.controlador.irInterfaceGeral();
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
+        if(Session.getFuncionario().getEadm() == false){
+            Funcionarios.setVisible(false);
+        }
     }
 
     public void setListaLivros(JTable listaLivros) {
@@ -221,7 +231,8 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_adicionarLivrosActionPerformed
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
-        this.controlador.retornarTelaLogin();
+        this.controlador.logoutFuncionario();
+        this.controlador.irInterfaceGeral();
         this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
