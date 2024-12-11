@@ -23,6 +23,16 @@ public class ControleCadastroFuncionario {
     }
     
     public boolean cadastraFuncionario(String nome, String email, String cpf, char[] senha, char[] confirmaSenha, String eAdm){
+        FuncionarioDAO fd = new FuncionarioDAO();
+        
+        if(fd.consultaLoginFuncionario(email) != null){
+            JOptionPane.showMessageDialog(null, "Este email ja existe");
+            return false;
+        }        
+        if(fd.consultaFuncionario(cpf) != null){
+            JOptionPane.showMessageDialog(null, "Este cpf ja existe");
+            return false;
+        }
         if(!Arrays.equals(senha, confirmaSenha)){
             JOptionPane.showMessageDialog(null, "Senha e confirmacao de senha devem ser a mesma");
             return false;
@@ -33,7 +43,7 @@ public class ControleCadastroFuncionario {
         else if(eAdm.equalsIgnoreCase("funcionario"))
             adm = false;
         Funcionario funcionario = new Funcionario(nome, cpf, email, String.valueOf(senha), adm);
-        FuncionarioDAO fd = new FuncionarioDAO();
+        
         if(fd.insereFuncionario(funcionario)){
             JOptionPane.showMessageDialog(null, "Funcionario inserido com sucesso");
             return true;

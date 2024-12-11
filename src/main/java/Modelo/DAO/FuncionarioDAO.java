@@ -115,6 +115,7 @@ public class FuncionarioDAO {
         return null;
     }
     
+     
     public Funcionario consultaLoginFuncionario(String login){
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "SELECT * FROM bibliotecapublica.funcionario WHERE login=?";
