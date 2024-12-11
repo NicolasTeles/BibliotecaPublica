@@ -5,6 +5,8 @@
 package Visao;
 
 import Controle.ControlePerfilCliente;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +21,12 @@ public class PerfilCliente extends javax.swing.JFrame {
     public PerfilCliente(){
         initComponents();
         controlador = new ControlePerfilCliente();
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
 
     /**

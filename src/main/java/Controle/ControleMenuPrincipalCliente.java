@@ -7,6 +7,7 @@ package Controle;
 import Controle.Helpers.MenuPrincipalClienteHelper;
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
+import Modelo.Session;
 import Visao.DevolucaoCliente;
 import Visao.LoginCliente;
 import Visao.PerfilCliente;
@@ -35,6 +36,7 @@ public class ControleMenuPrincipalCliente {
     public void logout() {
         LoginCliente ig = new LoginCliente();
         ig.setVisible(true);
+        Session.destroiCliente();
     }
 
     public void navegaDevolucao() {
