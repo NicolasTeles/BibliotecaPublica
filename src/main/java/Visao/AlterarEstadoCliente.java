@@ -139,7 +139,7 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
             }
         });
 
-        estadoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Banido", " " }));
+        estadoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Banido" }));
         estadoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 estadoClienteActionPerformed(evt);
