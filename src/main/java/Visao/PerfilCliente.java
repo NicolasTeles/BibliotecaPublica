@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControlePerfilCliente;
+import Modelo.Cliente;
 import Modelo.Session;
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,7 @@ public class PerfilCliente extends javax.swing.JFrame {
     /**
      * Creates new form PerfilCliente
      */
+    
     public PerfilCliente(){
         initComponents();
         controlador = new ControlePerfilCliente();
@@ -26,6 +28,15 @@ public class PerfilCliente extends javax.swing.JFrame {
             InterfaceCliente ic = new InterfaceCliente();
             ic.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
+        
+        textNome.setText(Session.getCliente().getNome());
+        textCPF.setText(Session.getCliente().getCpf());
+        textEmail.setText(Session.getCliente().getEmail());
+        if(Session.getCliente().getStatusCliente() == true){
+            textStatus.setText("Ativo");
+        }else{
+            textStatus.setText("Banido");
         }
     }
 
@@ -82,6 +93,11 @@ public class PerfilCliente extends javax.swing.JFrame {
         textNome.setEditable(false);
         textNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         textNome.setText("JOnas Legless");
+        textNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNomeActionPerformed(evt);
+            }
+        });
 
         LabelCPF.setText("CPF:");
 
@@ -97,6 +113,11 @@ public class PerfilCliente extends javax.swing.JFrame {
 
         textStatus.setEditable(false);
         textStatus.setText("BAUNIDO KK");
+        textStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textStatusActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Voltar");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -176,6 +197,14 @@ public class PerfilCliente extends javax.swing.JFrame {
         this.controlador.retornaMenu();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNomeActionPerformed
+
+    private void textStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textStatusActionPerformed
 
     /**
      * @param args the command line arguments
