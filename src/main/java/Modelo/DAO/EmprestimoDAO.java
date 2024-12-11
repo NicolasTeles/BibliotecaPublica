@@ -119,7 +119,7 @@ public class EmprestimoDAO {
     
     public Emprestimo consultaEmprestimoLivro(int idLivro){
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "SELECT * FROM emprestimo WHERE id_livro=?";
+            String SQL = "SELECT * FROM bibliotecapublica.emprestimo WHERE id_livro=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setInt(1, idLivro);
             ResultSet resultado = comando.executeQuery();
@@ -133,5 +133,19 @@ public class EmprestimoDAO {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public boolean devolve(int id){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.emprestimo SET devolvido=true WHERE id=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setInt(1, id);
+            retorno = comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro ao atualizar livro");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
     }
 }

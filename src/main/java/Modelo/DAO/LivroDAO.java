@@ -175,4 +175,19 @@ public class LivroDAO {
         }
         return (retorno > 0);
     }
+    
+    public boolean emprestaDevolve(boolean status, int idLivro){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.livro SET status_emprestimo=? WHERE id_livro=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setBoolean(1, status);
+            comando.setInt(2, idLivro);
+            retorno = comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro ao atualizar livro");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
+    }
 }

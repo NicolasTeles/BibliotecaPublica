@@ -15,22 +15,29 @@ import javax.swing.JTextField;
 public class ReservaLivro extends javax.swing.JFrame {
     
     private final ControleReservaLivro controlador;
-
+    private final Livro livro;
     /**
      * Creates new form ReservaLivro
      */
     public ReservaLivro() {
         initComponents();
         controlador = new ControleReservaLivro();
+        this.livro = null;
     }
     
     public ReservaLivro(Livro livro){
         initComponents();
         controlador = new ControleReservaLivro();
+        this.livro = livro;
         this.getTextNome().setText(livro.getNome());
         this.getTextAutor().setText(livro.getAutor());
         this.getTextEditora().setText(livro.getEditora());
         this.getTextAno().setText(Integer.toString(livro.getAnoPubli()));
+        if(livro.getNumAvaliacoes() > 0){
+            this.labelAval.setText((double)livro.getTotalAvaliacao()/livro.getNumAvaliacoes() + "/5");
+        }else{
+            this.labelAval.setText("Não ha avaliacoes para esse livro ainda");
+        }
     }
 
     /**
@@ -191,7 +198,7 @@ public class ReservaLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_textAutorActionPerformed
 
     private void botaoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoReservarActionPerformed
-        this.controlador.reserva();
+        this.controlador.reserva(this.livro);
         this.dispose();
     }//GEN-LAST:event_botaoReservarActionPerformed
 

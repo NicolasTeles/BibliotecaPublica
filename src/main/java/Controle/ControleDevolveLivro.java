@@ -4,6 +4,8 @@
  */
 package Controle;
 
+import Modelo.DAO.EmprestimoDAO;
+import Modelo.DAO.LivroDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
 import Visao.DevolveLivro;
@@ -21,6 +23,10 @@ public class ControleDevolveLivro {
     public boolean devolve(Emprestimo emprestimo){
         if(emprestimo == null)
             return false;
+        EmprestimoDAO ed = new EmprestimoDAO();
+        LivroDAO ld = new LivroDAO();
+        ld.emprestaDevolve(true, emprestimo.getLivro().getID());
+        ed.devolve(emprestimo.getId());
         emprestimo.setDevolvido(true);
         return true;
     }

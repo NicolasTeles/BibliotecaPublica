@@ -4,6 +4,7 @@
  */
 package Controle;
 
+import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 
 /**
@@ -14,7 +15,9 @@ public class ControleReservaLivro {
 
     public ControleReservaLivro() {}
     
-    public void reserva(){
-        //acessa banco
+    public void reserva(Livro livro){
+        LivroDAO ld = new LivroDAO();
+        ld.emprestaDevolve(false, livro.getID());
+        //criaria um emprestimo quando se tiver acesso à session
     }
 }

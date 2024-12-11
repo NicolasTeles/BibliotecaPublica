@@ -4,6 +4,7 @@
  */
 package Controle.Helpers;
 
+import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import java.util.List;
 import java.util.Vector;
@@ -17,7 +18,8 @@ public class MenuPrincipalClienteHelper {
     
     public Livro leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector) tableModel.getDataVector().get(indexLinha);
-        Livro livro = new Livro();
+        LivroDAO ld = new LivroDAO();
+        Livro livro = ld.consultaLivroNome(String.valueOf(linha.get(0)));
         return livro;
     }
 

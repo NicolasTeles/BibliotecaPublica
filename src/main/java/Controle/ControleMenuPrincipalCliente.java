@@ -45,6 +45,7 @@ public class ControleMenuPrincipalCliente {
     public void acessaLivro(int indexLinha, DefaultTableModel tableModel) {
         Livro livro = this.helper.leLinha(indexLinha, tableModel);
         ReservaLivro rl = new ReservaLivro(livro);
+        rl.setVisible(true);
         rl.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
