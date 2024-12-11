@@ -15,7 +15,7 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
      */
     public MenuPerfilFuncionario() {
         initComponents();
-        controlador = new ControleMenuPerfilFuncionario(this);
+        controlador = new ControleMenuPerfilFuncionario();
     }
 
     /**
@@ -234,22 +234,27 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
     private void botaoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogoutActionPerformed
         //Logica para dar logout do funcionario
         this.controlador.retornarTelaLogin();
+        this.dispose();
     }//GEN-LAST:event_botaoLogoutActionPerformed
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
         this.controlador.irMenuLivro();
+        this.dispose();
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
         this.controlador.irMenuCliente();
+        this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
         this.controlador.irMenuFuncionarios();
+        this.dispose();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.controlador.irEditarFuncionario();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
