@@ -36,6 +36,12 @@ public class ReservaLivro extends javax.swing.JFrame {
     public ReservaLivro(Livro livro){
         initComponents();
         controlador = new ControleReservaLivro();
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "O cliente deve estar logado para acessar essa tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
         this.livro = livro;
         this.getTextNome().setText(livro.getNome());
         this.getTextAutor().setText(livro.getAutor());

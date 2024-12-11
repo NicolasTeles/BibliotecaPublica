@@ -22,7 +22,7 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
     public AlterarEstadoCliente(){
         initComponents();
         this.controller = new ControleAlteraEstadoCliente();
-        if(Session.getCliente() == null){
+        if(Session.getFuncionario() == null){
             JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
             InterfaceGeral ig = new InterfaceGeral();
             ig.setVisible(true);
@@ -33,7 +33,7 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
     public AlterarEstadoCliente(Cliente cliente) {
         initComponents();
         this.controller = new ControleAlteraEstadoCliente();
-        if(Session.getCliente() == null){
+        if(Session.getFuncionario() == null){
             JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
             InterfaceCliente ic = new InterfaceCliente();
             ic.setVisible(true);

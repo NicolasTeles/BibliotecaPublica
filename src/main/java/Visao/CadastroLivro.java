@@ -36,6 +36,12 @@ public class CadastroLivro extends javax.swing.JFrame {
     public CadastroLivro(Livro livro) {
         this.setTitle("Cadastro de livros");
         initComponents();
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null , "Funcionario deve estar logado para acessar esta tela!");
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
         controlador = new ControleCadastroLivro();
         this.getTextNome().setText(livro.getNome());
         this.getTextAutor().setText(livro.getAutor());

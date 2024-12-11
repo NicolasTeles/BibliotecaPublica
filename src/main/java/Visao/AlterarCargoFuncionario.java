@@ -38,8 +38,8 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
         this.controller = new ControleAlteraCargoFuncionario();
         if(Session.getFuncionario() == null){
             JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
-            InterfaceCliente ic = new InterfaceCliente();
-            ic.setVisible(true);
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
         }
         textNome.setText(funcionario.getNome());
