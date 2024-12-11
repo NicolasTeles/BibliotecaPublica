@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleAvaliacao;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Avaliacao extends javax.swing.JFrame {
      */
     public Avaliacao() {
         initComponents();
-        this.controller = new ControleAvaliacao(this);
+        this.controller = new ControleAvaliacao();
     }
 
     /**
@@ -104,8 +105,15 @@ public class Avaliacao extends javax.swing.JFrame {
 
     private void botaoAvaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvaliarActionPerformed
         this.controller.avalia();
+        //logica para conferir se avaliou
+        this.printaMensagem("Livro avaliado com sucesso!!");
+        this.dispose();
     }//GEN-LAST:event_botaoAvaliarActionPerformed
 
+    public void printaMensagem(String mensagem){
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+    
     /**
      * @param args the command line arguments
      */
