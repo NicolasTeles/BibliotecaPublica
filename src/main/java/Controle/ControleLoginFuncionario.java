@@ -2,6 +2,7 @@ package Controle;
 
 import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
+import Modelo.Session;
 import Visao.InterfaceGeral;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
@@ -33,6 +34,7 @@ public class ControleLoginFuncionario {
             return false;
         }
         JOptionPane.showMessageDialog(null, "Login feito com sucesso!");
+        Session.criaFuncionario(funcionario);
         return true;
     }
     

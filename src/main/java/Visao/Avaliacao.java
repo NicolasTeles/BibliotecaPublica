@@ -6,6 +6,7 @@ package Visao;
 
 import Controle.ControleAvaliacao;
 import Modelo.Livro;
+import Modelo.Session;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,12 +25,24 @@ public class Avaliacao extends javax.swing.JFrame {
         initComponents();
         this.controller = new ControleAvaliacao();
         this.livro = null;
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
     
     public Avaliacao(Livro livro) {
         initComponents();
         this.controller = new ControleAvaliacao();
         this.livro = livro;
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
 
     /**

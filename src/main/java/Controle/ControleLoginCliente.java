@@ -2,6 +2,7 @@ package Controle;
 
 import Modelo.Cliente;
 import Modelo.DAO.ClienteDAO;
+import Modelo.Session;
 import Visao.InterfaceCliente;
 import Visao.MenuPrincipalCliente;
 import javax.swing.JOptionPane;
@@ -30,6 +31,7 @@ public class ControleLoginCliente {
             return false;
         }
         JOptionPane.showMessageDialog(null, "Login feito com sucesso!");
+        Session.criaCliente(cliente);
         return true;
     }
     
