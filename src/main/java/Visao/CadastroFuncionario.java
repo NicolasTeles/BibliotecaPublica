@@ -23,13 +23,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     public CadastroFuncionario() {
         this.setTitle("Cadastro de funcionarios");
         initComponents();
-        controlador = new ControleCadastroFuncionario(this);
+        controlador = new ControleCadastroFuncionario();
     }
     
     public CadastroFuncionario(Funcionario funcionario) {
         this.setTitle("Cadastro de funcionarios");
         initComponents();
-        controlador = new ControleCadastroFuncionario(this, funcionario);
+        controlador = new ControleCadastroFuncionario(funcionario);
     }
 
     /**
@@ -210,11 +210,15 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
         controlador.navegaTelaPrincipal();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        if(controlador.cadastraFuncionario()){
+        if(controlador.cadastraFuncionario(this.nomeTextField.getText(), this.emailTextField.getText(), this.cpfTextField.getText(), 
+                this.senhaField.getPassword(), this.confirmaSenhaField.getPassword(), 
+                String.valueOf(this.geteAdmComboBox().getSelectedItem()))){
             this.controlador.navegaTelaPrincipalFuncionario();
+            this.dispose();
         }
     }//GEN-LAST:event_BotaoCadastroActionPerformed
 

@@ -11,45 +11,27 @@ import javax.swing.JOptionPane;
 
 public class ControleCadastroFuncionario {
 
-    private final CadastroFuncionario view;
-
-    public ControleCadastroFuncionario(CadastroFuncionario view){
-        this.view = view;
+    public ControleCadastroFuncionario(){
     }
     
-    public ControleCadastroFuncionario(CadastroFuncionario view, Funcionario funcionario){
-        this.view = view;
+    public ControleCadastroFuncionario(Funcionario funcionario){
     }
 
     public void navegaTelaPrincipal(){
         InterfaceGeral ig = new InterfaceGeral();
         ig.setVisible(true);
-        this.view.dispose();
     }
     
     public void navegaTelaPrincipalFuncionario(){
         MenuLivroFuncionario mlf = new MenuLivroFuncionario();
         mlf.setVisible(true);
-        this.view.dispose();
-    }
-
-    public void printaMensagemTeste() {
-        System.out.println("Opa");
-
-        this.view.exibeMensagem("Executei o teste pintamsg");
     }
     
-    public boolean cadastraFuncionario(){
-        String nome = this.view.getNomeTextField().getText();
-        String email = this.view.getEmailTextField().getText();
-        String cpf = this.view.getCpfTextField().getText();
-        char[] senha = this.view.getSenhaField().getPassword();
-        char[] confirmaSenha = this.view.getConfirmaSenhaField().getPassword();
+    public boolean cadastraFuncionario(String nome, String email, String cpf, char[] senha, char[] confirmaSenha, String eAdm){
         if(!Arrays.equals(senha, confirmaSenha)){
-            JOptionPane.showMessageDialog(this.view, "Senha e confirmacao de senha devem ser a mesma");
+            JOptionPane.showMessageDialog(null, "Senha e confirmacao de senha devem ser a mesma");
             return false;
         }
-        String eAdm = String.valueOf(this.view.geteAdmComboBox().getSelectedItem());
         boolean adm = false;
         if(eAdm.equalsIgnoreCase("administrador"))
             adm = true;
@@ -58,7 +40,7 @@ public class ControleCadastroFuncionario {
         Funcionario funcionario = new Funcionario(nome, cpf, email, String.valueOf(senha), adm);
         FuncionarioDAO fd = new FuncionarioDAO();
         if(fd.insereFuncionario(funcionario)){
-            JOptionPane.showMessageDialog(this.view, "Funcionario inserido com sucesso");
+            JOptionPane.showMessageDialog(null, "Funcionario inserido com sucesso");
             return true;
         }
         return false;
