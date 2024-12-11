@@ -12,15 +12,14 @@ public class EmprestimoDAO {
     public boolean criaEmprestimo(Emprestimo emprestimo){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "INSERT INTO bibliotecapublica.emprestimo(data_inicial, vencimento, devolvido, cpf_ocupante, id, id_livro)" +
+            String SQL = "INSERT INTO bibliotecapublica.emprestimo(data_inicial, vencimento, devolvido, cpf_ocupante, id_livro)" +
                     " VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setDate(1, Date.valueOf(emprestimo.getDataInicial()));
             comando.setDate(2, Date.valueOf(emprestimo.getVencimento()));
             comando.setBoolean(3, emprestimo.getDevolvido());
             comando.setString(4, emprestimo.getCliente().getCpf());
-            comando.setInt(5, emprestimo.getId());
-            comando.setInt(6, emprestimo.getLivro().getID());
+            comando.setInt(5, emprestimo.getLivro().getID());
             retorno = comando.executeUpdate();
         }catch (SQLException e){
             System.out.println("Erro ao emprestar livro");
@@ -110,51 +109,6 @@ public class EmprestimoDAO {
             ResultSet resultado = comando.executeQuery();
             if(resultado.next()){
                 return this.pegaDadosEmprestimo(resultado);
-            }
-        }catch (SQLException e){
-            System.out.println("Erro ao consultar emprestimo");
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public Emprestimo consultaEmprestimo(Emprestimo emprestimo){
-        try(Connection conexao = Conexao.getConexao()){
-            String SQL = "SELECT * FROM bibliotecapublica.emprestimo";
-            String filtro = "";
-
-            if(emprestimo != null){
-                if(emprestimo.getId() > 0){
-                    filtro = "WHERE id = "+emprestimo.getId();
-                }
-                if(emprestimo.getCliente() != null && !emprestimo.getCliente().getCpf().equalsIgnoreCase("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE cpf_ocupante ilike '%"+emprestimo.getCliente()+"%'";
-                    }else{
-                        filtro += " AND cpf_ocupante ilike '%"+emprestimo.getCliente()+"%'";
-                    }
-                }
-                if(emprestimo.getDataInicial() != null && !emprestimo.getDataInicial().equals("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE data_inicial ilike '%"+emprestimo.getDataInicial()+"%'";
-                    }else{
-                        filtro += " AND data_inicial ilike '%"+emprestimo.getDataInicial()+"%'";
-                    }
-                }
-                if(emprestimo.getVencimento() != null && !emprestimo.getVencimento().equals("")){
-                    if(filtro.equalsIgnoreCase("")){
-                        filtro = "WHERE vencimento ilike '%"+emprestimo.getVencimento()+"%'";
-                    }else{
-                        filtro += " AND vencimento ilike '%"+emprestimo.getVencimento()+"%'";
-                    }
-                }
-            }
-            PreparedStatement comando = conexao.prepareStatement(SQL+filtro);
-            ResultSet resultado = comando.executeQuery();
-            if(resultado.next()){
-                Emprestimo emprestimo1 = new Emprestimo();
-                emprestimo1 = this.pegaDadosEmprestimo(resultado);
-                return emprestimo1;
             }
         }catch (SQLException e){
             System.out.println("Erro ao consultar emprestimo");
