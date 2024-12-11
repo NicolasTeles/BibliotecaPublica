@@ -8,6 +8,7 @@ import Controle.ControleMenuPrincipalCliente;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,7 +24,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     public MenuPrincipalCliente() {
         initComponents();
         controlador = new ControleMenuPrincipalCliente(this);
-        this.controlador.inicia();
+        this.controlador.inicia((DefaultTableModel)this.getListaLivros().getModel());
     }
 
     /**
@@ -182,23 +183,26 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
     private void logoutMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutMenuActionPerformed
         this.controlador.logout();
+        this.dispose();
     }//GEN-LAST:event_logoutMenuActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
-        this.controlador.pesquisaLivro();
+        this.controlador.pesquisaLivro(this.getFieldPesquisa().getText(), (DefaultTableModel)this.getListaLivros().getModel());
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void perfilMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilMenuActionPerformed
         this.controlador.navegaPerfil();
+        this.dispose();
     }//GEN-LAST:event_perfilMenuActionPerformed
 
     private void menuDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDevolucaoMouseClicked
         this.controlador.navegaDevolucao();
+        this.dispose();
     }//GEN-LAST:event_menuDevolucaoMouseClicked
 
     private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
         if(evt.getClickCount() > 1){
-            this.controlador.acessaLivro(this.listaLivros.getSelectedRow());
+            this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), (DefaultTableModel)this.getListaLivros().getModel());
         }
     }//GEN-LAST:event_listaLivrosMouseClicked
 
