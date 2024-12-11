@@ -11,8 +11,12 @@ public class ControleCadastroLivro {
 
     public boolean cadastraLivro(String nome, String autor, String editora, Integer anoPubli){
         Livro livro = new Livro(nome, editora, autor, anoPubli);
-        LivroDAO cd = new LivroDAO();
-        if(cd.inserirLivro(livro)){
+        LivroDAO ld = new LivroDAO();
+        if(ld.consultaLivroNome(nome) != null){
+            JOptionPane.showMessageDialog(null, "Esse livro ja esta cadastrado");
+            return false;
+        }
+        if(ld.inserirLivro(livro)){
             JOptionPane.showMessageDialog(null, "Livro inserido com sucesso!");
             return true;
         }
