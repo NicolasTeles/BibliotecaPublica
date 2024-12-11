@@ -14,17 +14,16 @@ public class LivroDAO {
     public boolean inserirLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "INSERT INTO bibliotecapublica.livro(id_livro, nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes) " +
-                    "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO bibliotecapublica.livro(nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes) " +
+                    "VALUES(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
-            comando.setInt(1, livro.getID());
-            comando.setString(2, livro.getNome());
-            comando.setString(3, livro.getEditora());
-            comando.setString(4, livro.getAutor());
-            comando.setInt(5, livro.getAnoPubli());
-            comando.setInt(6, livro.getTotalAvaliacao());
-            comando.setBoolean(7, livro.getStatus());
-            comando.setInt(8, livro.getNumAvaliacoes());
+            comando.setString(1, livro.getNome());
+            comando.setString(2, livro.getEditora());
+            comando.setString(3, livro.getAutor());
+            comando.setInt(4, livro.getAnoPubli());
+            comando.setInt(5, livro.getTotalAvaliacao());
+            comando.setBoolean(6, livro.getStatus());
+            comando.setInt(7, livro.getNumAvaliacoes());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao inserir livro");
@@ -92,7 +91,7 @@ public class LivroDAO {
     public List<Livro> listarLivrosCliente(){
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "SELECT * FROM bibliotecapublica.livro WHERE status_emprestimo = ?";
-            List<Livro> listaDeLivros = new ArrayList<Livro>();
+            List<Livro> listaDeLivros = new ArrayList<>();
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setBoolean(1, true);
             ResultSet resultado = comando.executeQuery();
