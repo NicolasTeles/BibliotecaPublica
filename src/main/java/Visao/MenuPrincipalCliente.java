@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleMenuPrincipalCliente;
+import Modelo.Session;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -25,6 +26,12 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         initComponents();
         controlador = new ControleMenuPrincipalCliente();
         this.controlador.inicia((DefaultTableModel)this.getListaLivros().getModel());
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
 
     /**
