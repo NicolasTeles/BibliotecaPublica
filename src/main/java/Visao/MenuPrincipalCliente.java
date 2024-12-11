@@ -23,7 +23,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
      */
     public MenuPrincipalCliente() {
         initComponents();
-        controlador = new ControleMenuPrincipalCliente(this);
+        controlador = new ControleMenuPrincipalCliente();
         this.controlador.inicia((DefaultTableModel)this.getListaLivros().getModel());
     }
 

@@ -9,7 +9,6 @@ import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Visao.DevolucaoCliente;
 import Visao.LoginCliente;
-import Visao.MenuPrincipalCliente;
 import Visao.PerfilCliente;
 import Visao.ReservaLivro;
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class ControleMenuPrincipalCliente {
     private final MenuPrincipalClienteHelper helper;
 
-    public ControleMenuPrincipalCliente(MenuPrincipalCliente view) {
+    public ControleMenuPrincipalCliente() {
        this.helper = new MenuPrincipalClienteHelper();
     }
 
