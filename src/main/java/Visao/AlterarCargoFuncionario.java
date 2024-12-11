@@ -20,7 +20,7 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
      */
     public AlterarCargoFuncionario() {
         initComponents();
-        this.controller = new ControleAlteraCargoFuncionario(this);
+        this.controller = new ControleAlteraCargoFuncionario();
     }
 
     /**
@@ -176,6 +176,9 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
 
     private void botaoAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraActionPerformed
         this.controller.alteraEstado();
+        //Logica para verificar se o estado foi alterado
+        this.printaMensagem("Cargo alterado com sucesso!");
+        this.dispose();
     }//GEN-LAST:event_botaoAlteraActionPerformed
 
     public void printaMensagem(String mensagem){

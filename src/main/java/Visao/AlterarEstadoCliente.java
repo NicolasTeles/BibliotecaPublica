@@ -18,17 +18,19 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
 
     private final ControleAlteraEstadoCliente controller;
 
-    /**
-     * Creates new form PerfilCliente
-     */
-    public AlterarEstadoCliente() {
+    public AlterarEstadoCliente(){
         initComponents();
-        this.controller = new ControleAlteraEstadoCliente(this);
+        this.controller = new ControleAlteraEstadoCliente();
     }
     
     public AlterarEstadoCliente(Cliente cliente) {
         initComponents();
-        this.controller = new ControleAlteraEstadoCliente(this, cliente);
+        this.controller = new ControleAlteraEstadoCliente();
+        this.getTextNome().setText(cliente.getNome());
+        this.getTextCPF().setText(cliente.getCpf());
+        this.getTextEmail().setText(cliente.getEmail());
+        int selectedIndex = cliente.getStatusCliente() ? 0 : 1;
+        this.getEstadoCliente().setSelectedIndex(selectedIndex);
     }
 
     public JComboBox<String> getEstadoCliente() {
@@ -217,7 +219,10 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_estadoClienteActionPerformed
 
     private void botaoAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraActionPerformed
-        this.controller.alteraEstado();
+        this.controller.alteraEstado(String.valueOf(this.getEstadoCliente().getSelectedItem()),this.getTextCPF().getText());
+        //logica para conferir se o estado foi alterado
+        this.printaMensagem("Estado alterado com sucesso!");
+        this.dispose();
     }//GEN-LAST:event_botaoAlteraActionPerformed
 
     public void printaMensagem(String mensagem){

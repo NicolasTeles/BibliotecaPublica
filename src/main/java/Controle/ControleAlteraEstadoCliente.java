@@ -15,35 +15,20 @@ import javax.swing.JOptionPane;
  */
 public class ControleAlteraEstadoCliente {
 
-    private final AlterarEstadoCliente view;
-
-    public ControleAlteraEstadoCliente(AlterarEstadoCliente view) {
-        this.view = view;
+    
+    public ControleAlteraEstadoCliente() {
+        
     }
     
-    public ControleAlteraEstadoCliente(AlterarEstadoCliente view, Cliente cliente) {
-        this.view = view;
-        this.view.getTextNome().setText(cliente.getNome());
-        this.view.getTextCPF().setText(cliente.getCpf());
-        this.view.getTextEmail().setText(cliente.getEmail());
-        int selectedIndex = cliente.getStatusCliente() ? 0 : 1;
-        this.view.getEstadoCliente().setSelectedIndex(selectedIndex);
-    }
-    
-    public void alteraEstado(){
+    public void alteraEstado(String statusString, String cpf){
         Cliente cliente = new Cliente();
         ClienteDAO cd = new ClienteDAO();
         boolean status = false;
-        String statusString = String.valueOf(this.view.getEstadoCliente().getSelectedItem());
         if(statusString.equalsIgnoreCase("ativo"))
             status = true;
         else if(statusString.equalsIgnoreCase("banido"))
             status = false;
         cliente.setStatusCliente(status);
-        cliente.setCpf(this.view.getTextCPF().getText());
-        if(cd.atualizaStatus(cliente)){
-            this.view.printaMensagem("Estado alterado com sucesso!");
-            this.view.dispose();
-        }
+        cliente.setCpf(cpf);
     }
 }
