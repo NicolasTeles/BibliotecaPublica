@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleReservaLivro;
 import Modelo.Livro;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -22,6 +24,12 @@ public class ReservaLivro extends javax.swing.JFrame {
     public ReservaLivro() {
         initComponents();
         controlador = new ControleReservaLivro();
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "O cliente deve estar logado para acessar essa tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
         this.livro = null;
     }
     
