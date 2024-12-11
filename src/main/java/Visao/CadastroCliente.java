@@ -200,6 +200,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
         this.controlador.retornaInterfaceGeral();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed

@@ -6,6 +6,8 @@ package Visao;
 
 import Controle.ControleDevolucaoCliente;
 import Modelo.Livro;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +25,12 @@ public class DevolucaoCliente extends javax.swing.JFrame {
     public DevolucaoCliente() {
         initComponents();
         this.controller = new ControleDevolucaoCliente();
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
 
     /**

@@ -7,6 +7,7 @@ package Visao;
 import Controle.ControleDevolveLivro;
 import Modelo.Emprestimo;
 import Modelo.Livro;
+import Modelo.Session;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -30,6 +31,12 @@ public class DevolveLivro extends javax.swing.JFrame {
         controller = new ControleDevolveLivro();
         this.emprestimo = null;
         this.livro = null;
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
     
     public DevolveLivro(Emprestimo emprestimo, Livro livro) {
