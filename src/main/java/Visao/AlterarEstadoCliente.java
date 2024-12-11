@@ -6,6 +6,7 @@ package Visao;
 
 import Controle.ControleAlteraEstadoCliente;
 import Modelo.Cliente;
+import Modelo.Session;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -21,11 +22,23 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
     public AlterarEstadoCliente(){
         initComponents();
         this.controller = new ControleAlteraEstadoCliente();
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(()-> this.dispose());
+        }
     }
     
     public AlterarEstadoCliente(Cliente cliente) {
         initComponents();
         this.controller = new ControleAlteraEstadoCliente();
+        if(Session.getCliente() == null){
+            JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(()-> this.dispose());
+        }
         this.getTextNome().setText(cliente.getNome());
         this.getTextCPF().setText(cliente.getCpf());
         this.getTextEmail().setText(cliente.getEmail());
