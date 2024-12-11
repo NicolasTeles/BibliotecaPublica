@@ -22,7 +22,7 @@ public class LoginCliente extends javax.swing.JFrame {
     public LoginCliente() {
         this.setTitle("Login de cliente");
         initComponents();
-        controlador = new ControleLoginCliente(this);
+        controlador = new ControleLoginCliente();
     }
 
     /**
@@ -118,11 +118,13 @@ public class LoginCliente extends javax.swing.JFrame {
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         controlador.navegaTelaCliente();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        if(controlador.logaCliente()){
+        if(controlador.logaCliente(this.getEmailTextField().getText(),this.getSenhaPassField().getPassword())){
             this.controlador.navegaTelaPrincipalCliente();
+            this.dispose();
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
