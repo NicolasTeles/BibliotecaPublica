@@ -15,15 +15,9 @@ import javax.swing.table.DefaultTableModel;
  * @author felip
  */
 public class MenuLivroFuncionarioHelper {
-    
-    private final MenuLivroFuncionario view;
-
-    public MenuLivroFuncionarioHelper(MenuLivroFuncionario view) {
-        this.view = view;
-    }
-    
-    public Livro leLinha(int indexLinha){
-        DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
+      
+    public Livro leLinha(int indexLinha, DefaultTableModel tableModel){        
+        //DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
         System.out.println(linha);
         Livro livro = new Livro();
@@ -31,8 +25,8 @@ public class MenuLivroFuncionarioHelper {
         return livro;
     }
 
-    public void preencheTabela(List<Livro> livros) {
-        DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
+    public void preencheTabela(List<Livro> livros,DefaultTableModel tableModel) {
+        //DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
         tableModel.setNumRows(0);
         for(Livro livro : livros){
             tableModel.addRow(new Object[]{
