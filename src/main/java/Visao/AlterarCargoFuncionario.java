@@ -6,6 +6,7 @@ package Visao;
 
 import Controle.ControleAlteraCargoFuncionario;
 import Modelo.Funcionario;
+import Modelo.Session;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -24,11 +25,23 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
     public AlterarCargoFuncionario() {
         initComponents();
         this.controller = new ControleAlteraCargoFuncionario();
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
 
     public AlterarCargoFuncionario(Funcionario funcionario) {
         initComponents();
         this.controller = new ControleAlteraCargoFuncionario();
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
+            InterfaceCliente ic = new InterfaceCliente();
+            ic.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
         textNome.setText(funcionario.getNome());
         textCPF.setText(funcionario.getCpf());
         textLogin.setText(funcionario.getLogin());
