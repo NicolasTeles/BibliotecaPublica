@@ -22,7 +22,7 @@ public class LoginFuncionario extends javax.swing.JFrame {
     public LoginFuncionario() {
         this.setTitle("Login de funcionario");
         initComponents();
-        controlador = new ControleLoginFuncionario(this);
+        controlador = new ControleLoginFuncionario();
     }
 
     /**
@@ -118,11 +118,15 @@ public class LoginFuncionario extends javax.swing.JFrame {
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         controlador.navegaTelaPrincipal();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        if(controlador.logaFuncionario()){
+        String email = this.getEmailTextField().getText();
+        char[] senha = this.getSenhaPassField().getPassword();
+        if(controlador.logaFuncionario(email, senha)){
             this.controlador.navegaTelaPrincipalFuncionario();
+            this.dispose();
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
