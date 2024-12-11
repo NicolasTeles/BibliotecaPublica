@@ -23,12 +23,17 @@ public class DevolveLivro extends javax.swing.JFrame {
     
     public DevolveLivro(){
         initComponents();
-        this.controller = new ControleDevolveLivro(this);
+        controller = new ControleDevolveLivro();
     }
     
     public DevolveLivro(Livro livro) {
         initComponents();
-        this.controller = new ControleDevolveLivro(this, livro);
+        controller = new ControleDevolveLivro();
+   
+        this.getTextNome().setText(livro.getNome());
+        this.getTextAutor().setText(livro.getAutor());
+        this.getTextEditora().setText(livro.getEditora());
+        this.getTextAno().setText(Integer.toString(livro.getAnoPubli()));
     }
 
     public JButton getBotaoReservar() {
@@ -230,6 +235,7 @@ public class DevolveLivro extends javax.swing.JFrame {
 
     private void botaoDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDevolverActionPerformed
         this.controller.devolve();
+        this.dispose();
     }//GEN-LAST:event_botaoDevolverActionPerformed
 
     /**
