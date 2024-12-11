@@ -15,14 +15,8 @@ import javax.swing.table.DefaultTableModel;
  * @author nicol
  */
 public class DevolucaoClienteHelper {
-    private final DevolucaoCliente view;
     
-    public DevolucaoClienteHelper(DevolucaoCliente view){
-        this.view = view;
-    }
-    
-    public Livro leLinha(int indexLinha){
-        DefaultTableModel tableModel = (DefaultTableModel)this.view.getTabelaDevolucao().getModel();
+    public Livro leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
         //System.out.println(linha);
         Livro livro = new Livro();

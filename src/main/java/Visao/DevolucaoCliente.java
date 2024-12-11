@@ -7,6 +7,7 @@ package Visao;
 import Controle.ControleDevolucaoCliente;
 import Modelo.Livro;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,7 +22,7 @@ public class DevolucaoCliente extends javax.swing.JFrame {
      */
     public DevolucaoCliente() {
         initComponents();
-        this.controller = new ControleDevolucaoCliente(this);
+        this.controller = new ControleDevolucaoCliente();
     }
 
     /**
@@ -120,11 +121,12 @@ public class DevolucaoCliente extends javax.swing.JFrame {
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         this.controller.navegaTelaCliente();
+        this.dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
     private void tabelaDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDevolucaoMouseClicked
         if(evt.getClickCount() > 1){
-           this.controller.acessaLivro(this.tabelaDevolucao.getSelectedRow());
+           this.controller.acessaLivro(this.tabelaDevolucao.getSelectedRow(), (DefaultTableModel)this.getTabelaDevolucao().getModel());
         }
     }//GEN-LAST:event_tabelaDevolucaoMouseClicked
 
