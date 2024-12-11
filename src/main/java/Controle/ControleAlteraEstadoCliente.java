@@ -2,7 +2,6 @@ package Controle;
 
 import Modelo.Cliente;
 import Modelo.DAO.ClienteDAO;
-import Visao.AlterarEstadoCliente;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,5 +25,6 @@ public class ControleAlteraEstadoCliente {
             status = false;
         cliente.setStatusCliente(status);
         cliente.setCpf(cpf);
+        cd.atualizaStatus(cliente);
     }
 }

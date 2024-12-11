@@ -6,7 +6,9 @@ package Visao;
 
 import Controle.ControleAlteraCargoFuncionario;
 import Modelo.Funcionario;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -30,9 +32,20 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
         textNome.setText(funcionario.getNome());
         textCPF.setText(funcionario.getCpf());
         textLogin.setText(funcionario.getLogin());
-        int selectedIndex = funcionario.getEadm() ? 1 : 0;
+        int selectedIndex = funcionario.getEadm() ? 0 : 1;
         cargoComboBox.setSelectedIndex(selectedIndex);
-    }    
+    }  
+
+    public JComboBox<String> getCargoComboBox() {
+        return cargoComboBox;
+    }
+
+    public JTextField getTextCPF() {
+        return textCPF;
+    }
+    
+   
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,7 +198,7 @@ public class AlterarCargoFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_cargoComboBoxActionPerformed
 
     private void botaoAlteraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAlteraActionPerformed
-        this.controller.alteraEstado();
+        this.controller.alteraEstado(String.valueOf(this.getCargoComboBox().getSelectedItem()),this.getTextCPF().getText());
         //Logica para verificar se o estado foi alterado
         this.printaMensagem("Cargo alterado com sucesso!");
         this.dispose();

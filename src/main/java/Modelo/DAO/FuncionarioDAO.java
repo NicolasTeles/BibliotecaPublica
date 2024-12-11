@@ -168,4 +168,20 @@ public class FuncionarioDAO {
         }
         return null;
     }
+    
+    
+    public boolean atualizaStatus(Funcionario funcionario){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.funcionario SET e_adm=? WHERE cpf=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setBoolean(1, funcionario.getEadm());
+            comando.setString(2, funcionario.getCpf());
+            retorno = comando.executeUpdate();
+        }catch(SQLException e){
+            System.out.println("Erro ao mudar cargo do funcionario");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
+    }
 }
