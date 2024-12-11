@@ -251,10 +251,11 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
     private void listaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaFuncionariosMouseClicked
         if(evt.getClickCount()>1){
-            if(JOptionPane.showConfirmDialog(null, "Deseja deletar esse funcionario?") == 0){
+            //alterar cargo do funcionario na verdade
+            //if(JOptionPane.showConfirmDialog(null, "Deseja deletar esse funcionario?") == 0){
             // deleta do banco
             //this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow());
-            }
+            //}
         }
     }//GEN-LAST:event_listaFuncionariosMouseClicked
 
