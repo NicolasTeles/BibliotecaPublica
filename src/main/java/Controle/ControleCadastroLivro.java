@@ -9,11 +9,6 @@ public class ControleCadastroLivro {
 
     public ControleCadastroLivro(){}
 
-    public void navegaInterfaceGeral(){
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-    }
-    
     public boolean cadastraLivro(String nome, String autor, String editora, Integer anoPubli){
         Livro livro = new Livro(nome, editora, autor, anoPubli);
         LivroDAO cd = new LivroDAO();

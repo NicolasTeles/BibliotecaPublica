@@ -151,7 +151,8 @@ public class CadastroLivro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        controlador.navegaInterfaceGeral();
+        MenuLivroFuncionario cd = new MenuLivroFuncionario();
+        cd.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
