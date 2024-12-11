@@ -209,7 +209,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
-        controlador.navegaTelaPrincipal();
+        MenuFuncionariosAdm menu = new MenuFuncionariosAdm();
+        menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
@@ -217,7 +218,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         if(controlador.cadastraFuncionario(this.nomeTextField.getText(), this.emailTextField.getText(), this.cpfTextField.getText(), 
                 this.senhaField.getPassword(), this.confirmaSenhaField.getPassword(), 
                 String.valueOf(this.geteAdmComboBox().getSelectedItem()))){
-            this.controlador.navegaTelaPrincipalFuncionario();
+            MenuFuncionariosAdm menu = new MenuFuncionariosAdm();
+            menu.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_BotaoCadastroActionPerformed

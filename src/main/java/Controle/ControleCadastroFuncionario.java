@@ -16,11 +16,6 @@ public class ControleCadastroFuncionario {
     
     public ControleCadastroFuncionario(Funcionario funcionario){
     }
-
-    public void navegaTelaPrincipal(){
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-    }
     
     public void navegaTelaPrincipalFuncionario(){
         MenuLivroFuncionario mlf = new MenuLivroFuncionario();
