@@ -64,8 +64,7 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
     public void setTextNome(JTextField textNome) {
         this.textNome = textNome;
     }
-    
-    
+       
 
     /**
      * This method is called from within the constructor to initialize the form.
