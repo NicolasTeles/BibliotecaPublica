@@ -41,3 +41,24 @@ create table funcionario(
     e_adm boolean,
     primary key (cpf)
 );
+
+insert into cliente(nome, email, senha, cpf, status_cliente) values('felipe', 'felipe@email.com', '123', '1', true);
+
+insert into cliente(nome, email, senha, cpf, status_cliente) values('gabirel', 'gabirel@email.com', 'asd', '2', true);
+
+insert into cliente(nome, email, senha, cpf, status_cliente) values('miguel', 'miguel@email.com', 'gnf', '3', true);
+
+insert into livro(nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes)
+			values('harry potter', 'bloomsberg', 'jk roulin', 1984, 40, true, 10);
+            
+insert into livro(nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes)
+			values('os miseravies', 'grupo de estudantes', 'felipao do grau', 2015, 50, true, 10);
+            
+insert into livro(nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes)
+			values('teste', 'eu', 'nicolas', 2024, 35, true, 10);
+            
+insert into livro(nome, editora, autor, ano_publicacao, total_avaliacao, status_emprestimo, num_avaliacoes)
+			values('teste 2', 'vc', 'eu', 2036, 34, false, 10);
+            
+insert into funcionario(nome, cpf, login, senha, e_adm) values('nicolas', '25', 'nicolas@email.com', '1234', true);
+insert into funcionario(nome, cpf, login, senha, e_adm) values('ramon', '30', 'ramon@email.com', 'ramon', true);
