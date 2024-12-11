@@ -21,14 +21,14 @@ public class Livro {
         this.numAvaliacoes = 0;
     }
 
-    public Livro(String nome, String editora, String autor, int anoPubli, int id){
+    public Livro(String nome, String editora, String autor, int anoPubli){
         this.nome = nome;
         this.editora = editora;
         this.autor = autor;
         this.anoPubli = anoPubli;
         this.status = true;
         this.totalAvaliacao = 0;
-        this.id = id;
+        this.id = 0;
         this.numAvaliacoes = 0;
     }
 

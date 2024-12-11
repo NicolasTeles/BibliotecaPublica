@@ -156,7 +156,12 @@ public class CadastroLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
-        
+        if(controlador.cadastraLivro(this.textNome.getText(), this.textAutor.getText(), 
+            this.textEditora.getText(), Integer.valueOf(this.textAnoPubli.getText()))){
+            MenuLivroFuncionario cd = new MenuLivroFuncionario();
+            cd.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     public JButton getButtonCadastro() {
