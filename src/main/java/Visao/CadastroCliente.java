@@ -19,9 +19,9 @@ public class CadastroCliente extends javax.swing.JFrame {
     /**
      * Creates new form CadastroCliente
      */
-    public CadastroCliente() {
+    public CadastroCliente(){
         initComponents();
-        controlador = new ControleCadastroCliente(this);
+        controlador = new ControleCadastroCliente();
     }
 
     /**
@@ -195,6 +195,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
         this.controlador.retornaInterfaceGeral();
+        this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
@@ -202,9 +203,11 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        if(this.controlador.cadastraCliente()){
+        if(this.controlador.cadastraCliente(this.getNomeTextField().getText(), 
+                this.getCpfTextField().getText(), this.getEmailTextField().getText(), 
+                this.getSenhaField().getPassword(), this.getSenhaField().getPassword())){
             this.controlador.navegaMenuCliente();
-            this.controlador.printaMensagemTeste();
+            this.dispose();
         }
     }//GEN-LAST:event_BotaoCadastroActionPerformed
 
