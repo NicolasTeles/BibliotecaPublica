@@ -6,6 +6,7 @@ package Visao;
 
 import Controle.ControleCadastroLivro;
 import Modelo.Livro;
+import Modelo.Session;
 import javax.swing.*;
 
 
@@ -24,6 +25,12 @@ public class CadastroLivro extends javax.swing.JFrame {
         this.setTitle("Cadastro de livros");
         initComponents();
         controlador = new ControleCadastroLivro();
+        if(Session.getFuncionario() == null){
+            JOptionPane.showMessageDialog(null , "Funcionario deve estar logado para acessar esta tela!");
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
+            java.awt.EventQueue.invokeLater(() -> this.dispose());
+        }
     }
     
     public CadastroLivro(Livro livro) {

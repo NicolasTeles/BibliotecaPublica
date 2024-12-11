@@ -24,8 +24,8 @@ public class AlterarEstadoCliente extends javax.swing.JFrame {
         this.controller = new ControleAlteraEstadoCliente();
         if(Session.getCliente() == null){
             JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
-            InterfaceCliente ic = new InterfaceCliente();
-            ic.setVisible(true);
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
             java.awt.EventQueue.invokeLater(()-> this.dispose());
         }
     }
