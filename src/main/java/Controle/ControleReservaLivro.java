@@ -5,7 +5,9 @@
 package Controle;
 
 import Modelo.Cliente;
+import Modelo.DAO.EmprestimoDAO;
 import Modelo.DAO.LivroDAO;
+import Modelo.Emprestimo;
 import Modelo.Livro;
 import Modelo.Session;
 import javax.swing.JOptionPane;
@@ -23,7 +25,9 @@ public class ControleReservaLivro {
         if(cliente.getStatusCliente()){
             LivroDAO ld = new LivroDAO();
             ld.emprestaDevolve(false, livro.getID());
-            //criaria um emprestimo quando se tiver acesso à session
+            Emprestimo emprestimo = new Emprestimo(cliente, false, livro);
+            EmprestimoDAO emp = new EmprestimoDAO();
+            emp.criaEmprestimo(emprestimo);
             return;
         }
         JOptionPane.showMessageDialog(null,"Livro não reservado, você está banido!");
