@@ -23,9 +23,11 @@ public class ControleLoginFuncionario {
     }
 
     
-    public boolean logaFuncionario(String email, char[] senha){
+    public boolean logaFuncionario(String login, char[] senha){
         FuncionarioDAO fd = new FuncionarioDAO();
-        Funcionario funcionario = fd.consultaLoginFuncionario(email);
+        Funcionario funcionario = fd.consultaLoginFuncionario(login);
+        if(funcionario == null)
+            funcionario = fd.consultaFuncionario(login);
         if(funcionario == null){
             JOptionPane.showMessageDialog(null, "Usuario incorreto");
             return false;

@@ -19,9 +19,11 @@ public class ControleLoginCliente {
     }
 
     
-    public boolean logaCliente(String email, char[] senha){
+    public boolean logaCliente(String login, char[] senha){
         ClienteDAO cd = new ClienteDAO();
-        Cliente cliente = cd.consultaEmailCliente(email);
+        Cliente cliente = cd.consultaEmailCliente(login);
+        if(cliente == null)
+            cliente = cd.consultaCliente(login);
         if(cliente == null){
             JOptionPane.showMessageDialog(null, "Usuario incorreto");
             return false;
