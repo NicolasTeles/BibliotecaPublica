@@ -4,6 +4,8 @@
  */
 package Controle;
 
+import Modelo.Cliente;
+import Modelo.DAO.ClienteDAO;
 import Visao.MenuPrincipalCliente;
 
 /**
@@ -18,5 +20,15 @@ public class ControlePerfilCliente {
     public void retornaMenu() {
         MenuPrincipalCliente ig = new MenuPrincipalCliente();
         ig.setVisible(true);
+    }
+        
+    public boolean deletaCliente(String cpf){
+        ClienteDAO cd = new ClienteDAO();
+        Cliente cliente = new Cliente();
+        boolean confere;
+        
+        cliente = cd.consultaCliente(cpf);
+        confere = cd.deletarConta(cliente);        
+        return confere;        
     }
 }
