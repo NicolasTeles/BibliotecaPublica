@@ -10,12 +10,12 @@ public class Emprestimo{
     private Cliente cliente;
     private boolean devolvido;
 
-    public Emprestimo(LocalDate dataInicial, LocalDate vencimento, Cliente cliente, boolean devolvido, int id, Livro livro){
-        this.dataInicial = dataInicial;
-        this.vencimento = vencimento;
+    public Emprestimo(Cliente cliente, boolean devolvido, Livro livro){
+        this.dataInicial = LocalDate.now();
+        this.vencimento = LocalDate.now().plusMonths(1);
         this.cliente = cliente;
         this.devolvido = devolvido;
-        this.id = id;
+        this.id = 0;
         this.livro = livro;
     }
 
@@ -48,6 +48,7 @@ public class Emprestimo{
             usuario.setStatusCliente(false);
         }
     }
+   
 
     /*public void emprestimoRetornado(Emprestimo emprest, Cliente usuario){
         if(emprest.getDevolvido()){

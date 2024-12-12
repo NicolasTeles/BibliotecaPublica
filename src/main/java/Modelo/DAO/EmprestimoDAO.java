@@ -13,7 +13,7 @@ public class EmprestimoDAO {
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
             String SQL = "INSERT INTO bibliotecapublica.emprestimo(data_inicial, vencimento, devolvido, cpf_ocupante, id_livro)" +
-                    " VALUES (?, ?, ?, ?, ?, ?)";
+                    " VALUES (?, ?, ?, ?, ?)";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setDate(1, Date.valueOf(emprestimo.getDataInicial()));
             comando.setDate(2, Date.valueOf(emprestimo.getVencimento()));
