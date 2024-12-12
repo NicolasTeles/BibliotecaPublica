@@ -19,4 +19,14 @@ public class ControleAlteraCargoFuncionario {
         fd.atualizaStatus(funcionario);
     }
     
+    public boolean deletaFuncionario(String cpf){
+        FuncionarioDAO fd = new FuncionarioDAO();
+        Funcionario funcionario = new Funcionario();
+        boolean confere;
+        
+        funcionario = fd.consultaFuncionario(cpf);
+        confere = fd.deletaFuncionario(funcionario);     
+        return confere;
+    }
+    
 }
