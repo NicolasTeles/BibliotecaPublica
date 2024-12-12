@@ -247,7 +247,9 @@ public class PerfilCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoDeletarActionPerformed
 
     private void botaoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEditarActionPerformed
-        // TODO add your handling code here:
+        CadastroCliente tela = new CadastroCliente(Session.getCliente());
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_botaoEditarActionPerformed
 
     public void printaMensagem(String mensagem){

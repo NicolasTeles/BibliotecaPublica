@@ -5,6 +5,10 @@
 package Visao;
 
 import Controle.ControleCadastroCliente;
+import Modelo.Cliente;
+import Modelo.DAO.ClienteDAO;
+import Modelo.Session;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -22,6 +26,16 @@ public class CadastroCliente extends javax.swing.JFrame {
     public CadastroCliente(){
         initComponents();
         controlador = new ControleCadastroCliente();
+    }
+    
+    public CadastroCliente(Cliente cliente){
+        initComponents();
+        controlador = new ControleCadastroCliente();
+        this.nomeTextField.setText(cliente.getNome());
+        this.emailTextField.setText(cliente.getEmail());
+        this.cpfTextField.setText(cliente.getCpf());
+        this.cpfTextField.setEditable(false);
+        this.BotaoCadastro.setText("Atualizar");
     }
 
     /**
@@ -203,6 +217,22 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
+        ClienteDAO cd = new ClienteDAO();
+        if(cd.consultaCliente(this.cpfTextField.getText()) != null){
+            boolean retorno = this.controlador.atualizaCliente(this.nomeTextField.getText(), this.emailTextField.getText(), 
+                    this.cpfTextField.getText(), this.senhaField.getPassword(), this.confirmaSenhaField.getPassword());
+            if(retorno){
+                JOptionPane.showMessageDialog(null, "Conta atualizada com sucesso");
+                Session.criaCliente(cd.consultaCliente(this.cpfTextField.getText()));
+                PerfilCliente pc = new PerfilCliente();
+                pc.setVisible(true);
+                this.dispose();
+            }
+        }
+        if(!Arrays.equals(this.senhaField.getPassword(), this.confirmaSenhaField.getPassword())){
+            JOptionPane.showMessageDialog(null, "Senha e confirma senha nao coincidem");
+            return;
+        }
         if(this.controlador.cadastraCliente(this.getNomeTextField().getText(), 
                 this.getCpfTextField().getText(), this.getEmailTextField().getText(), 
                 this.getSenhaField().getPassword(), this.getSenhaField().getPassword())){

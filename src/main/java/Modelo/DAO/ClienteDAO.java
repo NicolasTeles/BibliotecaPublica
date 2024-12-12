@@ -66,6 +66,25 @@ public class ClienteDAO {
         }
         return (retorno > 0);
     }
+    
+    public boolean atualizaContaSemSenha(Cliente cliente){
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.cliente SET nome=?, email=?, status_cliente=? " +
+                    " WHERE cpf=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, cliente.getNome());
+            comando.setString(2, cliente.getEmail());
+            comando.setBoolean(3, cliente.getStatusCliente());
+            comando.setString(4, cliente.getCpf());
+            retorno = comando.executeUpdate();
+
+        } catch (SQLException e){
+            System.out.println("Erro ao atualizar conta");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
+    }
 
     public Cliente pegaDadosCliente(ResultSet resultado){
         try{

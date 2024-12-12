@@ -38,4 +38,19 @@ public class ControleCadastroCliente {
         }
         return false;
     }
+    
+    public boolean atualizaCliente(String nome, String email, String cpf, char[] senha, char[] confirmaSenha){
+        if(!Arrays.equals(senha, confirmaSenha)){
+            JOptionPane.showMessageDialog(null, "Senha e confirma senha nao coincidem");
+            return false;
+        }
+        Cliente cliente = new Cliente(nome, cpf, email, String.valueOf(senha));
+        ClienteDAO cd = new ClienteDAO();
+        cliente.setStatusCliente(cd.consultaCliente(cpf).getStatusCliente());
+        if(String.valueOf(senha).equals("")){
+            return cd.atualizaContaSemSenha(cliente);
+        }else{
+            return cd.atualizaConta(cliente);
+        }
+    }
 }
