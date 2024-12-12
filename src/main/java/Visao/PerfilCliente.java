@@ -24,21 +24,21 @@ public class PerfilCliente extends javax.swing.JFrame {
     public PerfilCliente(){
         initComponents();
         controlador = new ControlePerfilCliente();
-        if(Session.getCliente() == null){
+        /*if(Session.getCliente() == null){
             JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
             InterfaceCliente ic = new InterfaceCliente();
             ic.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
-        }
+        }*/
         
-        textNome.setText(Session.getCliente().getNome());
+        /*textNome.setText(Session.getCliente().getNome());
         textCPF.setText(Session.getCliente().getCpf());
         textEmail.setText(Session.getCliente().getEmail());
         if(Session.getCliente().getStatusCliente() == true){
             textStatus.setText("Ativo");
         }else{
             textStatus.setText("Banido");
-        }
+        }*/
     }
 
     /**
@@ -168,7 +168,7 @@ public class PerfilCliente extends javax.swing.JFrame {
                                     .addComponent(textEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
+                        .addGap(222, 222, 222)
                         .addComponent(botaoDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -200,7 +200,7 @@ public class PerfilCliente extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addComponent(botaoDeletar))
                     .addComponent(botaoEditar))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
