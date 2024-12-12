@@ -41,19 +41,4 @@ public class Emprestimo{
     public void setId(int id){ this.id = id; }
     public void setLivro(Livro livro){ this.livro = livro; }
 
-    /*Talvez as funções não fiquem aqui porem já estão feitas, imagino que elas serao chamadas na tela de cliente*/
-
-    public void verifacaoVencimento(Emprestimo emprest, Cliente usuario){
-        if(LocalDate.now().isAfter(emprest.getVencimento())){
-            usuario.setStatusCliente(false);
-        }
-    }
-   
-
-    /*public void emprestimoRetornado(Emprestimo emprest, Cliente usuario){
-        if(emprest.getDevolvido()){
-            usuario.setStatusCliente(true);
-        }
-    }Função Usada se formos mudar o estado do cliente se ele devolver o livro
-    */
 }
