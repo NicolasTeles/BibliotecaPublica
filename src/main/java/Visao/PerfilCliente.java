@@ -92,7 +92,6 @@ public class PerfilCliente extends javax.swing.JFrame {
 
         textNome.setEditable(false);
         textNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textNome.setText("JOnas Legless");
         textNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textNomeActionPerformed(evt);
@@ -102,17 +101,14 @@ public class PerfilCliente extends javax.swing.JFrame {
         LabelCPF.setText("CPF:");
 
         textCPF.setEditable(false);
-        textCPF.setText("666.666.666-69");
 
         labelEmail.setText("Email:");
 
         textEmail.setEditable(false);
-        textEmail.setText("soufoda@gmael.us");
 
         labelStatus.setText("Status:");
 
         textStatus.setEditable(false);
-        textStatus.setText("BAUNIDO KK");
         textStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 textStatusActionPerformed(evt);

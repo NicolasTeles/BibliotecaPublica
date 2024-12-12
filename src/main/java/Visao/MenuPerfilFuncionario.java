@@ -26,6 +26,15 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         if(Session.getFuncionario().getEadm() == false){
             Funcionarios.setVisible(false);
         }
+        
+        textNome.setText(Session.getFuncionario().getNome());
+        textCPF.setText(Session.getFuncionario().getCpf());
+        textEmail.setText(Session.getFuncionario().getLogin());
+        if(Session.getFuncionario().getEadm()){
+            textStatus.setText("Administrador");
+        }else{
+            textStatus.setText("Funcionário");
+        }
     }
 
     /**
@@ -66,17 +75,14 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
 
         textNome.setEditable(false);
         textNome.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        textNome.setText("JOnas Legless");
 
         LabelCPF.setText("CPF:");
 
         textCPF.setEditable(false);
-        textCPF.setText("666.666.666-69");
 
         labelEmail.setText("Email:");
 
         textEmail.setEditable(false);
-        textEmail.setText("soufoda@gmael.us");
 
         labelStatus.setText("Cargo");
 
