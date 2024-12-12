@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Modelo.Emprestimo;
+import java.time.LocalDate;
 
 public class EmprestimoDAO {
     public boolean criaEmprestimo(Emprestimo emprestimo){
@@ -147,5 +148,26 @@ public class EmprestimoDAO {
             e.printStackTrace();
         }
         return (retorno > 0);
+    }
+    
+    public boolean buscaEmprestimosAtrasados(String cpfCliente){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.emprestimo WHERE cpf_ocupante=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, cpfCliente);
+            ResultSet resultado = comando.executeQuery();
+            while(resultado.next()){
+                Emprestimo atual = this.pegaDadosEmprestimo(resultado);
+                if(atual.getDevolvido() == true)
+                    continue;
+                if(LocalDate.now().isAfter(atual.getVencimento()))
+                    return true;
+            }
+            return false;
+        }catch(SQLException e){
+            System.out.println("Erro ao buscar emprestimos atrasados");
+            e.printStackTrace();
+        }
+        return false;
     }
 }

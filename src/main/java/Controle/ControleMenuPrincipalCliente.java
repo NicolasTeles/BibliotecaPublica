@@ -5,6 +5,9 @@
 package Controle;
 
 import Controle.Helpers.MenuPrincipalClienteHelper;
+import Modelo.Cliente;
+import Modelo.DAO.ClienteDAO;
+import Modelo.DAO.EmprestimoDAO;
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
@@ -14,6 +17,7 @@ import Visao.PerfilCliente;
 import Visao.ReservaLivro;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +27,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControleMenuPrincipalCliente {
     private final MenuPrincipalClienteHelper helper;
+    
+    public boolean validaContaCliente(){
+        EmprestimoDAO ed = new EmprestimoDAO();
+        if(ed.buscaEmprestimosAtrasados(Session.getCliente().getCpf())){
+            ClienteDAO cd = new ClienteDAO();
+            Session.getCliente().setStatusCliente(false);
+            cd.atualizaStatus(Session.getCliente());
+            return false;
+        }
+        return true;
+    }
 
     public ControleMenuPrincipalCliente() {
        this.helper = new MenuPrincipalClienteHelper();
@@ -45,6 +60,10 @@ public class ControleMenuPrincipalCliente {
     }
 
     public void acessaLivro(int indexLinha, DefaultTableModel tableModel) {
+        if(!this.validaContaCliente()){
+            JOptionPane.showMessageDialog(null, "Voce possui um emprestimo atrasado, devolva o livro!");
+            return;
+        }
         Livro livro = this.helper.leLinha(indexLinha, tableModel);
         ReservaLivro rl = new ReservaLivro(livro);
         rl.setVisible(true);
