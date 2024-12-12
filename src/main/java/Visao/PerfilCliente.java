@@ -29,9 +29,9 @@ public class PerfilCliente extends javax.swing.JFrame {
             InterfaceCliente ic = new InterfaceCliente();
             ic.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
-        }*/
+        }
         
-        /*textNome.setText(Session.getCliente().getNome());
+        textNome.setText(Session.getCliente().getNome());
         textCPF.setText(Session.getCliente().getCpf());
         textEmail.setText(Session.getCliente().getEmail());
         if(Session.getCliente().getStatusCliente() == true){
