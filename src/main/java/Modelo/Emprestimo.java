@@ -49,10 +49,10 @@ public class Emprestimo{
         }
     }
 
-    public void emprestimoRetornado(Emprestimo emprest, Cliente usuario){
+    /*public void emprestimoRetornado(Emprestimo emprest, Cliente usuario){
         if(emprest.getDevolvido()){
             usuario.setStatusCliente(true);
         }
-    }
-
+    }Função Usada se formos mudar o estado do cliente se ele devolver o livro
+    */
 }
