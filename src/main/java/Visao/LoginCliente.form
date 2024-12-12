@@ -50,7 +50,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="emailTextField" min="-2" pref="271" max="-2" attributes="0"/>
                       <Component id="emailLabel" min="-2" pref="105" max="-2" attributes="0"/>
-                      <Component id="senhaLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="buttonVoltar" min="-2" pref="112" max="-2" attributes="0"/>
@@ -59,6 +58,7 @@
                           </Group>
                           <Component id="senhaPassField" alignment="0" min="-2" pref="271" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="senhaLabel" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
