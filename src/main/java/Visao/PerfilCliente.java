@@ -24,7 +24,7 @@ public class PerfilCliente extends javax.swing.JFrame {
     public PerfilCliente(){
         initComponents();
         controlador = new ControlePerfilCliente();
-        /*if(Session.getCliente() == null){
+        if(Session.getCliente() == null){
             JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
             InterfaceCliente ic = new InterfaceCliente();
             ic.setVisible(true);
@@ -38,7 +38,7 @@ public class PerfilCliente extends javax.swing.JFrame {
             textStatus.setText("Ativo");
         }else{
             textStatus.setText("Banido");
-        }*/
+        }
     }
 
     /**
