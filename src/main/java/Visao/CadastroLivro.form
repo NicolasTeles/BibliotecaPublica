@@ -28,10 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -49,57 +46,53 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="buttonVoltar" min="-2" pref="112" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="buttonCadastro" min="-2" pref="125" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="anoPubliLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="editoraLabel" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="autorLabel" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="nomeLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="buttonVoltar" min="-2" pref="102" max="-2" attributes="0"/>
+                              <EmptySpace pref="58" max="32767" attributes="0"/>
+                              <Component id="buttonCadastro" min="-2" pref="104" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="textAnoPubli" alignment="0" max="32767" attributes="0"/>
                           <Component id="textEditora" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textAnoPubli" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
-                          <Component id="editoraLabel" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                          <Component id="anoPubliLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="nomeLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="textNome" alignment="0" pref="290" max="32767" attributes="0"/>
                           <Component id="textAutor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="autorLabel" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="textNome" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="117" max="32767" attributes="0"/>
+                  <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="nomeLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="textNome" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  <Component id="autorLabel" min="-2" max="-2" attributes="0"/>
+                  <Component id="textNome" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="autorLabel" min="-2" pref="16" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="textAutor" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="textAutor" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="editoraLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="textEditora" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                  <Component id="textEditora" min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="anoPubliLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="textAnoPubli" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <Component id="textAnoPubli" min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buttonVoltar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="buttonCadastro" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="buttonVoltar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="buttonCadastro" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <EmptySpace pref="39" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,21 +100,29 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="nomeLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome"/>
+            <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textNome">
         </Component>
         <Component class="javax.swing.JLabel" name="autorLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Autor(a)"/>
+            <Property name="text" type="java.lang.String" value="Autor(a):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textAutor">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textAutorActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonVoltar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonVoltarActionPerformed"/>
@@ -130,6 +131,11 @@
         <Component class="javax.swing.JButton" name="buttonCadastro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadastroActionPerformed"/>
@@ -137,14 +143,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="editoraLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Editora"/>
+            <Property name="text" type="java.lang.String" value="Editora:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textEditora">
         </Component>
         <Component class="javax.swing.JLabel" name="anoPubliLabel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ano de Publica&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Ano de Publica&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textAnoPubli">
