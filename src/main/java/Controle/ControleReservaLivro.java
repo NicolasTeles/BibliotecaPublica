@@ -4,8 +4,11 @@
  */
 package Controle;
 
+import Modelo.Cliente;
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
+import Modelo.Session;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,8 +19,13 @@ public class ControleReservaLivro {
     public ControleReservaLivro() {}
     
     public void reserva(Livro livro){
-        LivroDAO ld = new LivroDAO();
-        ld.emprestaDevolve(false, livro.getID());
-        //criaria um emprestimo quando se tiver acesso à session
+        Cliente cliente = Session.getCliente();
+        if(cliente.getStatusCliente()){
+            LivroDAO ld = new LivroDAO();
+            ld.emprestaDevolve(false, livro.getID());
+            //criaria um emprestimo quando se tiver acesso à session
+            return;
+        }
+        JOptionPane.showMessageDialog(null,"Livro não reservado, você está banido!");
     }
 }
