@@ -63,6 +63,23 @@ public class FuncionarioDAO {
         }
         return (retorno > 0);
     }
+    
+    public boolean atualizaFuncionarioSemSenha(Funcionario funcionario) {
+        int retorno = 0;
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "UPDATE bibliotecapublica.funcionario SET nome=?, login = ?" +
+                    "WHERE cpf = ?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, funcionario.getNome());
+            comando.setString(2, funcionario.getLogin());
+            comando.setString(3, funcionario.getCpf());
+            retorno = comando.executeUpdate();
+        }catch (SQLException e){
+            System.out.println("Erro ao atualizar funcionario");
+            e.printStackTrace();
+        }
+        return (retorno > 0);
+    }
 
     public Funcionario pegaDados(ResultSet resultado){
         try{

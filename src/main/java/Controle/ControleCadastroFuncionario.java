@@ -15,6 +15,21 @@ public class ControleCadastroFuncionario {
     }
     
     public ControleCadastroFuncionario(Funcionario funcionario){
+        
+    }
+    
+    public boolean atualizaFuncionario(String nome, String email, String cpf, char[] senha, char[] confirmaSenha, boolean cargo){
+        FuncionarioDAO fd = new FuncionarioDAO();
+        Funcionario funcionario = new Funcionario(nome, cpf, email, String.valueOf(senha), cargo);
+        if(!Arrays.equals(senha, confirmaSenha)){
+            JOptionPane.showMessageDialog(null, "Senha e confirma senha nao coincidem");
+            return false;
+        }
+        if(String.valueOf(senha).equals("")){
+            return fd.atualizaFuncionarioSemSenha(funcionario);
+        }else{
+            return fd.atualizaFuncionario(funcionario);
+        }
     }
     
     public void navegaTelaPrincipalFuncionario(){

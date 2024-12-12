@@ -22,7 +22,7 @@ public class ControleMenuPerfilFuncionario {
     }
     
     public void irEditarFuncionario(){
-        CadastroFuncionario editar = new CadastroFuncionario();
+        CadastroFuncionario editar = new CadastroFuncionario(Session.getFuncionario());
         editar.setVisible(true);
     }
     

@@ -40,7 +40,7 @@ public class ControleLoginFuncionario {
     }
     
     public void navegaTelaPrincipalFuncionario(){
-        MenuPerfilFuncionario mlf = new MenuPerfilFuncionario();
+        MenuLivroFuncionario mlf = new MenuLivroFuncionario();
         mlf.setVisible(true);
     }
 }

@@ -5,7 +5,10 @@
 package Visao;
 
 import Controle.ControleCadastroFuncionario;
+import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
+import Modelo.Session;
+import java.util.Arrays;
 
 import javax.swing.*;
 
@@ -30,6 +33,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         this.setTitle("Cadastro de funcionarios");
         initComponents();
         controlador = new ControleCadastroFuncionario(funcionario);
+        this.nomeTextField.setText(funcionario.getNome());
+        this.emailTextField.setText(funcionario.getLogin());
+        this.cpfTextField.setText(funcionario.getCpf());
+        this.cpfTextField.setEditable(false);
+        int selectedIndex = funcionario.getEadm() ? 1 : 0;
+        this.eAdmComboBox.setSelectedIndex(selectedIndex);
+        this.eAdmComboBox.setEditable(false);
+        this.BotaoCadastro.setText("Atualizar");
     }
 
     /**
@@ -210,7 +221,27 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        if(controlador.cadastraFuncionario(this.nomeTextField.getText(), this.emailTextField.getText(), this.cpfTextField.getText(), 
+        
+        FuncionarioDAO fd = new FuncionarioDAO();
+        
+        if(fd.consultaFuncionario(this.cpfTextField.getText()) != null){
+            String nome = this.nomeTextField.getText();
+            String email = this.emailTextField.getText();
+            String cpf = this.cpfTextField.getText();
+            char[] senha = this.senhaField.getPassword();
+            char[] confirmaSenha = this.senhaField.getPassword();
+            boolean cargo = (this.eAdmComboBox.getSelectedIndex() == 1);
+            
+            boolean retorno = this.controlador.atualizaFuncionario(nome, email, cpf, senha, confirmaSenha, cargo);
+            
+            if(retorno){
+                JOptionPane.showMessageDialog(null, "Conta atualizada com sucesso");
+                Session.criaFuncionario(fd.consultaFuncionario(this.cpfTextField.getText()));
+                MenuPerfilFuncionario mpf = new MenuPerfilFuncionario();
+                mpf.setVisible(true);
+                this.dispose();
+            }
+        }else if(controlador.cadastraFuncionario(this.nomeTextField.getText(), this.emailTextField.getText(), this.cpfTextField.getText(), 
                 this.senhaField.getPassword(), this.confirmaSenhaField.getPassword(), 
                 String.valueOf(this.geteAdmComboBox().getSelectedItem()))){
             MenuFuncionariosAdm menu = new MenuFuncionariosAdm();
