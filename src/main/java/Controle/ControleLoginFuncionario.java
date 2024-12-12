@@ -6,6 +6,7 @@ import Modelo.Session;
 import Visao.InterfaceGeral;
 import Visao.LoginFuncionario;
 import Visao.MenuLivroFuncionario;
+import Visao.MenuPerfilFuncionario;
 import javax.swing.JOptionPane;
 
 public class ControleLoginFuncionario {
@@ -39,7 +40,7 @@ public class ControleLoginFuncionario {
     }
     
     public void navegaTelaPrincipalFuncionario(){
-        MenuLivroFuncionario mlf = new MenuLivroFuncionario();
+        MenuPerfilFuncionario mlf = new MenuPerfilFuncionario();
         mlf.setVisible(true);
     }
 }
