@@ -6,6 +6,7 @@ package Visao;
 
 import Controle.ControleMenuPrincipalCliente;
 import Modelo.Session;
+import java.awt.EventQueue;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;

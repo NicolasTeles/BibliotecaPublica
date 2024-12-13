@@ -4,11 +4,14 @@
  */
 package Visao;
 
+import Controle.ControleMenuPrincipalCliente;
 import Controle.ControleReservaLivro;
 import Modelo.Livro;
 import Modelo.Session;
+import java.awt.EventQueue;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
