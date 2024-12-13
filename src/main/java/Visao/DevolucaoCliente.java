@@ -134,6 +134,7 @@ public class DevolucaoCliente extends javax.swing.JFrame {
     private void tabelaDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaDevolucaoMouseClicked
         if(evt.getClickCount() > 1){
            this.controller.acessaLivro(this.tabelaDevolucao.getSelectedRow(), (DefaultTableModel)this.getTabelaDevolucao().getModel());
+           this.dispose();
         }
     }//GEN-LAST:event_tabelaDevolucaoMouseClicked
 
