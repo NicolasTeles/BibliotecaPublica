@@ -57,11 +57,11 @@ public class ControleMenuLivroFuncionario {
     
     public void acessaLivro(int indexLinha, DefaultTableModel tableModel){
         Livro livro = this.helper.leLinha(indexLinha, tableModel);
-        //chama devolve livro com esse livro como parametro
         CadastroLivro dv = new CadastroLivro(livro);
+        dv.setVisible(true);
         dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
-
+    
     public void inicia(DefaultTableModel tableModel) {
         LivroDAO cd = new LivroDAO();
         List<Livro> livros = cd.listarLivros();

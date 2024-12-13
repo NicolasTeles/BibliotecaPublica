@@ -4,6 +4,7 @@
  */
 package Controle.Helpers;
 
+import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Visao.MenuLivroFuncionario;
 import java.util.List;
@@ -16,11 +17,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuLivroFuncionarioHelper {
       
-    public Livro leLinha(int indexLinha, DefaultTableModel tableModel){        
+    public Livro leLinha(int indexLinha, DefaultTableModel tableModel){    
+        LivroDAO ld = new LivroDAO();
         //DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
-        System.out.println(linha);
-        Livro livro = new Livro();
+        
+        Livro livro = ld.consultaLivroNome(String.valueOf(linha.get(0)));
         //acessaria o emprestimo no banco usando nome do vetor
         return livro;
     }

@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleCadastroLivro;
+import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
 import javax.swing.*;
@@ -17,11 +18,13 @@ import javax.swing.*;
 public class CadastroLivro extends javax.swing.JFrame {
 
     private final ControleCadastroLivro controlador;
+    private int id;
 
     /**
      * Creates new form CadastroLivro
      */
     public CadastroLivro() {
+        id = -1;
         this.setTitle("Cadastro de livros");
         initComponents();
         controlador = new ControleCadastroLivro();
@@ -31,9 +34,11 @@ public class CadastroLivro extends javax.swing.JFrame {
             ig.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
         }
+        this.buttonExcluir.setVisible(false);
     }
     
     public CadastroLivro(Livro livro) {
+        id = livro.getID();
         this.setTitle("Cadastro de livros");
         initComponents();
         if(Session.getFuncionario() == null){
@@ -47,6 +52,8 @@ public class CadastroLivro extends javax.swing.JFrame {
         this.getTextAutor().setText(livro.getAutor());
         this.getTextEditora().setText(livro.getEditora());
         this.getTextAnoPubli().setText(Integer.toString(livro.getAnoPubli()));
+        
+        this.buttonCadastro.setText("Atualizar");
     }
 
     /**
@@ -69,6 +76,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         textEditora = new javax.swing.JTextField();
         anoPubliLabel = new javax.swing.JLabel();
         textAnoPubli = new javax.swing.JTextField();
+        buttonExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,26 +112,39 @@ public class CadastroLivro extends javax.swing.JFrame {
 
         anoPubliLabel.setText("Ano de Publicação:");
 
+        buttonExcluir.setText("Excluir");
+        buttonExcluir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(anoPubliLabel)
-                    .addComponent(editoraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(autorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(buttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                            .addComponent(buttonCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(textAnoPubli, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(textEditora, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(textAutor, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(textNome, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(anoPubliLabel)
+                            .addComponent(editoraLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(autorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(buttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                                    .addComponent(buttonCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textAnoPubli, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textEditora, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textAutor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textNome, javax.swing.GroupLayout.Alignment.LEADING))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(buttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,7 +170,9 @@ public class CadastroLivro extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,7 +183,7 @@ public class CadastroLivro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -173,17 +196,56 @@ public class CadastroLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
-        if(controlador.cadastraLivro(this.textNome.getText(), this.textAutor.getText(), 
-            this.textEditora.getText(), Integer.valueOf(this.textAnoPubli.getText()))){
-            MenuLivroFuncionario cd = new MenuLivroFuncionario();
-            cd.setVisible(true);
-            this.dispose();
+        LivroDAO ld = new LivroDAO();
+        
+        if(ld.consultaLivro(id) == null){
+            if(controlador.cadastraLivro(this.textNome.getText(), this.textAutor.getText(), 
+                this.textEditora.getText(), Integer.valueOf(this.textAnoPubli.getText()))){
+                MenuLivroFuncionario cd = new MenuLivroFuncionario();
+                cd.setVisible(true);
+                this.dispose();
+            }
+        }else{
+            String nome = this.textNome.getText();
+            String editora =  this.textEditora.getText();
+            String autor = this.textAutor.getText();
+            int ano = Integer.valueOf(this.textAnoPubli.getText());
+            Livro livro = new Livro(nome,editora,autor,ano);
+            livro.setID(id);
+            
+            boolean testa = ld.atualizaLivro(livro);
+            
+            if(testa){
+                JOptionPane.showMessageDialog(null, "Livro atualizado com sucesso");
+                this.dispose();                
+            }
         }
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     private void textAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textAutorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textAutorActionPerformed
+
+    private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
+        if(JOptionPane.showConfirmDialog(null,"Tem certeza que deseja deletar este livro? Esta ação NÃO poderá ser revertida.")==0){
+            LivroDAO ld = new LivroDAO();
+
+            String nome = this.textNome.getText();
+            String editora =  this.textEditora.getText();
+            String autor = this.textAutor.getText();
+            int ano = Integer.valueOf(this.textAnoPubli.getText());
+            Livro livro = new Livro(nome,editora,autor,ano);
+            livro.setID(id);
+
+            boolean testa = ld.deletaLivro(livro);
+
+            if(testa){
+                JOptionPane.showMessageDialog(null, "Livro deletado com sucesso");
+                this.dispose();                
+            }
+        
+        }
+    }//GEN-LAST:event_buttonExcluirActionPerformed
 
     public JButton getButtonCadastro() {
         return buttonCadastro;
@@ -269,6 +331,7 @@ public class CadastroLivro extends javax.swing.JFrame {
     private javax.swing.JLabel anoPubliLabel;
     private javax.swing.JLabel autorLabel;
     private javax.swing.JButton buttonCadastro;
+    private javax.swing.JButton buttonExcluir;
     private javax.swing.JButton buttonVoltar;
     private javax.swing.JLabel editoraLabel;
     private javax.swing.JPanel jPanel1;

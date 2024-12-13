@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -45,23 +45,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="anoPubliLabel" min="-2" max="-2" attributes="0"/>
-                      <Component id="editoraLabel" min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="autorLabel" min="-2" pref="83" max="-2" attributes="0"/>
-                      <Component id="nomeLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="buttonVoltar" min="-2" pref="102" max="-2" attributes="0"/>
-                              <EmptySpace pref="58" max="32767" attributes="0"/>
-                              <Component id="buttonCadastro" min="-2" pref="104" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="anoPubliLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="editoraLabel" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="autorLabel" min="-2" pref="83" max="-2" attributes="0"/>
+                              <Component id="nomeLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="buttonVoltar" min="-2" pref="102" max="-2" attributes="0"/>
+                                      <EmptySpace pref="58" max="32767" attributes="0"/>
+                                      <Component id="buttonCadastro" min="-2" pref="104" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="textAnoPubli" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textEditora" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textAutor" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textNome" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="textAnoPubli" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textEditora" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textAutor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="textNome" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                          <Component id="buttonExcluir" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
@@ -92,7 +100,9 @@
                       <Component id="buttonVoltar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="buttonCadastro" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="39" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="buttonExcluir" min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -154,6 +164,19 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="textAnoPubli">
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonExcluir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Excluir"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonExcluirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

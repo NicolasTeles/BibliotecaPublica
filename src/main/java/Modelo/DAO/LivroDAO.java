@@ -49,17 +49,14 @@ public class LivroDAO {
     public boolean atualizaLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
-            String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=?, total_avaliacao=?, " +
-                    "status_emprestimo=?, num_avaliacoes=? WHERE id_livro=?";
+            String SQL = "UPDATE bibliotecapublica.livro SET nome=?, editora=?, autor=?, ano_publicacao=? " +
+                    "WHERE id_livro=?";
             PreparedStatement comando = conexao.prepareStatement(SQL);
             comando.setString(1, livro.getNome());
             comando.setString(2, livro.getEditora());
             comando.setString(3, livro.getAutor());
             comando.setInt(4, livro.getAnoPubli());
-            comando.setInt(5, livro.getTotalAvaliacao());
-            comando.setBoolean(6, livro.getStatus());
-            comando.setInt(7, livro.getNumAvaliacoes());
-            comando.setInt(8, livro.getID());
+            comando.setInt(5, livro.getID());
             retorno = comando.executeUpdate();
         }catch(SQLException e){
             System.out.println("Erro ao atualizar livro");
