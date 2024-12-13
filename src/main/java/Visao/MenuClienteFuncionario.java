@@ -227,6 +227,7 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
     private void listaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaClientesMouseClicked
         if(evt.getClickCount() > 1){
+            this.dispose();
             this.controlador.alteraCliente(this.listaClientes.getSelectedRow(), (DefaultTableModel)this.listaClientes.getModel());
         }
     }//GEN-LAST:event_listaClientesMouseClicked

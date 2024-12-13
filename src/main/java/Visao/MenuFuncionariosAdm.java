@@ -258,6 +258,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
     private void listaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaFuncionariosMouseClicked
         if(evt.getClickCount()>1){
+            this.dispose();
             this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow(), (DefaultTableModel)this.getListaFuncionarios().getModel());
         }
     }//GEN-LAST:event_listaFuncionariosMouseClicked
