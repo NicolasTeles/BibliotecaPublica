@@ -1,6 +1,7 @@
 package Modelo.DAO;
 
 import Conexao.Conexao;
+import Modelo.Cliente;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -67,16 +68,32 @@ public class EmprestimoDAO {
         try{
             Emprestimo emprestimo = new Emprestimo();
 
-            //emprestimo.setCliente(resultado.getString("cpf_ocupante"));
-            //buscar cliente pelo cpf
+            emprestimo.setId(resultado.getInt("id"));
+            emprestimo.setDevolvido(resultado.getBoolean("devolvido"));
+            emprestimo.setDataInicial(resultado.getDate("data_inicial").toLocalDate());
+            emprestimo.setVencimento(resultado.getDate("vencimento").toLocalDate());
+            
+            return emprestimo;
+        }catch (SQLException e){
+            System.out.println("Erro ao pegar os dados de emprestimo");
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public Emprestimo pegaDadosEmprestimo(ResultSet resultado, List<Integer> ids, List<String> cpfs){
+        try{
+            Emprestimo emprestimo = new Emprestimo();
 
             emprestimo.setId(resultado.getInt("id"));
             emprestimo.setDevolvido(resultado.getBoolean("devolvido"));
             emprestimo.setDataInicial(resultado.getDate("data_inicial").toLocalDate());
             emprestimo.setVencimento(resultado.getDate("vencimento").toLocalDate());
-
-            //emprestimo.setLivro(resultado.getInt("id_livro"));
-            //buscar livro pelo id
+            
+            ids.add(resultado.getInt("id_livro"));
+            cpfs.add(resultado.getString("cpf_ocupante"));
+            
+            return emprestimo;
         }catch (SQLException e){
             System.out.println("Erro ao pegar os dados de emprestimo");
             e.printStackTrace();
@@ -148,6 +165,38 @@ public class EmprestimoDAO {
             e.printStackTrace();
         }
         return (retorno > 0);
+    }
+    
+    public List<Emprestimo> buscaEmprestimosCliente(Cliente cliente){
+        try(Connection conexao = Conexao.getConexao()){
+            String SQL = "SELECT * FROM bibliotecapublica.emprestimo WHERE cpf_ocupante=?";
+            PreparedStatement comando = conexao.prepareStatement(SQL);
+            comando.setString(1, cliente.getCpf());
+            List<Emprestimo> listaEmprestimos = new ArrayList<>();
+            int i = 0;
+            List<Integer> idLivros = new ArrayList<>();
+            List<String> cpfOcupantes = new ArrayList<>();
+            ResultSet resultado = comando.executeQuery();
+            while(resultado.next()){
+                Emprestimo atual = this.pegaDadosEmprestimo(resultado, idLivros, cpfOcupantes);
+                if(atual.getDevolvido() == false)
+                    listaEmprestimos.add(atual);
+            }
+            
+            LivroDAO ld = new LivroDAO();
+            ClienteDAO cd = new ClienteDAO();
+            
+            for(Emprestimo emprestimo : listaEmprestimos){
+                emprestimo.setLivro(ld.consultaLivro(idLivros.get(i)));
+                emprestimo.setCliente(cd.consultaCliente(cpfOcupantes.get(i)));
+                i++;
+            }
+            return listaEmprestimos;
+        }catch(SQLException e){
+            System.out.println("Erro ao buscar emprestimos");
+            e.printStackTrace();
+        }
+        return null;
     }
     
     public boolean buscaEmprestimosAtrasados(String cpfCliente){

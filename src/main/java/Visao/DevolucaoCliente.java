@@ -25,6 +25,7 @@ public class DevolucaoCliente extends javax.swing.JFrame {
     public DevolucaoCliente() {
         initComponents();
         this.controller = new ControleDevolucaoCliente();
+        this.controller.inicia((DefaultTableModel)this.tabelaDevolucao.getModel());
         if(Session.getCliente() == null){
             JOptionPane.showMessageDialog(null, "Cliente deve estar logado para acessar esta tela!");
             InterfaceCliente ic = new InterfaceCliente();
@@ -57,8 +58,6 @@ public class DevolucaoCliente extends javax.swing.JFrame {
 
         tabelaDevolucao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"JOnas o mago", "12/12/4444", "41/32/3232"},
-                {"asdasdsadsa", "asdasdasd", "adasdasdas"},
                 {null, null, null},
                 {null, null, null}
             },

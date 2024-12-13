@@ -10,6 +10,7 @@ import Modelo.Emprestimo;
 import Modelo.Livro;
 import Visao.DevolucaoCliente;
 import com.mysql.cj.conf.ConnectionUrlParser.Pair;
+import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,5 +28,16 @@ public class DevolucaoClienteHelper {
         Emprestimo emprestimo = ed.consultaEmprestimoLivro(livro.getID());
         Pair<Emprestimo, Livro> tupla = new Pair<>(emprestimo, livro);
         return tupla;
+    }
+    
+    public void preencheTabela(List<Emprestimo> emprestimos, DefaultTableModel tableModel){
+        tableModel.setNumRows(0);
+        for(Emprestimo emprestimo : emprestimos){
+            tableModel.addRow(new Object[]{
+                emprestimo.getLivro().getNome(),
+                emprestimo.getDataInicial(),
+                emprestimo.getVencimento()
+            });
+        }
     }
 }

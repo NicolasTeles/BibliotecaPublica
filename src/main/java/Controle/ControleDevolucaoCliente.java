@@ -5,12 +5,15 @@
 package Controle;
 
 import Controle.Helpers.DevolucaoClienteHelper;
+import Modelo.DAO.EmprestimoDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
+import Modelo.Session;
 import Visao.DevolucaoCliente;
 import Visao.DevolveLivro;
 import Visao.MenuPrincipalCliente;
 import com.mysql.cj.conf.ConnectionUrlParser.Pair;
+import java.util.List;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,5 +37,11 @@ public class ControleDevolucaoCliente {
         Pair<Emprestimo, Livro> tupla = this.helper.leLinha(indexLinha, tableModel);
         DevolveLivro dv = new DevolveLivro(tupla.left, tupla.right);
         dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+    
+    public void inicia(DefaultTableModel tableModel){
+        EmprestimoDAO ed = new EmprestimoDAO();
+        List<Emprestimo> emprestimos = ed.buscaEmprestimosCliente(Session.getCliente());
+        this.helper.preencheTabela(emprestimos, tableModel);
     }
 }
