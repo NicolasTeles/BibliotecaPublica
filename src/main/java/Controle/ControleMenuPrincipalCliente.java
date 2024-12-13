@@ -79,7 +79,7 @@ public class ControleMenuPrincipalCliente {
     public void pesquisaLivro(String pesquisa, DefaultTableModel tableModel) {
         LivroDAO cd = new LivroDAO();
         List<Livro> livros = new ArrayList<>();
-        List<Livro> todosOsLivros = cd.listarLivros();
+        List<Livro> todosOsLivros = cd.listarLivrosCliente();
         
         if(pesquisa != null && !pesquisa.equalsIgnoreCase("")){
 

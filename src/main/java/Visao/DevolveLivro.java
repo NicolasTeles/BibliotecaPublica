@@ -49,6 +49,8 @@ public class DevolveLivro extends javax.swing.JFrame {
         this.getTextAutor().setText(livro.getAutor());
         this.getTextEditora().setText(livro.getEditora());
         this.getTextAno().setText(Integer.toString(livro.getAnoPubli()));
+        this.emprestimo.setLivro(this.livro);
+        this.emprestimo.setCliente(Session.getCliente());
     }
 
     public JButton getBotaoReservar() {

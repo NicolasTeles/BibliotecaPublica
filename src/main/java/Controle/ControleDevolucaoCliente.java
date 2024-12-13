@@ -36,6 +36,7 @@ public class ControleDevolucaoCliente {
     public void acessaLivro(int indexLinha, DefaultTableModel tableModel){
         Pair<Emprestimo, Livro> tupla = this.helper.leLinha(indexLinha, tableModel);
         DevolveLivro dv = new DevolveLivro(tupla.left, tupla.right);
+        dv.setVisible(true);
         dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     

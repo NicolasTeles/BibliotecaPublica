@@ -176,19 +176,24 @@ public class EmprestimoDAO {
             int i = 0;
             List<Integer> idLivros = new ArrayList<>();
             List<String> cpfOcupantes = new ArrayList<>();
+            List<Integer> indexes = new ArrayList<>();
             ResultSet resultado = comando.executeQuery();
             while(resultado.next()){
                 Emprestimo atual = this.pegaDadosEmprestimo(resultado, idLivros, cpfOcupantes);
-                if(atual.getDevolvido() == false)
+                if(atual.getDevolvido() == false){
                     listaEmprestimos.add(atual);
+                    indexes.add(i);
+                }
+                i++;
             }
             
             LivroDAO ld = new LivroDAO();
             ClienteDAO cd = new ClienteDAO();
+            i=0;
             
-            for(Emprestimo emprestimo : listaEmprestimos){
-                emprestimo.setLivro(ld.consultaLivro(idLivros.get(i)));
-                emprestimo.setCliente(cd.consultaCliente(cpfOcupantes.get(i)));
+            for(int index : indexes){
+                listaEmprestimos.get(i).setLivro(ld.consultaLivro(idLivros.get(index)));
+                listaEmprestimos.get(i).setCliente(cd.consultaCliente(cpfOcupantes.get(index)));
                 i++;
             }
             return listaEmprestimos;
