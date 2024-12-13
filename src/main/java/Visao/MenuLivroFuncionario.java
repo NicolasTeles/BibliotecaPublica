@@ -253,6 +253,7 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
         if(evt.getClickCount() > 1){
            this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), (DefaultTableModel)this.getListaLivros().getModel());
+           this.dispose();
         }
     }//GEN-LAST:event_listaLivrosMouseClicked
 

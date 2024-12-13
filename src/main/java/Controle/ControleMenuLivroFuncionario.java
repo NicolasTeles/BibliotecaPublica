@@ -59,7 +59,6 @@ public class ControleMenuLivroFuncionario {
         Livro livro = this.helper.leLinha(indexLinha, tableModel);
         CadastroLivro dv = new CadastroLivro(livro);
         dv.setVisible(true);
-        dv.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     public void inicia(DefaultTableModel tableModel) {
