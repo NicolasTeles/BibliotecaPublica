@@ -62,7 +62,6 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="confirmaSenhaLabel" min="-2" pref="155" max="-2" attributes="0"/>
-                      <Component id="senhaLabel" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="cpfLabel" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="nomeLabel" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="emailLabel" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
@@ -78,6 +77,7 @@
                           <Component id="nomeTextField" alignment="0" max="32767" attributes="0"/>
                           <Component id="confirmaSenhaField" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="senhaLabel" alignment="0" min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>

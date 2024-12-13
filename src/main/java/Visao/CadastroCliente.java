@@ -138,7 +138,6 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(confirmaSenhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,7 +150,8 @@ public class CadastroCliente extends javax.swing.JFrame {
                         .addComponent(cpfTextField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(nomeTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(confirmaSenhaField, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(confirmaSenhaField, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
