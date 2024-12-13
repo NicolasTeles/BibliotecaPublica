@@ -213,10 +213,10 @@ public class CadastroLivro extends javax.swing.JFrame {
             Livro livro = new Livro(nome,editora,autor,ano);
             livro.setID(id);
             
-            boolean testa = ld.atualizaLivro(livro);
-            
-            if(testa){
+            if(ld.atualizaLivro(livro)){
                 JOptionPane.showMessageDialog(null, "Livro atualizado com sucesso");
+                MenuLivroFuncionario mlf = new MenuLivroFuncionario();
+                mlf.setVisible(true);
                 this.dispose();                
             }
         }
