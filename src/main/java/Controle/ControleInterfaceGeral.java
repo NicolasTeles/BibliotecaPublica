@@ -10,13 +10,11 @@ public class ControleInterfaceGeral {
     }
 
     public void navegaTelaClientes(){
-        InterfaceCliente ic = new InterfaceCliente();
-        ic.setVisible(true);
+        
     }
 
     public void navegaTelaFuncionarios(){
-        LoginFuncionario loginFuncionario = new LoginFuncionario();
-        loginFuncionario.setVisible(true);
+        
     }
 
 }

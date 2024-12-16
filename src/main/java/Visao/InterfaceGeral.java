@@ -96,12 +96,14 @@ public class InterfaceGeral extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFuncionarioActionPerformed
-        controlador.navegaTelaFuncionarios();
+        LoginFuncionario loginFuncionario = new LoginFuncionario();
+        loginFuncionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonFuncionarioActionPerformed
 
     private void buttonClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientesActionPerformed
-        controlador.navegaTelaClientes();
+        InterfaceCliente ic = new InterfaceCliente();
+        ic.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonClientesActionPerformed
 

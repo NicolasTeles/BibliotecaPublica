@@ -114,17 +114,20 @@ public class InterfaceCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
-        controlador.navegaCadastroCliente();
+        CadastroCliente cadastroCliente = new CadastroCliente();
+        cadastroCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonCadastroActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        controlador.navegaLoginCliente();
+        LoginCliente loginCliente = new LoginCliente();
+        loginCliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        controlador.navegaTelaPrincipal();
+        InterfaceGeral ig = new InterfaceGeral();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
