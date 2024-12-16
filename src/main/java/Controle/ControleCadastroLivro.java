@@ -2,7 +2,6 @@ package Controle;
 
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
-import Visao.InterfaceGeral;
 import javax.swing.JOptionPane;
 
 public class ControleCadastroLivro {

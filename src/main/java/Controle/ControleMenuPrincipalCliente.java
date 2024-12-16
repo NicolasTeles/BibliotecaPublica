@@ -5,20 +5,14 @@
 package Controle;
 
 import Controle.Helpers.MenuPrincipalClienteHelper;
-import Modelo.Cliente;
 import Modelo.DAO.ClienteDAO;
 import Modelo.DAO.EmprestimoDAO;
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
-import Visao.DevolucaoCliente;
-import Visao.LoginCliente;
-import Visao.PerfilCliente;
-import Visao.ReservaLivro;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -44,29 +38,23 @@ public class ControleMenuPrincipalCliente {
     }
 
     public void navegaPerfil() {
-        PerfilCliente ig = new PerfilCliente();
-        ig.setVisible(true);
+        
     }
 
     public void logout() {
-        LoginCliente ig = new LoginCliente();
-        ig.setVisible(true);
         Session.destroiCliente();
     }
 
     public void navegaDevolucao() {
-        DevolucaoCliente ig = new DevolucaoCliente();
-        ig.setVisible(true);
+        
     }
 
-    public void acessaLivro(int indexLinha, DefaultTableModel tableModel) {
+    public Livro acessaLivro(int indexLinha, DefaultTableModel tableModel) {
         if(!this.validaContaCliente()){
             JOptionPane.showMessageDialog(null, "Voce possui um emprestimo atrasado, devolva o livro!");
-            return;
+            return null;
         }
-        Livro livro = this.helper.leLinha(indexLinha, tableModel);
-        ReservaLivro rl = new ReservaLivro(livro);
-        rl.setVisible(true);
+        return this.helper.leLinha(indexLinha, tableModel);
     }
 
     public void inicia(DefaultTableModel tableModel) {

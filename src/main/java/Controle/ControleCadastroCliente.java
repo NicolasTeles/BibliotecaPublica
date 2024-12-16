@@ -2,8 +2,6 @@ package Controle;
 
 import Modelo.Cliente;
 import Modelo.DAO.ClienteDAO;
-import Visao.InterfaceGeral;
-import Visao.MenuPrincipalCliente;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -13,13 +11,11 @@ public class ControleCadastroCliente {
     }
 
     public void retornaInterfaceGeral(){
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
+        
     }
     
     public void navegaMenuCliente(){
-        MenuPrincipalCliente ig = new MenuPrincipalCliente();
-        ig.setVisible(true);
+        
     }
     
     public boolean cadastraCliente(String nome, String cpf, String email, char senha[], char confirmaSenha[]){ 

@@ -8,7 +8,6 @@ import Controle.ControleCadastroFuncionario;
 import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
 import Modelo.Session;
-import java.util.Arrays;
 
 import javax.swing.*;
 

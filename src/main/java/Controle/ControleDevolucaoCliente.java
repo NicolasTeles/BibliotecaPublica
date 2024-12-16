@@ -9,12 +9,8 @@ import Modelo.DAO.EmprestimoDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
 import Modelo.Session;
-import Visao.DevolucaoCliente;
-import Visao.DevolveLivro;
-import Visao.MenuPrincipalCliente;
 import com.mysql.cj.conf.ConnectionUrlParser.Pair;
 import java.util.List;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,14 +25,11 @@ public class ControleDevolucaoCliente {
     }
 
     public void navegaTelaCliente() {
-        MenuPrincipalCliente mc = new MenuPrincipalCliente();
-        mc.setVisible(true);
+        
     }
     
-    public void acessaLivro(int indexLinha, DefaultTableModel tableModel){
-        Pair<Emprestimo, Livro> tupla = this.helper.leLinha(indexLinha, tableModel);
-        DevolveLivro dv = new DevolveLivro(tupla.left, tupla.right);
-        dv.setVisible(true);
+    public Pair<Emprestimo, Livro> acessaLivro(int indexLinha, DefaultTableModel tableModel){
+        return this.helper.leLinha(indexLinha, tableModel);
     }
     
     public void inicia(DefaultTableModel tableModel){

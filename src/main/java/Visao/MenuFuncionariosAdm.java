@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuFuncionariosAdm;
+import Modelo.Funcionario;
 import Modelo.Session;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -23,7 +24,8 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         this.controlador.inicia((DefaultTableModel)this.getListaFuncionarios().getModel());
         if(Session.getFuncionario().getEadm() == false){
             JOptionPane.showMessageDialog(null, "Voce deve ser um administrador para entrar nessa tela!");
-            controlador.irInterfaceGeral();
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
         }
     }
@@ -51,7 +53,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
         fieldPesquisa = new javax.swing.JTextField();
         labelPesquisa = new javax.swing.JLabel();
         botaoPesquisa = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botaoAdicionaFuncionario = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuConta = new javax.swing.JMenu();
         botaoPerfil = new javax.swing.JMenuItem();
@@ -111,12 +113,12 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Adicionar Funcionário");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoAdicionaFuncionario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoAdicionaFuncionario.setText("Adicionar Funcionário");
+        botaoAdicionaFuncionario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        botaoAdicionaFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botaoAdicionaFuncionarioActionPerformed(evt);
             }
         });
 
@@ -139,7 +141,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
                         .addGap(0, 22, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoAdicionaFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(182, 182, 182))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,7 +156,7 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addComponent(botaoAdicionaFuncionario, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -223,14 +225,18 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
-        controlador.irPerfilFuncionario();
+        MenuPerfilFuncionario perfil = new MenuPerfilFuncionario();
+        perfil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        controlador.telaCadastroFuncionario();
+    private void botaoAdicionaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionaFuncionarioActionPerformed
+        //logica para cadastrar funcionario no banco de dados
+        // ue?(??
+        CadastroFuncionario cadastro = new CadastroFuncionario();
+        cadastro.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botaoAdicionaFuncionarioActionPerformed
 
     private void botaoPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoPesquisaMouseClicked
         controlador.pesquisaFuncionario(this.getFieldPesquisa().getText().toLowerCase(), (DefaultTableModel)this.getListaFuncionarios().getModel());
@@ -247,19 +253,25 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
-        controlador.irMenuLivro();
+        MenuLivroFuncionario livro = new MenuLivroFuncionario();
+        livro.setVisible(true); 
         this.dispose();
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
-        controlador.irMenuCliente();
+        MenuClienteFuncionario cliente = new MenuClienteFuncionario();
+        cliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void listaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaFuncionariosMouseClicked
         if(evt.getClickCount()>1){
             this.dispose();
-            this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow(), (DefaultTableModel)this.getListaFuncionarios().getModel());
+            Funcionario funcionario = this.controlador.acessaFuncionario(this.listaFuncionarios.getSelectedRow(), 
+                    (DefaultTableModel)this.getListaFuncionarios().getModel());
+            AlterarCargoFuncionario cargo = new AlterarCargoFuncionario(funcionario);
+            cargo.setVisible(true);
+            cargo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         }
     }//GEN-LAST:event_listaFuncionariosMouseClicked
 
@@ -320,11 +332,11 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Funcionarios;
+    private javax.swing.JButton botaoAdicionaFuncionario;
     private javax.swing.JMenuItem botaoLogout;
     private javax.swing.JMenuItem botaoPerfil;
     private javax.swing.JLabel botaoPesquisa;
     private javax.swing.JTextField fieldPesquisa;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;

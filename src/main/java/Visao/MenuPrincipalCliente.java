@@ -5,6 +5,7 @@
 package Visao;
 
 import Controle.ControleMenuPrincipalCliente;
+import Modelo.Livro;
 import Modelo.Session;
 import java.awt.EventQueue;
 import javax.swing.JOptionPane;
@@ -191,6 +192,8 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
 
     private void logoutMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutMenuActionPerformed
         this.controlador.logout();
+        LoginCliente ig = new LoginCliente();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_logoutMenuActionPerformed
 
@@ -199,18 +202,25 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void perfilMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilMenuActionPerformed
-        this.controlador.navegaPerfil();
+        PerfilCliente ig = new PerfilCliente();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_perfilMenuActionPerformed
 
     private void menuDevolucaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuDevolucaoMouseClicked
-        this.controlador.navegaDevolucao();
+        DevolucaoCliente ig = new DevolucaoCliente();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuDevolucaoMouseClicked
 
     private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
         if(evt.getClickCount() > 1){
-            this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), (DefaultTableModel)this.getListaLivros().getModel());
+            Livro livro = this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), 
+                    (DefaultTableModel)this.getListaLivros().getModel());
+            if(livro != null)
+                    return;
+            ReservaLivro rl = new ReservaLivro(livro);
+            rl.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_listaLivrosMouseClicked

@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuLivroFuncionario;
+import Modelo.Livro;
 import Modelo.Session;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -23,7 +24,8 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
         this.controlador.inicia((DefaultTableModel)this.getListaLivros().getModel());
         if(Session.getFuncionario() == null){
             JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
-            this.controlador.irInterfaceGeral();
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
         }
         if(Session.getFuncionario().getEadm() == false){
@@ -213,7 +215,8 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
-        this.controlador.irPerfilFuncionario();
+        MenuPerfilFuncionario perfil = new MenuPerfilFuncionario();
+        perfil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
@@ -226,7 +229,8 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPesquisaMouseClicked
 
     private void adicionarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarLivrosActionPerformed
-        this.controlador.telaCadastroLivro();
+        CadastroLivro cadastro = new CadastroLivro();
+        cadastro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_adicionarLivrosActionPerformed
 
@@ -241,18 +245,24 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
-        this.controlador.irMenuCliente();
+        MenuClienteFuncionario cliente = new MenuClienteFuncionario();
+        cliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
-        this.controlador.irMenuFuncionarios();
+        //logica para verificar se eh adm
+        MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
+        funcionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
     private void listaLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaLivrosMouseClicked
         if(evt.getClickCount() > 1){
-           this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), (DefaultTableModel)this.getListaLivros().getModel());
+            Livro livro = this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), 
+                   (DefaultTableModel)this.getListaLivros().getModel());
+            CadastroLivro dv = new CadastroLivro(livro);
+            dv.setVisible(true);
            this.dispose();
         }
     }//GEN-LAST:event_listaLivrosMouseClicked

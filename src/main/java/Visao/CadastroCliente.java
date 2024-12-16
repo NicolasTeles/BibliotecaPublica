@@ -207,7 +207,8 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmaSenhaFieldActionPerformed
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        this.controlador.retornaInterfaceGeral();
+        InterfaceGeral ig = new InterfaceGeral();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
@@ -236,7 +237,8 @@ public class CadastroCliente extends javax.swing.JFrame {
         if(this.controlador.cadastraCliente(this.getNomeTextField().getText(), 
                 this.getCpfTextField().getText(), this.getEmailTextField().getText(), 
                 this.getSenhaField().getPassword(), this.getSenhaField().getPassword())){
-            this.controlador.navegaMenuCliente();
+            MenuPrincipalCliente ig = new MenuPrincipalCliente();
+            ig.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_BotaoCadastroActionPerformed

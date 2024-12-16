@@ -5,17 +5,8 @@ import Controle.Helpers.MenuFuncionarioAdmHelper;
 import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
 import Modelo.Session;
-import Visao.AlterarCargoFuncionario;
-import Visao.MenuPerfilFuncionario;
-import Visao.LoginFuncionario;
-import Visao.MenuLivroFuncionario;
-import Visao.MenuClienteFuncionario;
-import Visao.MenuFuncionariosAdm;
-import Visao.CadastroFuncionario;
-import Visao.InterfaceGeral;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,37 +24,30 @@ public class ControleMenuFuncionariosAdm {
     }
     
     public void irPerfilFuncionario(){
-        MenuPerfilFuncionario perfil = new MenuPerfilFuncionario();
-        perfil.setVisible(true);
+        
     }
     
     public void retornarTelaLogin(){
-        LoginFuncionario login = new LoginFuncionario();
-        login.setVisible(true);
+        
     }
     
     public void irMenuLivro(){
-        MenuLivroFuncionario livro = new MenuLivroFuncionario();
-        livro.setVisible(true);   
+          
     }
     
     public void irMenuCliente(){
-        MenuClienteFuncionario cliente = new MenuClienteFuncionario();
-        cliente.setVisible(true);
+        
     }
     
    
     public void telaCadastroFuncionario(){
-        //logica para cadastrar funcionario no banco de dados
-        CadastroFuncionario cadastro = new CadastroFuncionario();
-        cadastro.setVisible(true);     
+        
+           
     }
     
-    public void acessaFuncionario(int indexLinha, DefaultTableModel tableModel){
-        Funcionario funcionario = this.helper.leLinha(indexLinha, tableModel);
-        AlterarCargoFuncionario  cargo = new AlterarCargoFuncionario(funcionario);
-        cargo.setVisible(true);
-        cargo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    public Funcionario acessaFuncionario(int indexLinha, DefaultTableModel tableModel){
+        return this.helper.leLinha(indexLinha, tableModel);
+        
     }
     
     public void inicia(DefaultTableModel tableModel){
@@ -100,8 +84,7 @@ public class ControleMenuFuncionariosAdm {
     }
     
     public void irInterfaceGeral(){
-       InterfaceGeral ig = new InterfaceGeral();
-       ig.setVisible(true);
+       
     }
     
     public void logoutFuncionario(){

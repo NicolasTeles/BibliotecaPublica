@@ -5,15 +5,8 @@ import Controle.Helpers.MenuLivroFuncionarioHelper;
 import Modelo.DAO.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
-import Visao.MenuPerfilFuncionario;
-import Visao.LoginFuncionario;
-import Visao.MenuClienteFuncionario;
-import Visao.MenuFuncionariosAdm;
-import Visao.CadastroLivro;
-import Visao.InterfaceGeral;
 import java.util.ArrayList;
 import java.util.List;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,36 +22,26 @@ public class ControleMenuLivroFuncionario {
     }
     
     public void irPerfilFuncionario(){
-        MenuPerfilFuncionario perfil = new MenuPerfilFuncionario();
-        perfil.setVisible(true);
+        
     }
     
     public void retornarTelaLogin(){
-        LoginFuncionario login = new LoginFuncionario();
-        login.setVisible(true);
+        
     }
  
     public void irMenuCliente(){
-        MenuClienteFuncionario cliente = new MenuClienteFuncionario();
-        cliente.setVisible(true);
+        
     }
     
     public void irMenuFuncionarios(){
-       //logica para verificar se eh adm
-       MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
-       funcionario.setVisible(true);    
+        
     }
     
     public void telaCadastroLivro(){
-        //logica para cadastrar livro no banco de dados
-        CadastroLivro cadastro = new CadastroLivro();
-        cadastro.setVisible(true);       
     }
     
-    public void acessaLivro(int indexLinha, DefaultTableModel tableModel){
-        Livro livro = this.helper.leLinha(indexLinha, tableModel);
-        CadastroLivro dv = new CadastroLivro(livro);
-        dv.setVisible(true);
+    public Livro acessaLivro(int indexLinha, DefaultTableModel tableModel){
+        return this.helper.leLinha(indexLinha, tableModel);
     }
     
     public void inicia(DefaultTableModel tableModel) {
@@ -95,8 +78,7 @@ public class ControleMenuLivroFuncionario {
     }
     
     public void irInterfaceGeral(){
-       InterfaceGeral ig = new InterfaceGeral();
-       ig.setVisible(true);
+       
     }
     
     public void logoutFuncionario(){
