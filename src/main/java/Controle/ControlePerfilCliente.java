@@ -17,11 +17,6 @@ public class ControlePerfilCliente {
     public ControlePerfilCliente() {        
     }
 
-    public void retornaMenu() {
-        MenuPrincipalCliente ig = new MenuPrincipalCliente();
-        ig.setVisible(true);
-    }
-        
     public boolean deletaCliente(String cpf){
         ClienteDAO cd = new ClienteDAO();
         Cliente cliente = new Cliente();
