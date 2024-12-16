@@ -17,12 +17,6 @@ public class ControleLoginFuncionario {
         
     }
 
-    public void navegaTelaPrincipal(){
-        InterfaceGeral ig = new InterfaceGeral();
-        ig.setVisible(true);
-    }
-
-    
     public boolean logaFuncionario(String login, char[] senha){
         FuncionarioDAO fd = new FuncionarioDAO();
         Funcionario funcionario = fd.consultaLoginFuncionario(login);
@@ -41,8 +35,4 @@ public class ControleLoginFuncionario {
         return true;
     }
     
-    public void navegaTelaPrincipalFuncionario(){
-        MenuLivroFuncionario mlf = new MenuLivroFuncionario();
-        mlf.setVisible(true);
-    }
 }

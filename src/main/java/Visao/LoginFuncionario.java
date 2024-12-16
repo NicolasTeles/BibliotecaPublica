@@ -117,7 +117,8 @@ public class LoginFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        controlador.navegaTelaPrincipal();
+        InterfaceGeral ig = new InterfaceGeral();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
@@ -125,7 +126,8 @@ public class LoginFuncionario extends javax.swing.JFrame {
         String email = this.getEmailTextField().getText();
         char[] senha = this.getSenhaPassField().getPassword();
         if(controlador.logaFuncionario(email, senha)){
-            this.controlador.navegaTelaPrincipalFuncionario();
+            MenuLivroFuncionario mlf = new MenuLivroFuncionario();
+            mlf.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_loginButtonActionPerformed

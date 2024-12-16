@@ -117,13 +117,15 @@ public class LoginCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
-        controlador.navegaTelaCliente();
+        InterfaceCliente ic = new InterfaceCliente();
+        ic.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         if(controlador.logaCliente(this.getEmailTextField().getText(),this.getSenhaPassField().getPassword())){
-            this.controlador.navegaTelaPrincipalCliente();
+            MenuPrincipalCliente mpc = new MenuPrincipalCliente();
+            mpc.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_loginButtonActionPerformed
@@ -189,7 +191,5 @@ public class LoginCliente extends javax.swing.JFrame {
     private javax.swing.JPasswordField senhaPassField;
     // End of variables declaration//GEN-END:variables
 
-    public void exibeMensagem(String mensagem) {
-        JOptionPane.showMessageDialog(null, mensagem);
-    }
+    
 }

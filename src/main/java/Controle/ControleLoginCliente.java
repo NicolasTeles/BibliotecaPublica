@@ -12,12 +12,6 @@ public class ControleLoginCliente {
 
     public ControleLoginCliente(){
     }
-
-    public void navegaTelaCliente(){
-        InterfaceCliente ic = new InterfaceCliente();
-        ic.setVisible(true);
-    }
-
     
     public boolean logaCliente(String login, char[] senha){
         ClienteDAO cd = new ClienteDAO();
@@ -36,9 +30,5 @@ public class ControleLoginCliente {
         Session.criaCliente(cliente);
         return true;
     }
-    
-    public void navegaTelaPrincipalCliente(){
-        MenuPrincipalCliente mpc = new MenuPrincipalCliente();
-        mpc.setVisible(true);
-    }
+ 
 }
