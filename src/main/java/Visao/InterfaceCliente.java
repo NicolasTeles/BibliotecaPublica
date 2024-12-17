@@ -4,8 +4,6 @@
  */
 package Visao;
 
-import Controle.ControleInterfaceCliente;
-
 import javax.swing.*;
 
 /**
@@ -14,15 +12,12 @@ import javax.swing.*;
  */
 public class InterfaceCliente extends javax.swing.JFrame {
 
-    private final ControleInterfaceCliente controlador;
-
     /**
      * Creates new form InterfaceCliente
      */
     public InterfaceCliente() {
         this.setTitle("Interface geral dos clientes");
         initComponents();
-        controlador = new ControleInterfaceCliente();
     }
 
     /**

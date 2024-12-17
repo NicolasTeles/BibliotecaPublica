@@ -28,10 +28,6 @@ public class ControleCadastroFuncionario {
         }
     }
     
-    public void navegaTelaPrincipalFuncionario(){
-        
-    }
-    
     public boolean cadastraFuncionario(String nome, String email, String cpf, char[] senha, char[] confirmaSenha, String eAdm){
         FuncionarioDAO fd = new FuncionarioDAO();
         

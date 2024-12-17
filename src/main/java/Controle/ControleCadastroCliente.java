@@ -9,14 +9,6 @@ public class ControleCadastroCliente {
 
     public ControleCadastroCliente() {   
     }
-
-    public void retornaInterfaceGeral(){
-        
-    }
-    
-    public void navegaMenuCliente(){
-        
-    }
     
     public boolean cadastraCliente(String nome, String cpf, String email, char senha[], char confirmaSenha[]){ 
         System.out.println(senha);

@@ -23,10 +23,6 @@ public class ControleDevolucaoCliente {
     public ControleDevolucaoCliente(){
         this.helper = new DevolucaoClienteHelper();
     }
-
-    public void navegaTelaCliente() {
-        
-    }
     
     public Pair<Emprestimo, Livro> acessaLivro(int indexLinha, DefaultTableModel tableModel){
         return this.helper.leLinha(indexLinha, tableModel);

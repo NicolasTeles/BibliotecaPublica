@@ -19,30 +19,6 @@ public class ControleMenuClienteFuncionario {
     public ControleMenuClienteFuncionario(){
         this.helper = new MenuClienteFuncionarioHelper();
     }
-    
-    public void irPerfilFuncionario(){
-        
-    }
-    
-    public void retornarTelaLogin(){
-        
-    }
- 
-    public void irMenuCliente(){
-        
-    }
-    
-    public void irMenuLivro(){
-          
-    }
-    
-    public void irMenuFuncionarios(){
-       //logica para verificar se eh adm
-         
-    }
-    
-    public void telaCadastroCliente(){
-    }
 
     public void inicia(DefaultTableModel tableModel) {
         ClienteDAO cd = new ClienteDAO();
@@ -75,11 +51,6 @@ public class ControleMenuClienteFuncionario {
     public Cliente alteraCliente(int indexLinha, DefaultTableModel tableModel){
         return this.helper.leLinha(indexLinha, tableModel);
     }
-    
-    public void irInterfaceGeral(){
-       
-    }
-    
     public void logoutFuncionario(){
         Session.destroiFuncionario();
     }

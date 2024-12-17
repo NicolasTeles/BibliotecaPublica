@@ -37,18 +37,9 @@ public class ControleMenuPrincipalCliente {
        this.helper = new MenuPrincipalClienteHelper();
     }
 
-    public void navegaPerfil() {
-        
-    }
-
     public void logout() {
         Session.destroiCliente();
     }
-
-    public void navegaDevolucao() {
-        
-    }
-
     public Livro acessaLivro(int indexLinha, DefaultTableModel tableModel) {
         if(!this.validaContaCliente()){
             JOptionPane.showMessageDialog(null, "Voce possui um emprestimo atrasado, devolva o livro!");

@@ -21,25 +21,6 @@ public class ControleMenuLivroFuncionario {
         this.helper = new MenuLivroFuncionarioHelper();
     }
     
-    public void irPerfilFuncionario(){
-        
-    }
-    
-    public void retornarTelaLogin(){
-        
-    }
- 
-    public void irMenuCliente(){
-        
-    }
-    
-    public void irMenuFuncionarios(){
-        
-    }
-    
-    public void telaCadastroLivro(){
-    }
-    
     public Livro acessaLivro(int indexLinha, DefaultTableModel tableModel){
         return this.helper.leLinha(indexLinha, tableModel);
     }

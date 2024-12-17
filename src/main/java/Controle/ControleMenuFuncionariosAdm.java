@@ -22,28 +22,6 @@ public class ControleMenuFuncionariosAdm {
         this.helper = new MenuFuncionarioAdmHelper();
     }
     
-    public void irPerfilFuncionario(){
-        
-    }
-    
-    public void retornarTelaLogin(){
-        
-    }
-    
-    public void irMenuLivro(){
-          
-    }
-    
-    public void irMenuCliente(){
-        
-    }
-    
-   
-    public void telaCadastroFuncionario(){
-        
-           
-    }
-    
     public Funcionario acessaFuncionario(int indexLinha, DefaultTableModel tableModel){
         return this.helper.leLinha(indexLinha, tableModel);
         
@@ -80,10 +58,6 @@ public class ControleMenuFuncionariosAdm {
             this.helper.preencheTabela(funcionarios, tableModel);
         }
         
-    }
-    
-    public void irInterfaceGeral(){
-       
     }
     
     public void logoutFuncionario(){

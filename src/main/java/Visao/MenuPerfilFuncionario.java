@@ -20,7 +20,8 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
         controlador = new ControleMenuPerfilFuncionario();
         if(Session.getFuncionario() == null){
             JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
-            this.controlador.irInterfaceGeral();
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
         }
         if(Session.getFuncionario().getEadm() == false){

@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Visao;
-import Controle.ControleInterfaceGeral;
 
 import javax.swing.*;
 
@@ -12,8 +11,6 @@ import javax.swing.*;
  * @author nicol
  */
 public class InterfaceGeral extends JFrame {
-
-    private final ControleInterfaceGeral controlador;
 
     /**
      * Creates new form InterfaceGeral
@@ -24,7 +21,6 @@ public class InterfaceGeral extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         initComponents();
-        controlador = new ControleInterfaceGeral();
     }
 
     /**

@@ -47,7 +47,6 @@ public class CadastroCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonVoltar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         nomeTextField = new javax.swing.JTextField();
         nomeLabel = new javax.swing.JLabel();
@@ -61,13 +60,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         buttonVoltar1 = new javax.swing.JButton();
         cpfTextField = new javax.swing.JTextField();
         cpfLabel = new javax.swing.JLabel();
-
-        buttonVoltar.setText("Voltar");
-        buttonVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonVoltarActionPerformed(evt);
-            }
-        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,14 +198,9 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmaSenhaFieldActionPerformed
 
-    private void buttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltarActionPerformed
+    private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
         InterfaceGeral ig = new InterfaceGeral();
         ig.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_buttonVoltarActionPerformed
-
-    private void buttonVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonVoltar1ActionPerformed
-        this.controlador.retornaInterfaceGeral();
         this.dispose();
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
@@ -332,7 +319,6 @@ public class CadastroCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoCadastro;
-    private javax.swing.JButton buttonVoltar;
     private javax.swing.JButton buttonVoltar1;
     private javax.swing.JPasswordField confirmaSenhaField;
     private javax.swing.JLabel confirmaSenhaLabel;

@@ -209,7 +209,8 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
         controlador.logoutFuncionario();
-        controlador.irInterfaceGeral();
+        InterfaceGeral ig = new InterfaceGeral();
+        ig.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
