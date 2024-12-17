@@ -1,6 +1,7 @@
 package Visao;
 
 import Controle.ControleMenuClienteFuncionario;
+import Modelo.Cliente;
 import Modelo.Session;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -22,7 +23,8 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
         this.controlador.inicia( (DefaultTableModel)this.listaClientes.getModel());
         if(Session.getFuncionario() == null){
             JOptionPane.showMessageDialog(null, "Funcionario deve estar logado para acessar esta tela!");
-            controlador.irInterfaceGeral();
+            InterfaceGeral ig = new InterfaceGeral();
+            ig.setVisible(true);
             java.awt.EventQueue.invokeLater(() -> this.dispose());
         }
         if(Session.getFuncionario().getEadm() == false){
@@ -196,7 +198,8 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPerfilActionPerformed
-        controlador.irPerfilFuncionario();
+        MenuPerfilFuncionario perfil = new MenuPerfilFuncionario();
+        perfil.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
@@ -211,24 +214,34 @@ public class MenuClienteFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
-        controlador.irMenuLivro();
+        MenuLivroFuncionario livro = new MenuLivroFuncionario();
+        livro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
-        controlador.irMenuCliente();
+        MenuClienteFuncionario cliente = new MenuClienteFuncionario();
+        cliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
-        controlador.irMenuFuncionarios();
+        if(!Session.getFuncionario().getEadm()){
+            JOptionPane.showMessageDialog(null, "Você não é ADM");
+            return;
+        }
+        MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
+       funcionario.setVisible(true); 
         this.dispose();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
     private void listaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaClientesMouseClicked
         if(evt.getClickCount() > 1){
             this.dispose();
-            this.controlador.alteraCliente(this.listaClientes.getSelectedRow(), (DefaultTableModel)this.listaClientes.getModel());
+            Cliente cliente = this.controlador.alteraCliente(this.listaClientes.getSelectedRow(), 
+                    (DefaultTableModel)this.listaClientes.getModel());
+            AlterarEstadoCliente aec = new AlterarEstadoCliente(cliente);
+            aec.setVisible(true);
         }
     }//GEN-LAST:event_listaClientesMouseClicked
 

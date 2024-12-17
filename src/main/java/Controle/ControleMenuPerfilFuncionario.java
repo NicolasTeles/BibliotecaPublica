@@ -1,12 +1,6 @@
 package Controle;
 
 import Modelo.Session;
-import Visao.CadastroFuncionario;
-import Visao.InterfaceGeral;
-import Visao.LoginFuncionario;
-import Visao.MenuLivroFuncionario;
-import Visao.MenuClienteFuncionario;
-import Visao.MenuFuncionariosAdm;
 
 public class ControleMenuPerfilFuncionario {
 

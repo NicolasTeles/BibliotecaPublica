@@ -253,7 +253,7 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_textStatusActionPerformed
 
     private void botaoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogoutActionPerformed
-        //Logica para dar logout do funcionario
+        this.controlador.logoutFuncionario();
         LoginFuncionario login = new LoginFuncionario();
         login.setVisible(true);
         this.dispose();
@@ -272,6 +272,10 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
+        if(!Session.getFuncionario().getEadm()){
+            JOptionPane.showMessageDialog(null, "Você não é ADM");
+            return;
+        }
         MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
         funcionario.setVisible(true);
         this.dispose();

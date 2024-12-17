@@ -170,6 +170,11 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
                 botaoLogoutMouseClicked(evt);
             }
         });
+        botaoLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLogoutActionPerformed(evt);
+            }
+        });
         menuConta.add(botaoLogout);
 
         jMenuBar1.add(menuConta);
@@ -251,7 +256,10 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
-        //logica para verificar se eh adm
+        if(!Session.getFuncionario().getEadm()){
+            JOptionPane.showMessageDialog(null, "Você não é ADM");
+            return;
+        }
         MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
         funcionario.setVisible(true);
         this.dispose();
@@ -270,6 +278,10 @@ public class MenuLivroFuncionario extends javax.swing.JFrame {
     private void fieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldPesquisaActionPerformed
+
+    private void botaoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoLogoutActionPerformed
 
     public JTextField getFieldPesquisa() {
         return fieldPesquisa;

@@ -1,12 +1,8 @@
 package Controle;
 
-import Visao.InterfaceCliente;
-import Visao.InterfaceGeral;
-import Visao.LoginFuncionario;
-
 public class ControleInterfaceGeral {
 
-    public ControleInterfaceGeral(InterfaceGeral view){
+    public ControleInterfaceGeral(){
     }
 
     public void navegaTelaClientes(){

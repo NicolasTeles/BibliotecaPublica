@@ -9,8 +9,6 @@ import Modelo.DAO.ClienteDAO;
 import Modelo.DAO.EmprestimoDAO;
 import Modelo.DAO.LivroDAO;
 import Modelo.Emprestimo;
-import Modelo.Livro;
-import Visao.DevolveLivro;
 
 /**
  *

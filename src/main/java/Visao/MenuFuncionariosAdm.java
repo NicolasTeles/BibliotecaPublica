@@ -231,8 +231,6 @@ public class MenuFuncionariosAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoPerfilActionPerformed
 
     private void botaoAdicionaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionaFuncionarioActionPerformed
-        //logica para cadastrar funcionario no banco de dados
-        // ue?(??
         CadastroFuncionario cadastro = new CadastroFuncionario();
         cadastro.setVisible(true);
         this.dispose();

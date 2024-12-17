@@ -3,10 +3,6 @@ package Controle;
 import Modelo.DAO.FuncionarioDAO;
 import Modelo.Funcionario;
 import Modelo.Session;
-import Visao.InterfaceGeral;
-import Visao.LoginFuncionario;
-import Visao.MenuLivroFuncionario;
-import Visao.MenuPerfilFuncionario;
 import javax.swing.JOptionPane;
 
 public class ControleLoginFuncionario {

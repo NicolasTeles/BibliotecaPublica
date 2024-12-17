@@ -7,7 +7,6 @@ import Modelo.Funcionario;
 import Modelo.Session;
 import java.util.ArrayList;
 import java.util.List;
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
 /**
