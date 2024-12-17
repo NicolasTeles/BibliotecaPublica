@@ -8,7 +8,6 @@ import Modelo.DAO.EmprestimoDAO;
 import Modelo.DAO.LivroDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
-import Visao.DevolucaoCliente;
 import com.mysql.cj.conf.ConnectionUrlParser.Pair;
 import java.util.List;
 import java.util.Vector;
