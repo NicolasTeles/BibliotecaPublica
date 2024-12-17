@@ -254,33 +254,39 @@ public class MenuPerfilFuncionario extends javax.swing.JFrame {
 
     private void botaoLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLogoutActionPerformed
         //Logica para dar logout do funcionario
-        this.controlador.retornarTelaLogin();
+        LoginFuncionario login = new LoginFuncionario();
+        login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_botaoLogoutActionPerformed
 
     private void menuLivrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuLivrosMouseClicked
-        this.controlador.irMenuLivro();
+        MenuLivroFuncionario livro = new MenuLivroFuncionario();
+        livro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuLivrosMouseClicked
 
     private void menuClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuClientesMouseClicked
-        this.controlador.irMenuCliente();
+        MenuClienteFuncionario cliente = new MenuClienteFuncionario();
+        cliente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuClientesMouseClicked
 
     private void FuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FuncionariosMouseClicked
-        this.controlador.irMenuFuncionarios();
+        MenuFuncionariosAdm funcionario = new MenuFuncionariosAdm();
+        funcionario.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_FuncionariosMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.controlador.irEditarFuncionario();
+        CadastroFuncionario editar = new CadastroFuncionario(Session.getFuncionario());
+        editar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void botaoLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoLogoutMouseClicked
        this.controlador.logoutFuncionario();
-       this.controlador.irInterfaceGeral();
+       InterfaceGeral ig = new InterfaceGeral();
+       ig.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_botaoLogoutMouseClicked
 
