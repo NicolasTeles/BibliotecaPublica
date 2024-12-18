@@ -217,7 +217,7 @@ public class MenuPrincipalCliente extends javax.swing.JFrame {
         if(evt.getClickCount() > 1){
             Livro livro = this.controlador.acessaLivro(this.listaLivros.getSelectedRow(), 
                     (DefaultTableModel)this.getListaLivros().getModel());
-            if(livro != null)
+            if(livro == null)
                     return;
             ReservaLivro rl = new ReservaLivro(livro);
             rl.setVisible(true);

@@ -128,6 +128,8 @@ public class Avaliacao extends javax.swing.JFrame {
     private void botaoAvaliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAvaliarActionPerformed
         if(this.controller.avalia(this.livro)){
             this.printaMensagem("Livro avaliado com sucesso!!");
+            MenuPrincipalCliente mpc = new MenuPrincipalCliente();
+            mpc.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_botaoAvaliarActionPerformed
