@@ -12,6 +12,18 @@ import java.util.List;
 import Conexao.Conexao;
 
 public class ClienteDAO {
+    
+    private static ClienteDAO instancia;
+    
+    private ClienteDAO() {}
+    
+    public static ClienteDAO getInstancia() {
+        if (instancia == null) {
+            instancia = new ClienteDAO();
+        }
+        return instancia;
+    }
+  
     public boolean criarConta(Cliente cliente){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){
