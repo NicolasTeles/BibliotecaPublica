@@ -7,7 +7,7 @@ public class ControleAlteraCargoFuncionario {
    
     
     public void alteraEstado(String cargo, String cpf){
-        FuncionarioDAO fd = new FuncionarioDAO(); 
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         Funcionario funcionario = new Funcionario();
         boolean status = false;
         if(cargo.equalsIgnoreCase("administrador"))
@@ -20,7 +20,7 @@ public class ControleAlteraCargoFuncionario {
     }
     
     public boolean deletaFuncionario(String cpf){
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         Funcionario funcionario = new Funcionario();
         boolean confere;
         

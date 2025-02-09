@@ -221,7 +221,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
         
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         
         if(fd.consultaFuncionario(this.cpfTextField.getText()) != null){
             String nome = this.nomeTextField.getText();

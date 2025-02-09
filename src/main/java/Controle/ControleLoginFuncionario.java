@@ -14,7 +14,7 @@ public class ControleLoginFuncionario {
     }
 
     public boolean logaFuncionario(String login, char[] senha){
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         Funcionario funcionario = fd.consultaLoginFuncionario(login);
         if(funcionario == null)
             funcionario = fd.consultaFuncionario(login);

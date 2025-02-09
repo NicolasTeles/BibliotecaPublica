@@ -12,6 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FuncionarioDAO {
+    
+    private static final FuncionarioDAO instancia = new FuncionarioDAO();
+    
+    private FuncionarioDAO(){}
+    public static FuncionarioDAO getInstancia(){
+        return instancia;
+    }
+    
+    
     public boolean insereFuncionario(Funcionario funcionario){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){

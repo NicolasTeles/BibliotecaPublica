@@ -11,7 +11,7 @@ public class MenuFuncionarioAdmHelper {
     
     public Funcionario leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd =FuncionarioDAO.getInstancia();
         Funcionario funcionario = fd.consultaFuncionario(String.valueOf(linha.get(2)));
         return funcionario;
     }

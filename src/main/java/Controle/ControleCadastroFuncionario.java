@@ -15,7 +15,7 @@ public class ControleCadastroFuncionario {
     }
     
     public boolean atualizaFuncionario(String nome, String email, String cpf, char[] senha, char[] confirmaSenha, boolean cargo){
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         Funcionario funcionario = new Funcionario(nome, cpf, email, String.valueOf(senha), cargo);
         if(!Arrays.equals(senha, confirmaSenha)){
             JOptionPane.showMessageDialog(null, "Senha e confirma senha nao coincidem");
@@ -29,7 +29,7 @@ public class ControleCadastroFuncionario {
     }
     
     public boolean cadastraFuncionario(String nome, String email, String cpf, char[] senha, char[] confirmaSenha, String eAdm){
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         
         if(fd.consultaLoginFuncionario(email) != null){
             JOptionPane.showMessageDialog(null, "Este email ja existe");

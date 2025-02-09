@@ -28,13 +28,13 @@ public class ControleMenuFuncionariosAdm {
     }
     
     public void inicia(DefaultTableModel tableModel){
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         List<Funcionario> funcionarios = fd.listaFuncionarios();
         this.helper.preencheTabela(funcionarios, tableModel);
     }
     
     public void pesquisaFuncionario(String pesquisa, DefaultTableModel tableModel){
-        FuncionarioDAO fd = new FuncionarioDAO();
+        FuncionarioDAO fd = FuncionarioDAO.getInstancia();
         List<Funcionario> todosFuncionarios = fd.listaFuncionarios();
         List<Funcionario> funcionarios = new ArrayList<>();
         
