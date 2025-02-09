@@ -196,7 +196,7 @@ public class CadastroLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltarActionPerformed
 
     private void buttonCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastroActionPerformed
-        LivroDAO ld = new LivroDAO();
+        LivroDAO ld = LivroDAO.getInstancia();
         
         if(ld.consultaLivro(id) == null){
             if(controlador.cadastraLivro(this.textNome.getText(), this.textAutor.getText(), 
@@ -228,7 +228,7 @@ public class CadastroLivro extends javax.swing.JFrame {
 
     private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
         if(JOptionPane.showConfirmDialog(null,"Tem certeza que deseja deletar este livro? Esta ação NÃO poderá ser revertida.")==0){
-            LivroDAO ld = new LivroDAO();
+            LivroDAO ld = LivroDAO.getInstancia();
 
             String nome = this.textNome.getText();
             String editora =  this.textEditora.getText();

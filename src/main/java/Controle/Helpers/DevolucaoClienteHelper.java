@@ -21,7 +21,7 @@ public class DevolucaoClienteHelper {
     
     public Pair<Emprestimo,Livro> leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
-        LivroDAO ld = new LivroDAO();
+        LivroDAO ld = LivroDAO.getInstancia();
         Livro livro = ld.consultaLivroNome(String.valueOf(linha.get(0)));
         EmprestimoDAO ed = EmprestimoDAO.getInstancia();
         Emprestimo emprestimo = ed.consultaEmprestimoLivro(livro.getID());

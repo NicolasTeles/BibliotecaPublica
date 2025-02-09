@@ -11,6 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LivroDAO {
+    
+    private static final LivroDAO instancia = new LivroDAO();
+    
+    private LivroDAO(){}
+    public static LivroDAO getInstancia(){
+        return instancia;
+    }
+    
     public boolean inserirLivro(Livro livro){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){

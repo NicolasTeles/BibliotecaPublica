@@ -23,7 +23,7 @@ public class ControleReservaLivro {
     public void reserva(Livro livro){
         Cliente cliente = Session.getCliente();
         if(cliente.getStatusCliente()){
-            LivroDAO ld = new LivroDAO();
+            LivroDAO ld = LivroDAO.getInstancia();
             ld.emprestaDevolve(false, livro.getID());
             Emprestimo emprestimo = new Emprestimo(cliente, false, livro);
             EmprestimoDAO emp = EmprestimoDAO.getInstancia();

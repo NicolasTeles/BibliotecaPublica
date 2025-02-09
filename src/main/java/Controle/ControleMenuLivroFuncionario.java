@@ -26,13 +26,13 @@ public class ControleMenuLivroFuncionario {
     }
     
     public void inicia(DefaultTableModel tableModel) {
-        LivroDAO cd = new LivroDAO();
+        LivroDAO cd = LivroDAO.getInstancia();
         List<Livro> livros = cd.listarLivros();
         this.helper.preencheTabela(livros, tableModel);
     }
 
     public void pesquisaLivro(String pesquisa, DefaultTableModel tableModel) {
-        LivroDAO cd = new LivroDAO();
+        LivroDAO cd = LivroDAO.getInstancia();
         List<Livro> livros = new ArrayList<>();
         List<Livro> todosOsLivros = cd.listarLivros();
         //String pesquisa = this.view.getFieldPesquisa().getText().toLowerCase();

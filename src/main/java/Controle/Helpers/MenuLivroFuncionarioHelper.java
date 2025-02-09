@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 public class MenuLivroFuncionarioHelper {
       
     public Livro leLinha(int indexLinha, DefaultTableModel tableModel){    
-        LivroDAO ld = new LivroDAO();
+        LivroDAO ld = LivroDAO.getInstancia();
         //DefaultTableModel tableModel = (DefaultTableModel)this.view.getListaLivros().getModel();
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
         

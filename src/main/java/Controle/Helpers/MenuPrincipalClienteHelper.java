@@ -18,7 +18,7 @@ public class MenuPrincipalClienteHelper {
     
     public Livro leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector linha = (Vector) tableModel.getDataVector().get(indexLinha);
-        LivroDAO ld = new LivroDAO();
+        LivroDAO ld = LivroDAO.getInstancia();
         Livro livro = ld.consultaLivroNome(String.valueOf(linha.get(0)));
         return livro;
     }

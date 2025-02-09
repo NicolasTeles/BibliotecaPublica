@@ -26,7 +26,7 @@ public class ControleDevolveLivro {
         EmprestimoDAO ed = EmprestimoDAO.getInstancia();
         Cliente cliente = emprestimo.getCliente();
         ClienteDAO cd = ClienteDAO.getInstancia();
-        LivroDAO ld = new LivroDAO();
+        LivroDAO ld = LivroDAO.getInstancia();
         ld.emprestaDevolve(true, emprestimo.getLivro().getID());
         ed.devolve(emprestimo.getId());
         if(cliente.getStatusCliente() == false){

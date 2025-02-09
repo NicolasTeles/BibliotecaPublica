@@ -196,7 +196,7 @@ public class EmprestimoDAO {
                 i++;
             }
             
-            LivroDAO ld = new LivroDAO();
+            LivroDAO ld = LivroDAO.getInstancia();
             ClienteDAO cd = ClienteDAO.getInstancia();
             i=0;
             

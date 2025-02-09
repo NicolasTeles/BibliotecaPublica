@@ -10,7 +10,7 @@ public class ControleCadastroLivro {
 
     public boolean cadastraLivro(String nome, String autor, String editora, Integer anoPubli){
         Livro livro = new Livro(nome, editora, autor, anoPubli);
-        LivroDAO ld = new LivroDAO();
+        LivroDAO ld = LivroDAO.getInstancia();
         if(ld.consultaLivroNome(nome) != null){
             JOptionPane.showMessageDialog(null, "Esse livro ja esta cadastrado");
             return false;

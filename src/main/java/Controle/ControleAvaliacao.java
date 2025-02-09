@@ -16,7 +16,7 @@ public class ControleAvaliacao {
     
    
    public boolean avalia(Livro livro){
-       LivroDAO ld = new LivroDAO();
+       LivroDAO ld = LivroDAO.getInstancia();
        Livro livroBanco = ld.consultaLivro(livro.getID());
        return ld.atualizaAvaliacao(livroBanco.getNumAvaliacoes(), livroBanco.getTotalAvaliacao(), livroBanco.getID());
    }
