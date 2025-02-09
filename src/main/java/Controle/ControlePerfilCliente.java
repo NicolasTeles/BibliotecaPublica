@@ -17,7 +17,7 @@ public class ControlePerfilCliente {
     }
 
     public boolean deletaCliente(String cpf){
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         Cliente cliente = cd.consultaCliente(cpf);;
         boolean confere = cd.deletarConta(cliente);       
         return confere;        

@@ -188,7 +188,7 @@ public class EmprestimoDAO {
             }
             
             LivroDAO ld = new LivroDAO();
-            ClienteDAO cd = new ClienteDAO();
+            ClienteDAO cd = ClienteDAO.getInstancia();
             i=0;
             
             for(int index : indexes){

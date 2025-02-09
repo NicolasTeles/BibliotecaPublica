@@ -205,7 +205,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonVoltar1ActionPerformed
 
     private void BotaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCadastroActionPerformed
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         if(cd.consultaCliente(this.cpfTextField.getText()) != null){
             boolean retorno = this.controlador.atualizaCliente(this.nomeTextField.getText(), this.emailTextField.getText(), 
                     this.cpfTextField.getText(), this.senhaField.getPassword(), this.confirmaSenhaField.getPassword());

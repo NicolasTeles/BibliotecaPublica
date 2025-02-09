@@ -25,7 +25,7 @@ public class ControleMenuPrincipalCliente {
     public boolean validaContaCliente(){
         EmprestimoDAO ed = new EmprestimoDAO();
         if(ed.buscaEmprestimosAtrasados(Session.getCliente().getCpf())){
-            ClienteDAO cd = new ClienteDAO();
+            ClienteDAO cd = ClienteDAO.getInstancia();
             Session.getCliente().setStatusCliente(false);
             cd.atualizaStatus(Session.getCliente());
             return false;

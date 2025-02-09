@@ -30,7 +30,7 @@ public class MenuClienteFuncionarioHelper {
     
     public Cliente leLinha(int indexLinha, DefaultTableModel tableModel){
         Vector vector = tableModel.getDataVector().get(indexLinha);
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         return cd.consultaCliente(String.valueOf(vector.get(2)));
     }
 }

@@ -21,13 +21,13 @@ public class ControleMenuClienteFuncionario {
     }
 
     public void inicia(DefaultTableModel tableModel) {
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         List<Cliente> clientes = cd.listarContas();
         this.helper.preencheTabela(clientes, tableModel);
     }
     
     public void pesquisaCliente(String pesquisa, DefaultTableModel tableModel){
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         List<Cliente> clientes = new ArrayList<>();
         List<Cliente> todosOsClientes = cd.listarContas();
 

@@ -16,7 +16,7 @@ public class ControleAlteraEstadoCliente {
     
     public void alteraEstado(String statusString, String cpf){
         Cliente cliente = new Cliente();
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         boolean status = false;
         if(statusString.equalsIgnoreCase("ativo"))
             status = true;

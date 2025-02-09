@@ -19,7 +19,7 @@ public class ControleCadastroCliente {
             return false;
         }
         Cliente cliente = new Cliente(nome, cpf, email, String.valueOf(senha));
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         if(cd.criarConta(cliente)){
             JOptionPane.showMessageDialog(null, "Cliente inserido com sucesso!");
             return true;
@@ -33,7 +33,7 @@ public class ControleCadastroCliente {
             return false;
         }
         Cliente cliente = new Cliente(nome, cpf, email, String.valueOf(senha));
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         cliente.setStatusCliente(cd.consultaCliente(cpf).getStatusCliente());
         if(String.valueOf(senha).equals("")){
             return cd.atualizaContaSemSenha(cliente);

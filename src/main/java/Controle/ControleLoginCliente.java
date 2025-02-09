@@ -12,7 +12,7 @@ public class ControleLoginCliente {
     }
     
     public boolean logaCliente(String login, char[] senha){
-        ClienteDAO cd = new ClienteDAO();
+        ClienteDAO cd = ClienteDAO.getInstancia();
         Cliente cliente = cd.consultaEmailCliente(login);
         if(cliente == null)
             cliente = cd.consultaCliente(login);
