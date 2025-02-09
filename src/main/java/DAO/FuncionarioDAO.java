@@ -1,9 +1,8 @@
-package Modelo.DAO;
+package DAO;
 
 import Conexao.Conexao;
 import Modelo.Funcionario;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

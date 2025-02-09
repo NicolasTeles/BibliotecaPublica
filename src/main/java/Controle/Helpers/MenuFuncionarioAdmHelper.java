@@ -1,6 +1,6 @@
 package Controle.Helpers;
 
-import Modelo.DAO.FuncionarioDAO;
+import DAO.FuncionarioDAO;
 import Modelo.Funcionario;
 import java.util.List;
 import java.util.Vector;

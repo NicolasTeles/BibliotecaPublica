@@ -4,8 +4,8 @@
  */
 package Controle.Helpers;
 
-import Modelo.DAO.EmprestimoDAO;
-import Modelo.DAO.LivroDAO;
+import DAO.EmprestimoDAO;
+import DAO.LivroDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
 import com.mysql.cj.conf.ConnectionUrlParser.Pair;

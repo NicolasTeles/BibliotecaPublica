@@ -4,7 +4,7 @@
  */
 package Controle.Helpers;
 
-import Modelo.DAO.LivroDAO;
+import DAO.LivroDAO;
 import Modelo.Livro;
 import java.util.List;
 import java.util.Vector;

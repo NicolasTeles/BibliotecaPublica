@@ -5,7 +5,7 @@
 package Controle;
 
 import Controle.Helpers.DevolucaoClienteHelper;
-import Modelo.DAO.EmprestimoDAO;
+import DAO.EmprestimoDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
 import Modelo.Session;

@@ -2,7 +2,7 @@
 package Controle;
 
 import Controle.Helpers.MenuLivroFuncionarioHelper;
-import Modelo.DAO.LivroDAO;
+import DAO.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
 import java.util.ArrayList;

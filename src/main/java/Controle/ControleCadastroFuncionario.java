@@ -1,6 +1,6 @@
 package Controle;
 
-import Modelo.DAO.FuncionarioDAO;
+import DAO.FuncionarioDAO;
 import Modelo.Funcionario;
 import java.util.Arrays;
 import javax.swing.JOptionPane;

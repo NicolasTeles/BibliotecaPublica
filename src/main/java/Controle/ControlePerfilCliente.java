@@ -5,7 +5,7 @@
 package Controle;
 
 import Modelo.Cliente;
-import Modelo.DAO.ClienteDAO;
+import DAO.ClienteDAO;
 
 /**
  *

@@ -5,7 +5,7 @@
 package Controle.Helpers;
 
 import Modelo.Cliente;
-import Modelo.DAO.ClienteDAO;
+import DAO.ClienteDAO;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;

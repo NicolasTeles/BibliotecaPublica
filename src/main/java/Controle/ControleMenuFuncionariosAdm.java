@@ -2,7 +2,7 @@ package Controle;
 
 
 import Controle.Helpers.MenuFuncionarioAdmHelper;
-import Modelo.DAO.FuncionarioDAO;
+import DAO.FuncionarioDAO;
 import Modelo.Funcionario;
 import Modelo.Session;
 import java.util.ArrayList;

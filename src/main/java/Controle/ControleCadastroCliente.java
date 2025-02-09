@@ -1,7 +1,7 @@
 package Controle;
 
 import Modelo.Cliente;
-import Modelo.DAO.ClienteDAO;
+import DAO.ClienteDAO;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 

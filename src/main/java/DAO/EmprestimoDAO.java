@@ -1,4 +1,4 @@
-package Modelo.DAO;
+package DAO;
 
 import Conexao.Conexao;
 import Modelo.Cliente;
