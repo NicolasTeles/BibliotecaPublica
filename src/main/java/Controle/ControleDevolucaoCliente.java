@@ -29,7 +29,7 @@ public class ControleDevolucaoCliente {
     }
     
     public void inicia(DefaultTableModel tableModel){
-        EmprestimoDAO ed = new EmprestimoDAO();
+        EmprestimoDAO ed = EmprestimoDAO.getInstancia();
         List<Emprestimo> emprestimos = ed.buscaEmprestimosCliente(Session.getCliente());
         this.helper.preencheTabela(emprestimos, tableModel);
     }

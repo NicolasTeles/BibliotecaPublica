@@ -23,7 +23,7 @@ public class ControleDevolveLivro {
     public boolean devolve(Emprestimo emprestimo){
         if(emprestimo == null)
             return false;
-        EmprestimoDAO ed = new EmprestimoDAO();
+        EmprestimoDAO ed = EmprestimoDAO.getInstancia();
         Cliente cliente = emprestimo.getCliente();
         ClienteDAO cd = ClienteDAO.getInstancia();
         LivroDAO ld = new LivroDAO();

@@ -26,7 +26,7 @@ public class ControleReservaLivro {
             LivroDAO ld = new LivroDAO();
             ld.emprestaDevolve(false, livro.getID());
             Emprestimo emprestimo = new Emprestimo(cliente, false, livro);
-            EmprestimoDAO emp = new EmprestimoDAO();
+            EmprestimoDAO emp = EmprestimoDAO.getInstancia();
             emp.criaEmprestimo(emprestimo);
             return;
         }

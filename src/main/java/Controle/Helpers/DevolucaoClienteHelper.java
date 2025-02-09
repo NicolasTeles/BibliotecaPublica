@@ -23,7 +23,7 @@ public class DevolucaoClienteHelper {
         Vector linha = (Vector)tableModel.getDataVector().get(indexLinha);
         LivroDAO ld = new LivroDAO();
         Livro livro = ld.consultaLivroNome(String.valueOf(linha.get(0)));
-        EmprestimoDAO ed = new EmprestimoDAO();
+        EmprestimoDAO ed = EmprestimoDAO.getInstancia();
         Emprestimo emprestimo = ed.consultaEmprestimoLivro(livro.getID());
         Pair<Emprestimo, Livro> tupla = new Pair<>(emprestimo, livro);
         return tupla;

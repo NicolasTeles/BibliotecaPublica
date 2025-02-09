@@ -13,14 +13,11 @@ import Conexao.Conexao;
 
 public class ClienteDAO {
     
-    private static ClienteDAO instancia;
+    private static final ClienteDAO instancia = new ClienteDAO();
     
     private ClienteDAO() {}
     
     public static ClienteDAO getInstancia() {
-        if (instancia == null) {
-            instancia = new ClienteDAO();
-        }
         return instancia;
     }
   

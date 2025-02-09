@@ -11,6 +11,15 @@ import Modelo.Emprestimo;
 import java.time.LocalDate;
 
 public class EmprestimoDAO {
+    
+    private static final EmprestimoDAO instancia = new EmprestimoDAO();
+    
+    private EmprestimoDAO() {}
+    
+    public static EmprestimoDAO getInstancia() {
+        return instancia;
+    }
+    
     public boolean criaEmprestimo(Emprestimo emprestimo){
         int retorno = 0;
         try(Connection conexao = Conexao.getConexao()){

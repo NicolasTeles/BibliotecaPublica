@@ -23,7 +23,7 @@ public class ControleMenuPrincipalCliente {
     private final MenuPrincipalClienteHelper helper;
     
     public boolean validaContaCliente(){
-        EmprestimoDAO ed = new EmprestimoDAO();
+        EmprestimoDAO ed = EmprestimoDAO.getInstancia();
         if(ed.buscaEmprestimosAtrasados(Session.getCliente().getCpf())){
             ClienteDAO cd = ClienteDAO.getInstancia();
             Session.getCliente().setStatusCliente(false);
