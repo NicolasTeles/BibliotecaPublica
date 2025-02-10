@@ -1,4 +1,4 @@
-package DAO;
+package Persistencia;
 
 import Modelo.Cliente;
 

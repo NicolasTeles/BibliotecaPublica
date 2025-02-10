@@ -6,7 +6,7 @@ package Visao;
 
 import Controle.ControleCadastroCliente;
 import Modelo.Cliente;
-import DAO.ClienteDAO;
+import Persistencia.ClienteDAO;
 import Modelo.Session;
 import java.util.Arrays;
 

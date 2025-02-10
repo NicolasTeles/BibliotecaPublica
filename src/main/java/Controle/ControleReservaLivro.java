@@ -5,8 +5,8 @@
 package Controle;
 
 import Modelo.Cliente;
-import DAO.EmprestimoDAO;
-import DAO.LivroDAO;
+import Persistencia.EmprestimoDAO;
+import Persistencia.LivroDAO;
 import Modelo.Emprestimo;
 import Modelo.Livro;
 import Modelo.Session;

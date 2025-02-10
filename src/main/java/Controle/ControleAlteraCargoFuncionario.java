@@ -1,6 +1,6 @@
 package Controle;
 
-import DAO.FuncionarioDAO;
+import Persistencia.FuncionarioDAO;
 import Modelo.Funcionario;
 
 public class ControleAlteraCargoFuncionario {

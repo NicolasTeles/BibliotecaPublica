@@ -5,7 +5,7 @@
 package Visao;
 
 import Controle.ControleCadastroLivro;
-import DAO.LivroDAO;
+import Persistencia.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
 import javax.swing.*;

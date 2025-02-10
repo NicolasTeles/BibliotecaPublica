@@ -1,7 +1,7 @@
 package Controle;
 
 import Modelo.Cliente;
-import DAO.ClienteDAO;
+import Persistencia.ClienteDAO;
 
 /**
  *

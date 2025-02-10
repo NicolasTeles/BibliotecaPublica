@@ -2,7 +2,7 @@ package Controle;
 
 import Controle.Helpers.MenuClienteFuncionarioHelper;
 import Modelo.Cliente;
-import DAO.ClienteDAO;
+import Persistencia.ClienteDAO;
 import Modelo.Session;
 import java.util.ArrayList;
 import java.util.List;

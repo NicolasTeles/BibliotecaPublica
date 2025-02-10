@@ -5,9 +5,9 @@
 package Controle;
 
 import Controle.Helpers.MenuPrincipalClienteHelper;
-import DAO.ClienteDAO;
-import DAO.EmprestimoDAO;
-import DAO.LivroDAO;
+import Persistencia.ClienteDAO;
+import Persistencia.EmprestimoDAO;
+import Persistencia.LivroDAO;
 import Modelo.Livro;
 import Modelo.Session;
 import java.util.ArrayList;

@@ -5,7 +5,7 @@
 package Visao;
 
 import Controle.ControleCadastroFuncionario;
-import DAO.FuncionarioDAO;
+import Persistencia.FuncionarioDAO;
 import Modelo.Funcionario;
 import Modelo.Session;
 

@@ -1,6 +1,6 @@
 package Controle;
 
-import DAO.LivroDAO;
+import Persistencia.LivroDAO;
 import Modelo.Livro;
 import javax.swing.JOptionPane;
 
