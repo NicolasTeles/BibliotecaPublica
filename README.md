@@ -47,4 +47,24 @@ O projeto é dividido em camadas, cada uma em um pacote de `src/main/java`:
 | `Modelo` | Entidades: `Cliente`, `Funcionario`, `Livro`, `Emprestimo` e `Session` |
 | `Visao` | Telas em Swing |
 | `Controle` | Regras da aplicação e ligação entre telas e dados |
-| `Persistencia` |
+| `Persistencia` | Classes DAO que acessam o banco com `PreparedStatement` |
+| `Conexao` | Conexão com o MySQL |
+| `BancoDeDados` | Script SQL de criação das tabelas (`codigoSQL`) |
+
+O banco tem quatro tabelas: `cliente`, `livro`, `emprestimo` e `funcionario`, com chaves estrangeiras entre `emprestimo`, `cliente` e `livro`.
+
+## Como executar
+
+1. Instale o JDK 22, o Maven e o MySQL.
+2. Execute o script `src/main/java/BancoDeDados/codigoSQL` no MySQL. Ele cria o schema `bibliotecapublica`, as tabelas e alguns dados de teste.
+3. Em `src/main/java/Conexao/Conexao.java`, ajuste o usuário e a senha do seu MySQL local. Os valores atuais (`root`/`root`) são só de desenvolvimento.
+4. Na raiz do projeto, compile:
+   ```
+   mvn compile
+   ```
+5. Execute a classe `Visao.InterfaceGeral`, a tela inicial, onde se escolhe entre Clientes e Funcionários. O jeito mais simples é abrir o projeto no IntelliJ IDEA ou no NetBeans e rodar essa classe.
+
+## Observações
+
+- Projeto de estudo. As senhas são guardadas em texto simples no banco, e os dados do script SQL (clientes, funcionários e livros) são apenas de teste. Não use em produção.
+- As telas foram criadas com o editor visual de formulários do IDE (arquivos `.form`).
