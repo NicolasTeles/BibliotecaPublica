@@ -47,15 +47,4 @@ O projeto é dividido em camadas, cada uma em um pacote de `src/main/java`:
 | `Modelo` | Entidades: `Cliente`, `Funcionario`, `Livro`, `Emprestimo` e `Session` |
 | `Visao` | Telas em Swing |
 | `Controle` | Regras da aplicação e ligação entre telas e dados |
-| `Persistencia` | Classes DAO que acessam o banco com `PreparedStatement` |
-| `Conexao` | Conexão com o MySQL |
-| `BancoDeDados` | Script SQL de criação das tabelas (`codigoSQL`) |
-
-O banco tem quatro tabelas: `cliente`, `livro`, `emprestimo` e `funcionario`, com chaves estrangeiras entre `emprestimo`, `cliente` e `livro`.
-
-## Como executar
-
-1. Instale o JDK 22, o Maven e o MySQL.
-2. Execute o script `src/main/java/BancoDeDados/codigoSQL` no MySQL. Ele cria o schema `bibliotecapublica`, as tabelas e alguns dados de teste.
-3. Em `src/main/java/Conexao/Conexao.java`, ajuste o usuário e a senha do seu MySQL local. Os valores atuais (`root`/`root`) são só de desenvolvimento.
-4. Na raiz do projeto, compile:
+| `Persistencia` |
